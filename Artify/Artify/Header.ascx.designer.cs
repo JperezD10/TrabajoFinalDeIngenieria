@@ -11,25 +11,25 @@ namespace Artify
 {
 
 
-    public partial class HomeWebMaster
+    public partial class WebUserControl1
     {
 
         /// <summary>
-        /// Control lnkBitacora.
+        /// Control lblNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkBitacora;
+        protected global::System.Web.UI.WebControls.Label lblNombre;
 
         /// <summary>
-        /// Control lnkBloqueados.
+        /// Control btnLogout.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkBloqueados;
+        protected global::System.Web.UI.WebControls.Button btnLogout;
     }
 }

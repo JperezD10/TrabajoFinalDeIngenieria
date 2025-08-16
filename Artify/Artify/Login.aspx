@@ -21,9 +21,8 @@
             display:flex; align-items:center; justify-content:center; padding:24px;
         }
 
-        /* ANCHO FIJO GRANDE */
         .login{
-            width:760px;                    /* <<— ACA EL ANCHO */
+            width:760px;                    
             background:var(--panel);
             border:1px solid var(--border);
             border-radius:20px;
@@ -48,7 +47,7 @@
 
         .input{
             width:100%;
-            padding:16px 56px 16px 16px;   /* espacio para el ojo */
+            padding:16px 56px 16px 16px;  
             border-radius:14px;
             border:1px solid var(--border);
             background:#0f172a; color:#e5e7eb;
@@ -125,7 +124,7 @@
         </div>
 
         <asp:Button ID="btnLogin" runat="server" Text="Ingresar" CssClass="btn"
-            OnClick="btnLogin_Click" ValidationGroup="Login" />
+    OnClick="btnLogin_Click" ValidationGroup="Login" CausesValidation="true" UseSubmitBehavior="false" />
     </div>
 </form>
 

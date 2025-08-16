@@ -23,6 +23,7 @@ namespace Artify
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            if (!Page.IsValid) return;
             var response = usuarioBLL.Login(txtEmail.Text, txtPassword.Text);
             if (response.Exito)
             {
