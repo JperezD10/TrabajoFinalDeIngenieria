@@ -6,28 +6,33 @@ namespace BE
 {
     public class Bitacora : EntidadBase
     {
-        public DateTime Fecha { get; set; }
-        public int IdUsuario { get; set; }
-        public string Usuario { get; set; }
-        public string Descripcion { get; set; }
-        public string Criticidad { get; set; }
-
-        public override int CalcularDVH()
+        public Bitacora()
         {
-            using (var sha = SHA256.Create())
-            {
-                string data = $"{Fecha:O}{IdUsuario}{Descripcion}{Criticidad}";
-                byte[] hash = sha.ComputeHash(Encoding.UTF8.GetBytes(data));
-
-                return Math.Abs(BitConverter.ToInt32(hash, 0)) % 1000000;
-            }
+            
         }
+        public Bitacora(DateTime fecha, string accion, int criticidad, string modulo, int idUsuario)
+        {
+            Fecha = fecha;
+            Accion = accion;
+            Criticidad = criticidad;
+            Modulo = modulo;
+            IdUsuario = idUsuario;
+        }
+        public DateTime Fecha { get; set; }
+        public string Usuario { get; set; }
+        public string Accion { get; set; }
+        public int Criticidad { get; set; }
+        public string Modulo { get; set; }
+        public int IdUsuario { get; set; }
+
+        public override string FormatoDVH => $"{Id}{Fecha:O}{IdUsuario}{Accion}{Criticidad}{Modulo}";
     }
 
     public enum Criticidad
     {
-        Baja,
-        Media,
-        Alta
+        Leve = 1,
+        Moderada = 2,
+        Alta = 3,
+        Critica = 4
     }
 }
