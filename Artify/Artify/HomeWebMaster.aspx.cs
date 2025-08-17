@@ -1,15 +1,17 @@
 ﻿using BE;
+using BE.Observer;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Artify
 {
-    public partial class HomeWebMaster : System.Web.UI.Page
+    public partial class HomeWebMaster : BasePage
     {
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            RegisterLocalizablesById(this, "home");
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

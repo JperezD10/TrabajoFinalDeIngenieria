@@ -2,28 +2,32 @@
 {
     public class Response<T>
     {
-        public bool Exito { get; set; }
-        public string Mensaje { get; set; }
-        public T Data { get; set; }
+        public bool Exito { get; private set; }
+        public T Data { get; private set; }
 
-        public static Response<T> Success(T data, string mensaje = "Operación exitosa")
+        // i18n
+        public string MessageKey { get; private set; } // ej: "err.login.invalid"
+        public object[] MessageArgs { get; private set; } // ej: nuevos object[]{ 2 }
+
+        // legacy (opcional para logs)
+        public string Mensaje { get; private set; }
+
+        private Response() { }
+
+        public static Response<T> Success(T data, string messageKey = null, params object[] args)
         {
-            return new Response<T>
-            {
-                Exito = true,
-                Mensaje = mensaje,
-                Data = data
-            };
+            var r = new Response<T>();
+            r.Exito = true; r.Data = data;
+            r.MessageKey = messageKey; r.MessageArgs = args;
+            return r;
         }
 
-        public static Response<T> Error(string mensaje)
+        public static Response<T> Error(string messageKey, params object[] args)
         {
-            return new Response<T>
-            {
-                Exito = false,
-                Mensaje = mensaje,
-                Data = default
-            };
+            var r = new Response<T>();
+            r.Exito = false;
+            r.MessageKey = messageKey; r.MessageArgs = args;
+            return r;
         }
     }
 }

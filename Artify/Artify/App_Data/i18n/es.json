@@ -1,0 +1,65 @@
+﻿{
+	"login.lblLang": "Idioma",
+	"login.litTitle": "Iniciar sesión",
+	"login.lblError": "Ocurrió un error. Verifica tus datos.",
+	"login.lblEmail": "Correo electrónico",
+	"login.lblPass": "Contraseña",
+	"login.btnLogin": "Ingresar",
+
+	"login.email.required": "El correo es obligatorio",
+	"login.email.invalid": "Formato de correo inválido",
+	"login.password.required": "La contraseña es obligatoria",
+	"login.password.invalid": "Al menos 8 caracteres, 1 mayúscula, 1 número y '_'",
+	"login.password.aria": "Mostrar u ocultar contraseña",
+
+	"err.login.invalid": "Credenciales inválidas",
+	"err.login.invalid.withAttempts": "Credenciales inválidas. Intentos restantes: {0}",
+	"err.login.blocked": "Usuario bloqueado",
+	"err.user.listBlocked": "Error al obtener los usuarios bloqueados",
+	"err.user.notFound": "Usuario no encontrado",
+	"err.user.unblock": "Error al desbloquear el usuario",
+	"ok.user.unblocked": "Usuario desbloqueado con éxito",
+
+
+	"site.language": "Idioma",
+	"site.greeting": "Hola {0}",
+	"site.logout": "Cerrar sesión",
+
+	"home.litPageTitle": "Panel Webmaster",
+	"home.litHeaderTitle": "Panel Webmaster",
+
+	"home.litHeroTitle": "Bienvenido",
+	"home.litHeroText": "Acceso rápido a la administración y monitoreo del sistema.",
+
+	"home.litModules": "Módulos",
+
+	"home.litBitTitle": "Bitácora",
+	"home.litBitText": "Explora los eventos del sistema, auditoría y seguimiento.",
+	"home.litBitChip1": "Solo lectura",
+	"home.litBitChip2": "Histórico",
+	"home.litBitCta": "Ingresar",
+
+	"home.litBlkTitle": "Usuarios bloqueados",
+	"home.litBlkText": "Desbloquea cuentas de forma rápida y segura.",
+	"home.litBlkChip1": "Acción directa",
+	"home.litBlkChip2": "Estado crítico",
+	"home.litBlkCta": "Gestionar",
+
+	"blocked.litPageTitle": "Usuarios bloqueados",
+	"blocked.litHeaderTitle": "Usuarios bloqueados",
+	"blocked.litBack": "Volver al inicio",
+
+	"blocked.litStatusLocked": "Bloqueado",
+	"blocked.btnUnblock": "Desbloquear",
+
+	"blocked.litEmptyTitle": "Sin usuarios bloqueados",
+	"blocked.litEmptyText": "Todo en orden. Cuando haya usuarios bloqueados, van a aparecer acá.",
+
+	"log.lblDesde": "Desde",
+	"log.lblHasta": "Hasta",
+	"log.btnFiltrar": "Filtrar",
+	"log.btnLimpiar": "Limpiar",
+	"log.litBack": "Volver al inicio",
+	"log.litPanelTitle": "Registro de Bitácora",
+	"log.litPanelSub": "Eventos del sistema • Auditoría"
+}

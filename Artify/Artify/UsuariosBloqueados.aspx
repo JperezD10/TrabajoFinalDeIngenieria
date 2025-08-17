@@ -36,17 +36,17 @@
 </asp:Content>
 
 <asp:Content ID="TitleCph" ContentPlaceHolderID="TitleContent" runat="server">
-  Usuarios bloqueados
+  <asp:Literal ID="litPageTitle" runat="server" />
 </asp:Content>
 
 <asp:Content ID="Main" ContentPlaceHolderID="MainContent" runat="server">
   <div class="topbar">
-    <h2 class="title">Usuarios bloqueados</h2>
+    <h2 class="title"><asp:Literal ID="litHeaderTitle" runat="server" /></h2>
     <asp:HyperLink ID="lnkHome" runat="server" NavigateUrl="~/HomeWebMaster.aspx" CssClass="btn">
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      Volver al Home
+      <span><asp:Literal ID="litBack" runat="server" /></span>
     </asp:HyperLink>
   </div>
 
@@ -64,10 +64,10 @@
             </div>
           </div>
           <div style="display:flex;align-items:center;gap:10px">
-            <span class="badge-lock">Bloqueado</span>
-            <asp:LinkButton ID="btnDesbloquear" runat="server"
+            <span class="badge-lock"><asp:Literal ID="litStatusLocked" runat="server" /></span>
+            <asp:LinkButton ID="btnUnblock" runat="server"
               CommandName="Unblock" CommandArgument='<%# Eval("Id") %>'
-              CssClass="btn-success">Desbloquear</asp:LinkButton>
+              CssClass="btn-success"></asp:LinkButton>
           </div>
         </div>
       </ItemTemplate>
@@ -86,8 +86,8 @@
               <path d="M32 14l14 5v9c0 9.5-6.8 17.9-14 20-7.2-2.1-14-10.5-14-20v-9l14-5z" fill="#0ea5e9" opacity=".18" stroke="#60a5fa" stroke-width="1.2" />
               <path d="M24 33l5 5 11-11" fill="none" stroke="#a78bfa" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            <div class="empty-title">Sin usuarios bloqueados</div>
-            <div class="empty-text">Todo en orden. Cuando haya usuarios bloqueados, van a aparecer acá.</div>
+            <div class="empty-title"><asp:Literal ID="litEmptyTitle" runat="server" /></div>
+            <div class="empty-text"><asp:Literal ID="litEmptyText" runat="server" /></div>
           </div>
         </asp:Panel>
       </FooterTemplate>

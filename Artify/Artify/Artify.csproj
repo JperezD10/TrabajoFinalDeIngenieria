@@ -99,6 +99,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App_Data\i18n\es.json" />
+    <None Include="App_Data\i18n\en.json" />
     <Content Include="Bitacora.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -204,6 +206,7 @@
     <Compile Include="HomeWebMaster.aspx.designer.cs">
       <DependentUpon>HomeWebMaster.aspx</DependentUpon>
     </Compile>
+    <Compile Include="I18n.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -248,9 +251,7 @@
       <DependentUpon>Header.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />

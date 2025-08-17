@@ -29,20 +29,20 @@
 </asp:Content>
 
 <asp:Content ID="TitleCph" ContentPlaceHolderID="TitleContent" runat="server">
-  Panel del WebMaster
+  <asp:Literal ID="litPageTitle" runat="server" />
 </asp:Content>
 
 <asp:Content ID="Main" ContentPlaceHolderID="MainContent" runat="server">
   <div class="panel-heading">
-    <h1>Panel Webmaster</h1>
+    <h1><asp:Literal ID="litHeaderTitle" runat="server" /></h1>
   </div>
 
   <div class="hero">
-    <h1>Bienvenido</h1>
-    <p>Accesos rápidos a administración y monitoreo del sistema.</p>
+    <h1><asp:Literal ID="litHeroTitle" runat="server" /></h1>
+    <p class="card-text"><asp:Literal ID="litHeroText" runat="server" /></p>
   </div>
 
-  <div class="section-title">Módulos</div>
+  <div class="section-title"><asp:Literal ID="litModules" runat="server" /></div>
 
   <div class="grid">
     <asp:HyperLink ID="lnkBitacora" runat="server" NavigateUrl="~/Bitacora.aspx" CssClass="card-link">
@@ -54,16 +54,18 @@
               <path d="M8 11h2M8 15h2M12 11h6M12 15h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
           </div>
-          <h3 class="card-title">Bitácora</h3>
+          <h3 class="card-title"><asp:Literal ID="litBitTitle" runat="server" /></h3>
         </div>
-        <p class="card-text">Explorá eventos del sistema, auditoría y seguimiento.</p>
+        <p class="card-text"><asp:Literal ID="litBitText" runat="server" /></p>
         <div class="chips">
-          <span class="chip">Sólo lectura</span>
-          <span class="chip">Histórico</span>
+          <span class="chip"><asp:Literal ID="litBitChip1" runat="server" /></span>
+          <span class="chip"><asp:Literal ID="litBitChip2" runat="server" /></span>
         </div>
         <div class="cta">
-          <span>Entrar</span>
-          <svg viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><asp:Literal ID="litBitCta" runat="server" /></span>
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
       </div>
     </asp:HyperLink>
@@ -77,16 +79,18 @@
               <path d="M16 11V8a4 4 0 0 0-8 0v3" stroke="currentColor" stroke-width="1.5"/>
             </svg>
           </div>
-          <h3 class="card-title">Usuarios bloqueados</h3>
+          <h3 class="card-title"><asp:Literal ID="litBlkTitle" runat="server" /></h3>
         </div>
-        <p class="card-text">Desbloqueá cuentas de forma rápida y segura.</p>
+        <p class="card-text"><asp:Literal ID="litBlkText" runat="server" /></p>
         <div class="chips">
-          <span class="chip">Acción directa</span>
-          <span class="chip">Estado crítico</span>
+          <span class="chip"><asp:Literal ID="litBlkChip1" runat="server" /></span>
+          <span class="chip"><asp:Literal ID="litBlkChip2" runat="server" /></span>
         </div>
         <div class="cta">
-          <span>Gestionar</span>
-          <svg viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><asp:Literal ID="litBlkCta" runat="server" /></span>
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
       </div>
     </asp:HyperLink>

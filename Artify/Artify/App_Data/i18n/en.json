@@ -1,0 +1,65 @@
+﻿{
+	"login.lblLang": "Language",
+	"login.litTitle": "Sign In",
+	"login.lblError": "An error occurred. Please check your data.",
+	"login.lblEmail": "Email address",
+	"login.lblPass": "Password",
+	"login.btnLogin": "Log In",
+
+	"login.email.required": "Email is required",
+	"login.email.invalid": "Invalid email format",
+	"login.password.required": "Password is required",
+	"login.password.invalid": "At least 8 characters, 1 uppercase, 1 number and '_'",
+	"login.password.aria": "Show or hide password",
+
+	"err.login.invalid": "Invalid credentials",
+	"err.login.invalid.withAttempts": "Invalid credentials. Remaining attempts: {0}",
+	"err.login.blocked": "User blocked",
+	"err.user.listBlocked": "Failed to fetch blocked users",
+	"err.user.notFound": "User not found",
+	"err.user.unblock": "Error unlocking the user",
+	"ok.user.unblocked": "User successfully unblocked",
+
+
+	"site.language": "Language",
+	"site.greeting": "Hello {0}",
+	"site.logout": "Sign out",
+
+	"home.litPageTitle": "Webmaster Panel",
+	"home.litHeaderTitle": "Webmaster Panel",
+
+	"home.litHeroTitle": "Welcome",
+	"home.litHeroText": "Quick access to system administration and monitoring.",
+
+	"home.litModules": "Modules",
+
+	"home.litBitTitle": "Logbook",
+	"home.litBitText": "Explore system events, auditing and tracking.",
+	"home.litBitChip1": "Read-only",
+	"home.litBitChip2": "Historical",
+	"home.litBitCta": "Enter",
+
+	"home.litBlkTitle": "Blocked users",
+	"home.litBlkText": "Unlock accounts quickly and safely.",
+	"home.litBlkChip1": "Direct action",
+	"home.litBlkChip2": "Critical status",
+	"home.litBlkCta": "Manage",
+
+	"blocked.litPageTitle": "Blocked users",
+	"blocked.litHeaderTitle": "Blocked users",
+	"blocked.litBack": "Back to home",
+
+	"blocked.litStatusLocked": "Locked",
+	"blocked.btnUnblock": "Unblock",
+
+	"blocked.litEmptyTitle": "No blocked users",
+	"blocked.litEmptyText": "All clear. When users get blocked, they will show up here.",
+
+	"log.lblDesde": "From",
+	"log.lblHasta": "To",
+	"log.btnFiltrar": "Filter",
+	"log.btnLimpiar": "Clear",
+	"log.litBack": "Back to home",
+	"log.litPanelTitle": "Log Records",
+	"log.litPanelSub": "System Events • Audit"
+}

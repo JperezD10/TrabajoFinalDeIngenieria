@@ -20,23 +20,28 @@ namespace BLL
         {
             var usuario = _usuarioDAL.Login(email);
             var passwordHash = Encriptacion.EncriptadoPermanente(password);
+
             if (usuario == null)
             {
-                return Response<Usuario>.Error("Credenciales invalidas");
+                return Response<Usuario>.Error("err.login.invalid");
             }
 
             if (usuario.Password == passwordHash)
             {
                 _usuarioDAL.ReestablecerIntentos(usuario);
-                _bitacoraBLL.RegistrarAccion(new Bitacora(DateTime.Now, "Inicio de Sesion", (int)Criticidad.Leve,"Login",usuario.Id));
+                _bitacoraBLL.RegistrarAccion(new Bitacora(DateTime.Now, "Inicio de Sesion", (int)Criticidad.Leve, "Login", usuario.Id));
                 return Response<Usuario>.Success(usuario);
             }
 
-            var resultado = _usuarioDAL.RestarIntentos(usuario);
-            if (resultado > 0)
-                return Response<Usuario>.Error($"Credenciales invalidas. Intentos restantes: {resultado}");
+            var intentosRestantes = _usuarioDAL.RestarIntentos(usuario);
+            if (intentosRestantes > 0)
+            {
+                // Con placeholder {0} para intentos
+                return Response<Usuario>.Error("err.login.invalid.withAttempts", intentosRestantes);
+            }
+
             _bitacoraBLL.RegistrarAccion(new Bitacora(DateTime.Now, "Bloqueo de usuario", (int)Criticidad.Moderada, "Login", usuario.Id));
-            return Response<Usuario>.Error("Usuario bloqueado");
+            return Response<Usuario>.Error("err.login.blocked");
         }
 
         public Response<List<Usuario>> ListarBloqueados()
@@ -46,9 +51,9 @@ namespace BLL
                 var usuarios = _usuarioDAL.ListarBloqueados();
                 return Response<List<Usuario>>.Success(usuarios);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return Response<List<Usuario>>.Error($"Error al buscar los usuarios: {ex.Message}"); ;
+                return Response<List<Usuario>>.Error("err.user.listBlocked"); // sin filtrar ex.Message al usuario
             }
         }
 
@@ -58,16 +63,15 @@ namespace BLL
             {
                 var usuario = _usuarioDAL.ObtenerPorId(id);
                 if (usuario == null)
-                {
-                    return Response<bool>.Error("Usuario no encontrado");
-                }
+                    return Response<bool>.Error("err.user.notFound");
+
                 _usuarioDAL.DesbloquearUsuario(usuario);
                 _bitacoraBLL.RegistrarAccion(new Bitacora(DateTime.Now, "Desbloqueo de usuario", (int)Criticidad.Moderada, "DesbloquearUsuario", usuario.Id));
-                return Response<bool>.Success(true, "Usuario desbloqueado con exito");
+                return Response<bool>.Success(true, "ok.user.unblocked");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return Response<bool>.Error($"Error al desbloquear el usuario: {ex.Message}");
+                return Response<bool>.Error("err.user.unblock");
             }
         }
     }

@@ -15,6 +15,24 @@ namespace Artify
     {
 
         /// <summary>
+        /// Control litPageTitle.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litPageTitle;
+
+        /// <summary>
+        /// Control litHeaderTitle.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litHeaderTitle;
+
+        /// <summary>
         /// Control lnkHome.
         /// </summary>
         /// <remarks>
@@ -22,6 +40,15 @@ namespace Artify
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkHome;
+
+        /// <summary>
+        /// Control litBack.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litBack;
 
         /// <summary>
         /// Control pnlMsg.
