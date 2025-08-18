@@ -55,11 +55,34 @@
 	"blocked.litEmptyTitle": "Sin usuarios bloqueados",
 	"blocked.litEmptyText": "Todo en orden. Cuando haya usuarios bloqueados, van a aparecer acá.",
 
+	"log.litTitle": "Bitácora",
 	"log.lblDesde": "Desde",
 	"log.lblHasta": "Hasta",
 	"log.btnFiltrar": "Filtrar",
 	"log.btnLimpiar": "Limpiar",
 	"log.litBack": "Volver al inicio",
 	"log.litPanelTitle": "Registro de Bitácora",
-	"log.litPanelSub": "Eventos del sistema • Auditoría"
+	"log.litPanelSub": "Eventos del sistema • Auditoría",
+
+	"corrupt.pageTitle": "Base de datos corrupta",
+	"corrupt.litTitle": "Integridad comprometida (DVH)",
+	"corrupt.banner.subtitleNoResults": "No se recibieron resultados de verificación.",
+	"corrupt.banner.subtitleHasIssues": "Se detectaron inconsistencias en el cálculo del DVH. Revise cada tabla a continuación.",
+
+	"corrupt.lblStatsTables": "Tablas afectadas",
+	"corrupt.lblStatsRecords": "Registros corruptos",
+	"corrupt.lblStatsDetected": "Fecha de detección",
+
+	"corrupt.litEmptyTitle": "Sin problemas",
+	"corrupt.litEmptyBody": "No hay datos para mostrar.",
+
+	"corrupt.badge.readError": "Error de lectura",
+	"corrupt.badge.corruptCountFmt": "Registros corruptos: {0}",
+	"corrupt.badge.ok": "OK",
+	"corrupt.ok.chip": "OK — {0} registros",
+
+	"corrupt.item.corruptTitle": "Registros corruptos:",
+	"corrupt.item.corruptChipFmt": "Registro {0} corrupto",
+
+	"corrupt.lnkBack": "Volver al panel"
 }

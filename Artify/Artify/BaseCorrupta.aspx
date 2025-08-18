@@ -66,31 +66,34 @@
         <span style="font-size:22px;color:#fecaca">⚠️</span>
       </div>
       <div>
-        <h1>Integridad comprometida (DVH)</h1>
+        <h1><asp:Literal ID="litTitle" runat="server" /></h1>
         <p id="pResumen" runat="server"></p>
       </div>
     </div>
 
     <div class="stats">
       <div class="stat">
-        <h4>Tablas afectadas</h4>
+        <h4><asp:Label ID="lblStatsTables" runat="server" /></h4>
         <div class="v"><asp:Label ID="lblTablasAfectadas" runat="server" Text="0"></asp:Label></div>
       </div>
       <div class="stat">
-        <h4>Registros corruptos</h4>
+        <h4><asp:Label ID="lblStatsRecords" runat="server" /></h4>
         <div class="v"><asp:Label ID="lblRegistrosCorruptos" runat="server" Text="0"></asp:Label></div>
       </div>
       <div class="stat">
-        <h4>Fecha de detección</h4>
+        <h4><asp:Label ID="lblStatsDetected" runat="server" /></h4>
         <div class="v"><asp:Label ID="lblFecha" runat="server"></asp:Label></div>
       </div>
     </div>
 
     <asp:Panel ID="pnlEmpty" runat="server" Visible="false" CssClass="card">
       <div class="card-head">
-        <div class="card-title"><div class="dot ok"></div><h3 class="title">Sin problemas</h3></div>
+        <div class="card-title">
+          <div class="dot ok"></div>
+          <h3 class="title"><asp:Literal ID="litEmptyTitle" runat="server" /></h3>
+        </div>
       </div>
-      <div style="color:#cbd5e1">No hay datos para mostrar.</div>
+      <div style="color:#cbd5e1"><asp:Literal ID="litEmptyBody" runat="server" /></div>
     </asp:Panel>
 
     <div class="cards">
@@ -106,7 +109,7 @@
             </div>
 
             <asp:Panel ID="pOk" runat="server" Visible="false">
-              <span class="chip">OK — <%# Eval("TotalRegistros") %> registros</span>
+              <span class="chip"><asp:Label ID="lblOkChip" runat="server" /></span>
             </asp:Panel>
 
             <asp:Panel ID="pErr" runat="server" Visible="false" CssClass="err">
@@ -115,11 +118,11 @@
 
             <asp:Panel ID="pCorrupt" runat="server" Visible="false">
               <div style="color:#cbd5e1;margin-bottom:6px">
-                Registros corruptos:
+                <asp:Literal ID="litCorruptTitle" runat="server" />
               </div>
               <asp:Repeater ID="rptIds" runat="server">
                 <ItemTemplate>
-                  <span class="chip">registro <%# Container.DataItem %> corrupto</span>
+                  <span class="chip"><asp:Literal ID="litChip" runat="server" /></span>
                 </ItemTemplate>
               </asp:Repeater>
             </asp:Panel>
@@ -129,7 +132,7 @@
     </div>
 
     <div class="footer-actions">
-      <a href="HomeWebMaster.aspx" class="btn btn-secondary">Volver al panel</a>
+      <asp:HyperLink ID="lnkBack" runat="server" NavigateUrl="HomeWebMaster.aspx" CssClass="btn btn-secondary" />
     </div>
   </div>
 </asp:Content>
