@@ -1,15 +1,15 @@
 ﻿{
 	"login.lblLang": "Idioma",
 	"login.litTitle": "Iniciar sesión",
-	"login.lblError": "Ocurrió un error. Verifica tus datos.",
+	"login.lblError": "Ocurrió un error. Verificá tus datos.",
 	"login.lblEmail": "Correo electrónico",
 	"login.lblPass": "Contraseña",
 	"login.btnLogin": "Ingresar",
 
-	"login.email.required": "El correo es obligatorio",
-	"login.email.invalid": "Formato de correo inválido",
-	"login.password.required": "La contraseña es obligatoria",
-	"login.password.invalid": "Al menos 8 caracteres, 1 mayúscula, 1 número y '_'",
+	"login.rfvEmail": "El correo es obligatorio",
+	"login.revEmail": "Formato de correo inválido",
+	"login.rfvPassword": "La contraseña es obligatoria",
+	"login.revPassword": "Al menos 8 caracteres, 1 mayúscula, 1 número y '_'",
 	"login.password.aria": "Mostrar u ocultar contraseña",
 
 	"err.login.invalid": "Credenciales inválidas",

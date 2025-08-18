@@ -6,10 +6,10 @@
 	"login.lblPass": "Password",
 	"login.btnLogin": "Log In",
 
-	"login.email.required": "Email is required",
-	"login.email.invalid": "Invalid email format",
-	"login.password.required": "Password is required",
-	"login.password.invalid": "At least 8 characters, 1 uppercase, 1 number and '_'",
+	"login.rfvEmail": "Email is required",
+	"login.revEmail": "Invalid email format",
+	"login.rfvPassword": "Password is required",
+	"login.revPassword": "At least 8 chars, 1 uppercase, 1 number and '_'",
 	"login.password.aria": "Show or hide password",
 
 	"err.login.invalid": "Invalid credentials",
