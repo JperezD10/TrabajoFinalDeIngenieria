@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -25,7 +26,15 @@ namespace BE
         public string Modulo { get; set; }
         public int IdUsuario { get; set; }
 
-        public override string FormatoDVH => $"{Id}{Fecha:O}{IdUsuario}{Accion}{Criticidad}{Modulo}";
+        public override string FormatoDVH
+        {
+            get
+            {
+                var f = DvhTime.NormalizeForSqlDatetime(Fecha)
+                               .ToString("yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
+                return string.Concat(Id, f, IdUsuario, Accion ?? "", Criticidad, Modulo ?? "");
+            }
+        }
     }
 
     public enum Criticidad

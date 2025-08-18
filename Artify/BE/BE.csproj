@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bitacora.cs" />
+    <Compile Include="DvhTime.cs" />
     <Compile Include="DVV.cs" />
     <Compile Include="EntidadBase.cs" />
     <Compile Include="Observer\BasePage.cs">
@@ -55,6 +56,7 @@
     <Compile Include="Observer\LocalizableControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Response.cs" />
+    <Compile Include="TablaCheckResult.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

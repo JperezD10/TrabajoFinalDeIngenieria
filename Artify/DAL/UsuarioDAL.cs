@@ -1,4 +1,5 @@
 ﻿using BE;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -102,6 +103,21 @@ namespace DAL
                 resultado = MapperHelper.MapUsuario(user[0]);
             }
             return resultado;
+        }
+
+        public IEnumerable<Usuario> GetAllForDVH()
+        {
+            const string sql = @"
+            SELECT * 
+            FROM Usuario
+            ORDER BY Id;";
+
+            var tabla = Acceso.Leer(sql, null);
+            foreach (DataRow row in tabla.Rows)
+            {
+                var u = MapperHelper.MapUsuario(row);
+                yield return u;
+            }
         }
     }
 }

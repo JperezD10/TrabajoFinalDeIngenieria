@@ -41,15 +41,13 @@ namespace Artify
                 {
                     ddlLang.SelectedValue = IdiomaManager.Instance.IdiomaActual.ToString();
                 }
+
+                ApplyNonObserverTexts();
+
+                pnlError.Visible = false;
             }
-
-            // Mensajes que NO son observers (validadores/ARIA)
-            ApplyNonObserverTexts();
-
-            pnlError.Visible = false;
         }
 
-        // === Textos NO-observer (validadores/ARIA) ===
         private void ApplyNonObserverTexts()
         {
             rfvEmail.ErrorMessage = IdiomaManager.Instance.T("login.email.required");
