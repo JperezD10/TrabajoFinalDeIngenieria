@@ -101,6 +101,7 @@
   <ItemGroup>
     <None Include="App_Data\i18n\es.json" />
     <None Include="App_Data\i18n\en.json" />
+    <Content Include="BackupDB.aspx" />
     <Content Include="BaseCorrupta.aspx" />
     <Content Include="Bitacora.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -191,6 +192,13 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BackupDB.aspx.cs">
+      <DependentUpon>BackupDB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BackupDB.aspx.designer.cs">
+      <DependentUpon>BackupDB.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BaseCorrupta.aspx.cs">
       <DependentUpon>BaseCorrupta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

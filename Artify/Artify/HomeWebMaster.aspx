@@ -174,11 +174,13 @@
         <h1>
             <asp:Literal ID="litHeroTitle" runat="server" /></h1>
         <p class="card-text">
-            <asp:Literal ID="litHeroText" runat="server" /></p>
+            <asp:Literal ID="litHeroText" runat="server" />
+        </p>
     </div>
 
     <div class="section-title">
-        <asp:Literal ID="litModules" runat="server" /></div>
+        <asp:Literal ID="litModules" runat="server" />
+    </div>
 
     <div class="grid">
         <asp:HyperLink ID="lnkBitacora" runat="server" NavigateUrl="~/Bitacora.aspx" CssClass="card-link">
@@ -194,7 +196,8 @@
                         <asp:Literal ID="litBitTitle" runat="server" /></h3>
                 </div>
                 <p class="card-text">
-                    <asp:Literal ID="litBitText" runat="server" /></p>
+                    <asp:Literal ID="litBitText" runat="server" />
+                </p>
                 <div class="chips">
                     <span class="chip">
                         <asp:Literal ID="litBitChip1" runat="server" /></span>
@@ -224,7 +227,8 @@
                         <asp:Literal ID="litBlkTitle" runat="server" /></h3>
                 </div>
                 <p class="card-text">
-                    <asp:Literal ID="litBlkText" runat="server" /></p>
+                    <asp:Literal ID="litBlkText" runat="server" />
+                </p>
                 <div class="chips">
                     <span class="chip">
                         <asp:Literal ID="litBlkChip1" runat="server" /></span>
@@ -234,6 +238,40 @@
                 <div class="cta">
                     <span>
                         <asp:Literal ID="litBlkCta" runat="server" /></span>
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+        </asp:HyperLink>
+        <asp:HyperLink ID="lnkBackup" runat="server" NavigateUrl="~/BackupDB.aspx" CssClass="card-link">
+            <div class="card">
+                <div class="card-head">
+                    <div class="badge badge--green" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M7 17a4 4 0 0 1 0-8c.3-2.8 2.7-5 5.5-5 3 0 5.5 2.5 5.5 5.5v.5A4.5 4.5 0 0 1 18 17H7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M12 12v6M9.5 14.5 12 12l2.5 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title">
+                        <asp:Literal ID="litBkpTitle" runat="server" Text="" />
+                    </h3>
+                </div>
+
+                <p class="card-text">
+                    <asp:Literal ID="litBkpText" runat="server" Text="" />
+                </p>
+
+                <div class="chips">
+                    <span class="chip">
+                        <asp:Literal ID="litBkpChip1" runat="server" Text="" /></span>
+                    <span class="chip">
+                        <asp:Literal ID="litBkpChip2" runat="server" Text="" /></span>
+                </div>
+
+                <div class="cta">
+                    <span>
+                        <asp:Literal ID="litBkpCta" runat="server" Text="" /></span>
                     <svg viewBox="0 0 24 24" fill="none">
                         <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
@@ -253,7 +291,8 @@
                         <asp:Literal ID="litRstTitle" runat="server" /></h3>
                 </div>
                 <p class="card-text">
-                    <asp:Literal ID="litRstText" runat="server" /></p>
+                    <asp:Literal ID="litRstText" runat="server" />
+                </p>
                 <div class="chips">
                     <span class="chip">
                         <asp:Literal ID="litRstChip1" runat="server" /></span>
