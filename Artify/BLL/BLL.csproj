@@ -45,6 +45,7 @@
     <Compile Include="DvhTime.cs" />
     <Compile Include="IntegridadHorizontalBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestoreBLL.cs" />
     <Compile Include="UsuarioBLL.cs" />
   </ItemGroup>
   <ItemGroup>
