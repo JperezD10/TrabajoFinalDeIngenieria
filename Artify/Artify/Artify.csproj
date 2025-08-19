@@ -123,6 +123,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="HomeCliente.aspx" />
     <Content Include="HomeWebMaster.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="RestoreDB.aspx" />
@@ -215,6 +216,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HomeCliente.aspx.cs">
+      <DependentUpon>HomeCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeCliente.aspx.designer.cs">
+      <DependentUpon>HomeCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomeWebMaster.aspx.cs">
       <DependentUpon>HomeWebMaster.aspx</DependentUpon>

@@ -70,16 +70,25 @@ namespace Artify
             if (!Page.IsValid) return;
 
             var response = usuarioBLL.Login(txtEmail.Text, txtPassword.Text);
-            if (response.Exito)
-            {
-                Session["Usuario"] = response.Data;
-                pnlError.Visible = false;
-                Response.Redirect("HomeWebMaster.aspx");
-            }
-            else
+            if (!response.Exito)
             {
                 pnlError.Visible = true;
                 lblError.Text = I18n.Text(response.MessageKey ?? "login.lblError", response.MessageArgs);
+                return;
+            }
+            Session["Usuario"] = response.Data;
+            pnlError.Visible = false;
+            if (response.Data.Rol == RolUsuario.Webmaster)
+            {
+                Response.Redirect("HomeWebMaster.aspx");
+            }
+            else if (response.Data.Rol == RolUsuario.Curador)
+            {
+                Response.Redirect("HomeAdministrador.aspx");
+            }
+            else if (response.Data.Rol == RolUsuario.Cliente)
+            {
+                Response.Redirect("HomeCliente.aspx");
             }
         }
     }

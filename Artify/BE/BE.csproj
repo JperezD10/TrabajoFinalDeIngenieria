@@ -43,11 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Artista.cs" />
     <Compile Include="BackupResult.cs" />
     <Compile Include="Bitacora.cs" />
     <Compile Include="DvhTime.cs" />
     <Compile Include="DVV.cs" />
     <Compile Include="EntidadBase.cs" />
+    <Compile Include="Obra.cs" />
     <Compile Include="Observer\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
