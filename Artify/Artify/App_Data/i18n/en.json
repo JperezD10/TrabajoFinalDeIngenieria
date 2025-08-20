@@ -160,5 +160,19 @@
 	"backup.modalCancel": "Cancel",
 	"backup.modalAccept": "Accept",
 	"backup.valSummaryHeader": "Validation errors",
-	"backup.valDestination": "You must enter a destination folder."
+	"backup.valDestination": "You must enter a destination folder.",
+
+	"maint.litTitle": "We are performing maintenance",
+	"maint.litSubtitle": "We detected an inconsistency in database integrity. To protect your information, the system has been put into maintenance mode.",
+	"maint.lblItem1Label": "Current status",
+	"maint.lblItem1Value": "Database verification in progress",
+	"maint.lblItem2Label": "What can you do?",
+	"maint.lblItem2Value": "Try again later or contact support",
+	"maint.btnHome": "Return to homepage",
+	"maint.litNote": "If the problem persists after a few minutes, please reach out so we can assist you.",
+
+	"homecli.litTitle": "Artworks",
+	"homecli.litHint": "Design preview (dummy data)",
+	"homecli.btnView": "View details",
+	"homecli.btnBid": "Place bid"
 }

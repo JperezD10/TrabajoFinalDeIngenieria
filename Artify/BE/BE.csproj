@@ -50,9 +50,6 @@
     <Compile Include="DVV.cs" />
     <Compile Include="EntidadBase.cs" />
     <Compile Include="Obra.cs" />
-    <Compile Include="Observer\BasePage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Observer\IdiomaManager.cs" />
     <Compile Include="Observer\IIdiomaObserver.cs" />
     <Compile Include="Observer\IIdiomaSubject.cs" />

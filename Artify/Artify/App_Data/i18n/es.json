@@ -160,5 +160,19 @@
 	"backup.modalCancel": "Cancelar",
 	"backup.modalAccept": "Aceptar",
 	"backup.valSummaryHeader": "Errores de validación",
-	"backup.valDestination": "Debe ingresar una carpeta de destino."
+	"backup.valDestination": "Debe ingresar una carpeta de destino.",
+
+	"maint.litTitle": "Estamos realizando tareas de mantenimiento",
+	"maint.litSubtitle": "Detectamos una inconsistencia en la integridad de los datos. Para proteger tu información, pusimos el sistema en modo mantenimiento.",
+	"maint.lblItem1Label": "Estado actual",
+	"maint.lblItem1Value": "Verificación de base de datos en curso",
+	"maint.lblItem2Label": "¿Qué podés hacer?",
+	"maint.lblItem2Value": "Volver más tarde o contactar a soporte",
+	"maint.btnHome": "Volver al inicio",
+	"maint.litNote": "Si el problema persiste dentro de unos minutos, por favor escribinos para que podamos asistirte.",
+
+	"homecli.litTitle": "Obras",
+	"homecli.litHint": "Vista previa de diseño (datos de prueba)",
+	"homecli.btnView": "Ver detalle",
+	"homecli.btnBid": "Ofertar"
 }

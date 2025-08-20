@@ -1,9 +1,13 @@
-﻿using System;
+﻿using BE;
+using BE.Observer;
+using BLL;
+using System;
 using System.Collections.Generic;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace BE.Observer
+namespace Artify
 {
     public class BasePage : System.Web.UI.Page
     {
@@ -40,10 +44,8 @@ namespace BE.Observer
                         RegisterLocalizable(BE.Observer.Localize.LinkButton(lbtn, key));
                     else if (c is System.Web.UI.WebControls.HyperLink hl)
                     {
-                        // Solo si el HyperLink NO contiene otros controles (texto plano).
                         if (hl.Controls.Count == 0)
                             RegisterLocalizable(BE.Observer.Localize.HyperLink(hl, key));
-                        // Si tiene hijos, dejalo: localizás los Literals/Labels internos por su propio ID.
                     }
                 }
 

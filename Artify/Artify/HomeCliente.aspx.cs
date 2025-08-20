@@ -1,5 +1,6 @@
 ﻿using BE;
 using BE.Observer;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -12,10 +13,30 @@ namespace Artify
 {
     public partial class HomeCliente : BasePage
     {
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            RegisterLocalizablesById(this, "homecli");
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack) return;
+            var integridad = new IntegridadHorizontalBLL();
+            var resp = integridad.VerificarTodo();
+            if (!resp.Exito) return;
 
+            // ¿hay corrupción?
+            bool hayCorrupcion = false;
+            foreach (var r in resp.Data)
+            {
+                if (!string.IsNullOrEmpty(r.Error) || (r.IdsCorruptos != null && r.IdsCorruptos.Count > 0))
+                { hayCorrupcion = true; break; }
+            }
+            if (hayCorrupcion)
+            {
+                Response.Redirect("~/Mantenimiento.aspx", false);
+                Context.ApplicationInstance.CompleteRequest();
+                return;
+            }
             var picasso = new Artista { Id = 1, Nombre = "Pablo Picasso", Nacionalidad = "España" };
             var frida = new Artista { Id = 2, Nombre = "Frida Kahlo", Nacionalidad = "México" };
             var banksy = new Artista { Id = 3, Nombre = "Banksy", Nacionalidad = "Reino Unido" };
