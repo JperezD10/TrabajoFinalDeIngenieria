@@ -1,5 +1,6 @@
 ﻿using BE;
 using BE.Observer;
+using SEGURIDAD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace Artify
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
+            SecurityManager.CheckAccess(this);
             RegisterLocalizablesById(this, "corrupt");   // <— igual que login pero con prefijo de pantalla
         }
 

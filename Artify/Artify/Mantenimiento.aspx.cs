@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SEGURIDAD;
+using System;
 
 namespace Artify
 {
@@ -7,6 +8,7 @@ namespace Artify
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
+            SecurityManager.CheckAccess(this);
             RegisterLocalizablesById(this, "maint");
         }
 

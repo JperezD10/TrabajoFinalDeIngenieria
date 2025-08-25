@@ -1,5 +1,6 @@
 ﻿using BE.Observer;
 using BLL;
+using SEGURIDAD;
 using System;
 using System.Configuration;
 using System.Globalization;
@@ -31,7 +32,7 @@ namespace Artify
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
-
+            SecurityManager.CheckAccess(this);
             RegisterLocalizablesById(this, "restore");
 
             // solo estos dos botones ahora

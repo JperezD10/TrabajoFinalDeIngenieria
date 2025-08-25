@@ -174,5 +174,13 @@
 	"homecli.litTitle": "Artworks",
 	"homecli.litHint": "Design preview (dummy data)",
 	"homecli.btnView": "View details",
-	"homecli.btnBid": "Place bid"
+	"homecli.btnBid": "Place bid",
+
+	"accden.litTitle": "Access denied",
+	"accden.litSubtitle": "You do not have permission to view this page.",
+	"accden.litLead": "This resource is restricted based on the role assigned to your account.",
+	"accden.litReasonTitle": "Access details",
+	"accden.litRequired": "Required role",
+	"accden.litCurrent": "Your current role",
+	"accden.litExtra": "If you believe this is a mistake, please contact the administrator."
 }

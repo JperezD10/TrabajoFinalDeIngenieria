@@ -1,6 +1,7 @@
 ﻿using BE;
 using BE.Observer;
 using BLL;
+using SEGURIDAD;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -25,23 +26,12 @@ namespace Artify
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
+            SecurityManager.CheckAccess(this);
             RegisterLocalizablesById(this, "log");
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var usuario = Session["Usuario"] as Usuario;
-            if (usuario == null)
-            {
-                Response.Redirect("Login.aspx");
-                return;
-            }
-            if (usuario.Rol != RolUsuario.Webmaster)
-            {
-                Response.Redirect("Default.aspx");
-                return;
-            }
-
             if (!IsPostBack)
             {
                 // primera carga, sin filtro

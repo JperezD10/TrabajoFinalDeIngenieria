@@ -101,6 +101,7 @@
   <ItemGroup>
     <None Include="App_Data\i18n\es.json" />
     <None Include="App_Data\i18n\en.json" />
+    <Content Include="AccessDenied.aspx" />
     <Content Include="BackupDB.aspx" />
     <Content Include="BaseCorrupta.aspx" />
     <Content Include="Bitacora.aspx" />
@@ -192,6 +193,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessDenied.aspx.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccessDenied.aspx.designer.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BackupDB.aspx.cs">
@@ -314,6 +322,10 @@
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{11d2094e-0d86-436a-a2de-396d7c19dabb}</Project>
       <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SEGURIDAD\SEGURIDAD.csproj">
+      <Project>{68612FFF-6D1F-452E-AAA2-7CB96FE58AAD}</Project>
+      <Name>SEGURIDAD</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

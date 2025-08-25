@@ -1,6 +1,7 @@
 ﻿using BE;
 using BE.Observer;
 using BLL;
+using SEGURIDAD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace Artify
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
+            SecurityManager.CheckAccess(this);
             RegisterLocalizablesById(this, "blocked");
         }
 
