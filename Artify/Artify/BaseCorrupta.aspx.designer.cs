@@ -123,6 +123,51 @@ namespace Artify
         protected global::System.Web.UI.WebControls.Repeater rptTablas;
 
         /// <summary>
+        /// Control litDVVSection.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litDVVSection;
+
+        /// <summary>
+        /// Control pnlDVVEmpty.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlDVVEmpty;
+
+        /// <summary>
+        /// Control litDVVOkTitle.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litDVVOkTitle;
+
+        /// <summary>
+        /// Control litDVVOkBody.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litDVVOkBody;
+
+        /// <summary>
+        /// Control rptDVV.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptDVV;
+
+        /// <summary>
         /// Control lnkBack.
         /// </summary>
         /// <remarks>

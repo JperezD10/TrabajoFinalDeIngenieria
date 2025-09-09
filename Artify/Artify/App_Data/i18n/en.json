@@ -98,6 +98,8 @@
 
 	"corrupt.lnkBack": "Back to panel",
 	"corrupt.lnkRestore": "Restore Database",
+	"corrupt.litDVVSection": "Vertical verification (DVV)",
+	"corrupt.dvv.mismatch": "The current DVH sum does not match the value stored in DVV.",
 
 	"restore.title": "Database Restore",
 	"restore.back": "Back",

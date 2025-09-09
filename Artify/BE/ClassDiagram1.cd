@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BE.Artista">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAABIAAAAAgCAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Artista.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.BackupResult">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>BackupResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.Bitacora">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAABEAAAAAAAAAAIAAAAAAAAAECAAAAAQ=</HashCode>
+      <FileName>Bitacora.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.DvhTime">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>DvhTime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.DVV">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DVV.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.EntidadBase" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAABAAAAAAAAAAAAAAABAgAQAAAAACAAA=</HashCode>
+      <FileName>EntidadBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.Obra">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAgAIAAAAAAABAAAAAAAAAAAAAAAAAAAAAAQAEgABA=</HashCode>
+      <FileName>Obra.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.Response&lt;T&gt;" Collapsed="true">
+    <Position X="9.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAQAAAAAAAAAAAgIAQBAAAAAAIAAAAAA=</HashCode>
+      <FileName>Response.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.RestoreAnalysisData" Collapsed="true">
+    <Position X="11.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEACABAAAAAAAAAAAAAAAAAIAAAAAAAEEA=</HashCode>
+      <FileName>RestoreAnalysisResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.TablaCheckResult" Collapsed="true">
+    <Position X="13.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gABAAAAAAAAAAQgAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>TablaCheckResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.Usuario">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAEAIAAgAAAAAAAAgACAAAAgAAAAAA=</HashCode>
+      <FileName>Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.Observer.IdiomaManager" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAgQAIAAAAAACAABASAAAAAQEAAA=</HashCode>
+      <FileName>Observer\IdiomaManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BE.Observer.LocalizableControl" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAACAAAAAAAAAAACAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Observer\LocalizableControl.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BE.Observer.Localize">
+    <Position X="13.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AkQAAAAAEAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Observer\LocalizableControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="BE.Observer.IIdiomaObserver">
+    <Position X="1" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Observer\IIdiomaObserver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BE.Observer.IIdiomaSubject">
+    <Position X="4" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAABAQAAAAAAAAAA=</HashCode>
+      <FileName>Observer\IIdiomaSubject.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="BE.Criticidad">
+    <Position X="9.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAQBAAAAAA=</HashCode>
+      <FileName>Bitacora.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BE.RolUsuario">
+    <Position X="13.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BE.Observer.Idioma">
+    <Position X="11.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Observer\IdiomaManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

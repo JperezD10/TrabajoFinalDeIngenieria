@@ -98,6 +98,8 @@
 
 	"corrupt.lnkBack": "Volver al panel",
 	"corrupt.lnkRestore": "Restaurar base",
+	"corrupt.litDVVSection": "Verificación vertical (DVV)",
+	"corrupt.dvv.mismatch": "La suma actual de DVH no coincide con el valor registrado en DVV.",
 
 	"restore.title": "Restore de Base de Datos",
 	"restore.back": "Volver",

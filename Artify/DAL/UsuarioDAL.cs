@@ -10,6 +10,13 @@ namespace DAL
     {
         Acceso Acceso = Acceso.GetInstance;
 
+        private void ActualizarDVV()
+        {
+            Acceso.Escribir("sp_ActualizarDVV", new SqlParameter[]
+                {
+                    new SqlParameter("@Tabla", "Usuario")
+                }, CommandType.StoredProcedure);
+        }
         public Usuario Login(string email)
         {
             Usuario resultado = null;
@@ -40,6 +47,8 @@ namespace DAL
                     new SqlParameter("@DVH", usuario.DVH),
                     new SqlParameter("@Id", usuario.Id)
                 });
+
+                ActualizarDVV();
             }
             else
             {
@@ -53,6 +62,7 @@ namespace DAL
                     new SqlParameter("@Id", usuario.Id)
                 });
                 intentosRestantes = 0;
+                ActualizarDVV();
             }
             return intentosRestantes;
         }
@@ -66,6 +76,7 @@ namespace DAL
                 new SqlParameter("@Id", usuario.Id),
                 new SqlParameter("@DVH", usuario.DVH)
             });
+            ActualizarDVV();
         }
 
         public List<Usuario> ListarBloqueados()
@@ -89,6 +100,7 @@ namespace DAL
                 new SqlParameter("@Id", usuario.Id),
                 new SqlParameter("@DVH", usuario.DVH)
             });
+            ActualizarDVV();
         }
 
         public Usuario ObtenerPorId(int id)

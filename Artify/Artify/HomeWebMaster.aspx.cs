@@ -18,66 +18,99 @@ namespace Artify
             _usuario = SecurityManager.CheckAccess(this);
             RegisterLocalizablesById(this, "home");
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (_usuario == null) return;
+            if (IsPostBack) return;
 
-            if (!IsPostBack)
+            var bitacoraBLL = new BitacoraBLL();
+            var ahora = DateTime.Now;
+
+            // --- DVH ---
+            var integridadH = new IntegridadHorizontalBLL();
+            var respH = integridadH.VerificarTodo();
+
+            bool hayCorrupcionH = false;
+            if (!respH.Exito)
             {
-                var integridad = new IntegridadHorizontalBLL();
-                var resp = integridad.VerificarTodo();
-                if (!resp.Exito) return;
-
-                // ¿hay corrupción?
-                bool hayCorrupcion = false;
-                foreach (var r in resp.Data)
+                // Error al intentar leer/verificar DVH
+                bitacoraBLL.RegistrarAccion(new BE.Bitacora
                 {
-                    if (!string.IsNullOrEmpty(r.Error) || (r.IdsCorruptos != null && r.IdsCorruptos.Count > 0))
-                    { hayCorrupcion = true; break; }
-                }
-
-                if (hayCorrupcion)
+                    Fecha = ahora,
+                    Accion = "DVH: error general de verificación -> " + (respH.Mensaje ?? "sin detalle"),
+                    Criticidad = (int)Criticidad.Critica,
+                    Modulo = "Integridad",
+                    IdUsuario = _usuario.Id
+                });
+                hayCorrupcionH = true; // forzamos corte
+            }
+            else
+            {
+                foreach (var r in respH.Data)
                 {
-                    var bitacoraBLL = new BitacoraBLL();
-                    var ahora = DateTime.Now; // tu DAL normaliza y calcula DVH después
-
-                    foreach (var r in resp.Data)
+                    if (!string.IsNullOrEmpty(r.Error))
                     {
-                        if (!string.IsNullOrEmpty(r.Error))
+                        hayCorrupcionH = true;
+                        bitacoraBLL.RegistrarAccion(new BE.Bitacora
                         {
+                            Fecha = ahora,
+                            Accion = "DVH: error al leer " + r.Tabla + " -> " + r.Error,
+                            Criticidad = (int)Criticidad.Critica,
+                            Modulo = "Integridad",
+                            IdUsuario = _usuario.Id
+                        });
+                    }
+
+                    if (r.IdsCorruptos != null && r.IdsCorruptos.Count > 0)
+                    {
+                        hayCorrupcionH = true;
+                        foreach (var bloque in ChunkIds(r.IdsCorruptos, 10))
+                        {
+                            var lista = string.Join(",", bloque);
                             bitacoraBLL.RegistrarAccion(new BE.Bitacora
                             {
                                 Fecha = ahora,
-                                Accion = "DVH: error al leer " + r.Tabla + " -> " + r.Error,
+                                Accion = "DVH: " + r.Tabla + " registros corruptos -> [" + lista + "]",
                                 Criticidad = (int)Criticidad.Critica,
                                 Modulo = "Integridad",
                                 IdUsuario = _usuario.Id
                             });
                         }
-
-                        if (r.IdsCorruptos != null && r.IdsCorruptos.Count > 0)
-                        {
-                            foreach (var bloque in ChunkIds(r.IdsCorruptos, 10))
-                            {
-                                var lista = string.Join(",", bloque);
-                                bitacoraBLL.RegistrarAccion(new BE.Bitacora
-                                {
-                                    Fecha = ahora,
-                                    Accion = "DVH: " + r.Tabla + " registros corruptos -> [" + lista + "]",
-                                    Criticidad = (int)Criticidad.Critica,
-                                    Modulo = "Integridad",
-                                    IdUsuario = _usuario.Id
-                                });
-                            }
-                        }
                     }
-
-                    Session["IntegridadResultados"] = resp.Data;
-                    Response.Redirect("~/BaseCorrupta.aspx", false);
-                    Context.ApplicationInstance.CompleteRequest();
-                    return;
                 }
             }
+
+            // --- DVV ---
+            var integridadV = new IntegridadVerticalBLL();
+            var dvvCorruptas = integridadV.ObtenerVerticalesCorruptos(); // List<DVV> { Tabla, SumaDVH }
+            bool hayCorrupcionV = dvvCorruptas != null && dvvCorruptas.Count > 0;
+
+            if (hayCorrupcionV)
+            {
+                foreach (var t in dvvCorruptas)
+                {
+                    bitacoraBLL.RegistrarAccion(new BE.Bitacora
+                    {
+                        Fecha = ahora,
+                        Accion = $"DVV: {t.Tabla} suma actual DVH={t.SumaDVH} no coincide con DVV registrado",
+                        Criticidad = (int)Criticidad.Critica,
+                        Modulo = "Integridad",
+                        IdUsuario = _usuario.Id
+                    });
+                }
+            }
+
+            if (hayCorrupcionH || hayCorrupcionV)
+            {
+                Session["IntegridadResultados"] = respH.Data;              
+                Session["IntegridadDVVResultados"] = dvvCorruptas;  
+
+                Response.Redirect("~/BaseCorrupta.aspx", false);
+                Context.ApplicationInstance.CompleteRequest();
+                return;
+            }
+
         }
 
         private static IEnumerable<List<int>> ChunkIds(List<int> ids, int size)

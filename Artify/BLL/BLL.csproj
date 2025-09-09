@@ -45,6 +45,7 @@
     <Compile Include="BitacoraBLL.cs" />
     <Compile Include="DvhTime.cs" />
     <Compile Include="IntegridadHorizontalBLL.cs" />
+    <Compile Include="IntegridadVerticalBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestoreBLL.cs" />
     <Compile Include="UsuarioBLL.cs" />
@@ -62,6 +63,9 @@
       <Project>{68612fff-6d1f-452e-aaa2-7cb96fe58aad}</Project>
       <Name>SEGURIDAD</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

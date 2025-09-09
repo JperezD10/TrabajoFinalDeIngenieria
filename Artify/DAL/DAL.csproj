@@ -45,6 +45,7 @@
     <Compile Include="Acceso.cs" />
     <Compile Include="BackupDAL.cs" />
     <Compile Include="BitacoraDAL.cs" />
+    <Compile Include="DvvDAL.cs" />
     <Compile Include="MapperHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestoreDAL.cs" />
@@ -59,6 +60,9 @@
       <Project>{68612fff-6d1f-452e-aaa2-7cb96fe58aad}</Project>
       <Name>SEGURIDAD</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

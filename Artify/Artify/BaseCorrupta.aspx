@@ -238,19 +238,22 @@
                 <h4>
                     <asp:Label ID="lblStatsTables" runat="server" /></h4>
                 <div class="v">
-                    <asp:Label ID="lblTablasAfectadas" runat="server" Text="0"></asp:Label></div>
+                    <asp:Label ID="lblTablasAfectadas" runat="server" Text="0"></asp:Label>
+                </div>
             </div>
             <div class="stat">
                 <h4>
                     <asp:Label ID="lblStatsRecords" runat="server" /></h4>
                 <div class="v">
-                    <asp:Label ID="lblRegistrosCorruptos" runat="server" Text="0"></asp:Label></div>
+                    <asp:Label ID="lblRegistrosCorruptos" runat="server" Text="0"></asp:Label>
+                </div>
             </div>
             <div class="stat">
                 <h4>
                     <asp:Label ID="lblStatsDetected" runat="server" /></h4>
                 <div class="v">
-                    <asp:Label ID="lblFecha" runat="server"></asp:Label></div>
+                    <asp:Label ID="lblFecha" runat="server"></asp:Label>
+                </div>
             </div>
         </div>
 
@@ -263,7 +266,8 @@
                 </div>
             </div>
             <div style="color: #cbd5e1">
-                <asp:Literal ID="litEmptyBody" runat="server" /></div>
+                <asp:Literal ID="litEmptyBody" runat="server" />
+            </div>
         </asp:Panel>
 
         <div class="cards">
@@ -302,6 +306,45 @@
                 </ItemTemplate>
             </asp:Repeater>
         </div>
+
+        <h3 style="color: #cbd5e1; margin: 18px 0 8px 0">
+            <asp:Literal ID="litDVVSection" runat="server" Text="Verificación vertical (DVV)" />
+        </h3>
+
+        <asp:Panel ID="pnlDVVEmpty" runat="server" Visible="false" CssClass="card">
+            <div class="card-head">
+                <div class="card-title">
+                    <div class="dot ok"></div>
+                    <h3 class="title">
+                        <asp:Literal ID="litDVVOkTitle" runat="server" Text="DVV consistente" />
+                    </h3>
+                </div>
+                <span class="badge ok">OK</span>
+            </div>
+            <div style="color: #cbd5e1">
+                <asp:Literal ID="litDVVOkBody" runat="server" Text="La suma de DVH de todas las tablas coincide con la tabla DVV." />
+            </div>
+        </asp:Panel>
+
+        <asp:Repeater ID="rptDVV" runat="server" OnItemDataBound="rptDVV_ItemDataBound">
+            <ItemTemplate>
+                <div class="card">
+                    <div class="card-head">
+                        <div class="card-title">
+                            <div runat="server" id="dotDVV" class="dot"></div>
+                            <h3 class="title"><%# Eval("Tabla") %></h3>
+                        </div>
+                        <span class="badge bad">DVV</span>
+                    </div>
+                    <div class="err">
+                        <asp:Label ID="lblDVVMsg" runat="server" />
+                    </div>
+                    <div class="chips" style="margin-top: 8px">
+                        <span class="chip">SumaDVH correcta: <%# Eval("SumaDVH") %></span>
+                    </div>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
 
         <div class="footer-actions">
             <asp:HyperLink ID="lnkBack" runat="server" NavigateUrl="HomeWebMaster.aspx" CssClass="btn btn-secondary" />

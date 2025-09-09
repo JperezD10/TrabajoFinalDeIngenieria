@@ -47,6 +47,11 @@ namespace DAL
                 new SqlParameter("@Id", b.Id),
             });
 
+            acceso.Escribir("sp_ActualizarDVV", new SqlParameter[]
+            {
+                new SqlParameter("@Tabla", "Bitacora")
+            }, CommandType.StoredProcedure);
+
         }
 
         public List<Bitacora> TraerBitacora(DateTime? fechaDesde, DateTime? fechaHasta)
