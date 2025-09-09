@@ -6,17 +6,10 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class UsuarioDAL
+    public class UsuarioDAL: BaseDvvDAL
     {
-        Acceso Acceso = Acceso.GetInstance;
+        public override string TableName => "Usuario";
 
-        private void ActualizarDVV()
-        {
-            Acceso.Escribir("sp_ActualizarDVV", new SqlParameter[]
-                {
-                    new SqlParameter("@Tabla", "Usuario")
-                }, CommandType.StoredProcedure);
-        }
         public Usuario Login(string email)
         {
             Usuario resultado = null;

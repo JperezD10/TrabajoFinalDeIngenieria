@@ -6,9 +6,9 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class BitacoraDAL
+    public class BitacoraDAL : BaseDvvDAL
     {
-        Acceso acceso = Acceso.GetInstance;
+        public override string TableName => "Bitacora";
 
         public void RegistrarAccion(Bitacora b)
         {
@@ -21,7 +21,7 @@ namespace DAL
                 VALUES (@Fecha, @Accion, @Criticidad, @Modulo, @IdUsuario, 0);
                 SELECT CAST(SCOPE_IDENTITY() AS INT) AS NewId;";
 
-            var table = acceso.Leer(insertSql, new[]
+            var table = Acceso.Leer(insertSql, new[]
             {
                 new SqlParameter("@Fecha", b.Fecha),
                 new SqlParameter("@Accion", b.Accion),
@@ -41,17 +41,13 @@ namespace DAL
 
             // 4) Actualizar el DVH
             const string updateSql = "UPDATE Bitacora SET DVH=@DVH WHERE Id=@Id;";
-            acceso.Escribir(updateSql, new[]
+            Acceso.Escribir(updateSql, new[]
             {
                 new SqlParameter("@DVH", b.DVH),
                 new SqlParameter("@Id", b.Id),
             });
 
-            acceso.Escribir("sp_ActualizarDVV", new SqlParameter[]
-            {
-                new SqlParameter("@Tabla", "Bitacora")
-            }, CommandType.StoredProcedure);
-
+            ActualizarDVV();
         }
 
         public List<Bitacora> TraerBitacora(DateTime? fechaDesde, DateTime? fechaHasta)
@@ -72,7 +68,7 @@ namespace DAL
           AND (@FechaHasta IS NULL OR b.Fecha <= @FechaHasta)
         ORDER BY b.Fecha DESC;";
 
-            var tabla = acceso.Leer(query, new SqlParameter[]
+            var tabla = Acceso.Leer(query, new SqlParameter[]
             {
                 new SqlParameter("@FechaDesde", (object)fechaDesde ?? DBNull.Value),
                 new SqlParameter("@FechaHasta", (object)fechaHasta ?? DBNull.Value)
@@ -95,7 +91,7 @@ namespace DAL
             FROM Bitacora
             ORDER BY Id;";
 
-            var tabla = acceso.Leer(sql, null);
+            var tabla = Acceso.Leer(sql, null);
             foreach (DataRow row in tabla.Rows)
             {
                 var b = new Bitacora();
