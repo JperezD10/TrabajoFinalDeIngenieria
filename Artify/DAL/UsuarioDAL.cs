@@ -87,6 +87,8 @@ namespace DAL
 
         public void DesbloquearUsuario(Usuario usuario)
         {
+            usuario.Bloqueado = false;
+            usuario.IntentosRestantes = 3;
             usuario.DVH = usuario.CalcularDVH();
             Acceso.Escribir("UPDATE Usuario set Bloqueado = 0, IntentosRestantes = 3, DVH = @DVH WHERE Id = @Id", new SqlParameter[]
             {

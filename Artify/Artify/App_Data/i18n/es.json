@@ -101,6 +101,9 @@
 	"corrupt.litDVVSection": "Verificación vertical (DVV)",
 	"corrupt.dvv.mismatch": "La suma actual de DVH no coincide con el valor registrado en DVV.",
 
+	"corrupt.litDVVOkTitle": "DVV consistente",
+	"corrupt.litDVVOkBody": "La suma de DVH de todas las tablas coincide con la tabla DVV.",
+
 	"restore.title": "Restore de Base de Datos",
 	"restore.back": "Volver",
 	"restore.panelTitle": "Restaurar desde archivo .BAK",
