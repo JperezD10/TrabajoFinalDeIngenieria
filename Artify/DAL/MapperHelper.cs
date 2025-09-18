@@ -30,5 +30,17 @@ namespace DAL
                 Criticidad = Convert.ToInt32(row["Criticidad"]),
                 DVH = Convert.ToInt32(row["DVH"]),
             };
+
+        public static Artista MapArtista(DataRow row) =>
+            new Artista {
+                Id = Convert.ToInt32(row["Id"]),
+                Nombre = row["Nombre"].ToString(),
+                FechaNacimiento = Convert.ToDateTime(row["FechaNacimiento"]),
+                Nacionalidad = row["Nacionalidad"].ToString(),
+                Biografia = row["Biografia"].ToString(),
+                Activo = Convert.ToBoolean(row["Activo"]),
+                UrlFoto = row["UrlFoto"].ToString(),
+                DVH = Convert.ToInt32(row["DVH"]),
+            };
     }
 }

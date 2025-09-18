@@ -187,5 +187,66 @@
 	"accden.litReasonTitle": "Detalle del acceso",
 	"accden.litRequired": "Rol requerido",
 	"accden.litCurrent": "Tu rol actual",
-	"accden.litExtra": "Si crees que se trata de un error, comunícate con el administrador."
+	"accden.litExtra": "Si crees que se trata de un error, comunícate con el administrador.",
+
+	"homecur.litPageTitle": "Panel Curador",
+	"homecur.litHeaderTitle": "Panel Curador",
+
+	"homecur.litHeroTitle": "Bienvenido",
+	"homecur.litHeroText": "Acceso rápido a herramientas de curaduría y seguimiento.",
+
+	"homecur.litModules": "Módulos",
+
+	"homecur.litArtTitle": "Cargar artistas",
+	"homecur.litArtText": "Dar de alta y gestionar perfiles de artistas.",
+	"homecur.litArtChip1": "Alta/Edición",
+	"homecur.litArtChip2": "Validación",
+	"homecur.litArtCta": "Ingresar",
+
+	"homecur.litObrTitle": "Cargar obras",
+	"homecur.litObrText": "Publicar obras curadas con metadatos y medios.",
+	"homecur.litObrChip1": "Imágenes",
+	"homecur.litObrChip2": "Etiquetas",
+	"homecur.litObrCta": "Ingresar",
+
+	"homecur.litStaTitle": "Ver estadísticas",
+	"homecur.litStaText": "Rendimiento de obras y artistas en el tiempo.",
+	"homecur.litStaChip1": "Visitas",
+	"homecur.litStaChip2": "Conversiones",
+	"homecur.litStaCta": "Ingresar",
+	"homecur.litListTitle": "Ver artistas",
+	"homecur.litListText": "Explorá el catálogo de artistas con sus fotos y datos.",
+	"homecur.litListChip1": "Listado",
+	"homecur.litListChip2": "Gestión",
+	"homecur.litListCta": "Ingresar",
+
+	"art.litPageTitle": "Cargar Artistas",
+	"art.litHeaderTitle": "Cargar Artistas",
+	"art.litHeroTitle": "Nuevo artista",
+	"art.litHeroText": "Completa los datos para dar de alta un nuevo artista.",
+	"art.litLblNombre": "Nombre",
+	"art.litLblNac": "Nacionalidad",
+	"art.litLblBio": "Biografía",
+	"art.btnGuardar": "Guardar",
+	"art.litValSummaryHeader": "Por favor, corregí los siguientes errores:",
+	"art.litLblFechaNac": "Fecha de nacimiento",
+	"art.litLblUrl": "URL de foto (opcional)",
+	"art.reqNombre": "El nombre es obligatorio.",
+	"art.reqNac": "La nacionalidad es obligatoria.",
+	"art.cmpFecha": "Formato de fecha inválido.",
+	"art.rngFechaMax": "La fecha no puede ser futura.",
+	"art.revUrl": "URL inválida. Ej: https://sitio.com/foto.jpg",
+	"art.litBtnVolver": "Volver al inicio",
+
+	"listart.litPageTitle": "Ver Artistas",
+	"listart.litHeaderTitle": "Ver Artistas",
+	"listart.litHeroTitle": "Listado de artistas",
+	"listart.litHeroText": "Visualiza los artistas cargados, sus datos y gestiona eliminaciones.",
+
+	"listart.emptyTitle": "No hay artistas cargados",
+	"listart.emptyText": "Cuando se agreguen artistas desde “Cargar artistas”, aparecerán aquí.",
+
+	"listart.btnEliminar": "Eliminar",
+	"listart.confirmEliminar": "¿Seguro que querés eliminar este artista? Esta acción no se puede deshacer.",
+	"listart.litBtnVolver": "Volver al inicio"
 }

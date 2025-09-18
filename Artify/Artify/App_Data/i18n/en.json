@@ -186,5 +186,68 @@
 	"accden.litReasonTitle": "Access details",
 	"accden.litRequired": "Required role",
 	"accden.litCurrent": "Your current role",
-	"accden.litExtra": "If you believe this is a mistake, please contact the administrator."
+	"accden.litExtra": "If you believe this is a mistake, please contact the administrator.",
+
+	"homecur.litPageTitle": "Curator Panel",
+	"homecur.litHeaderTitle": "Curator Panel",
+
+	"homecur.litHeroTitle": "Welcome",
+	"homecur.litHeroText": "Quick access to curation tools and monitoring.",
+
+	"homecur.litModules": "Modules",
+
+	"homecur.litArtTitle": "Add artists",
+	"homecur.litArtText": "Register and manage artist profiles.",
+	"homecur.litArtChip1": "Create/Edit",
+	"homecur.litArtChip2": "Validation",
+	"homecur.litArtCta": "Enter",
+
+	"homecur.litObrTitle": "Add artworks",
+	"homecur.litObrText": "Publish curated artworks with metadata and media.",
+	"homecur.litObrChip1": "Images",
+	"homecur.litObrChip2": "Tags",
+	"homecur.litObrCta": "Enter",
+
+	"homecur.litStaTitle": "View statistics",
+	"homecur.litStaText": "Performance of artworks and artists over time.",
+	"homecur.litStaChip1": "Visits",
+	"homecur.litStaChip2": "Conversions",
+	"homecur.litStaCta": "Enter",
+	"homecur.litListTitle": "View artists",
+	"homecur.litListText": "Browse the artists catalog with photos and details.",
+	"homecur.litListChip1": "List",
+	"homecur.litListChip2": "Management",
+	"homecur.litListCta": "Enter",
+
+	"art.litPageTitle": "Add Artists",
+	"art.litHeaderTitle": "Add Artists",
+	"art.litHeroTitle": "New artist",
+	"art.litHeroText": "Fill in the details to register a new artist.",
+	"art.litValSummaryHeader": "Please fix the following errors:",
+	"art.litLblNombre": "Name",
+	"art.litLblNac": "Nationality",
+	"art.litLblFechaNac": "Date of birth",
+	"art.litLblUrl": "Photo URL (optional)",
+	"art.litLblBio": "Biography (optional)",
+	"art.btnGuardar": "Save",
+	"art.reqNombre": "Name is required.",
+	"art.reqNac": "Nationality is required.",
+	"art.cmpFecha": "Invalid date format.",
+	"art.rngFechaMax": "The date cannot be in the future.",
+	"art.revUrl": "Invalid URL. E.g.: https://site.com/photo.jpg",
+	"art.litBtnVolver": "Back to home",
+
+
+	"listart.litPageTitle": "View Artists",
+	"listart.litHeaderTitle": "View Artists",
+	"listart.litHeroTitle": "Artists list",
+	"listart.litHeroText": "See uploaded artists, their data, and manage deletions.",
+	"listart.litBtnVolver": "Back to home",
+
+	"listart.emptyTitle": "No artists yet",
+	"listart.emptyText": "Once artists are added from “Add artists”, they will appear here.",
+
+	"listart.btnEliminar": "Delete",
+	"listart.confirmEliminar": "Are you sure you want to delete this artist? This action cannot be undone."
+
 }
