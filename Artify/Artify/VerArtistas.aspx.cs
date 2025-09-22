@@ -27,18 +27,9 @@ namespace Artify
         {
             if (!IsPostBack)
             {
-                ApplyNonObserverTexts();
                 BindGrid();
             }
         }
-
-        private void ApplyNonObserverTexts()
-        {
-            // Los textos de botones y confirmaciones no los agarra el observer
-            ViewState["del.btn"] = IdiomaManager.Instance.T("listart.btnEliminar");
-            ViewState["del.confirm"] = IdiomaManager.Instance.T("listart.confirmEliminar");
-        }
-
         private void BindGrid()
         {
             // TODO: reemplazar por acceso real
@@ -67,15 +58,6 @@ namespace Artify
                 // si la URL devuelve 404/rota → usar placeholder externo
                 img.Attributes["onerror"] = "this.onerror=null;this.src='" + PlaceholderExternal + "';";
             }
-
-            // Botón eliminar traducido + confirm
-            var btn = (Button)e.Item.FindControl("btnEliminar");
-            if (btn != null)
-            {
-                btn.Text = Convert.ToString(ViewState["del.btn"]) ?? "Eliminar";
-                var confirm = HttpUtility.JavaScriptStringEncode(Convert.ToString(ViewState["del.confirm"]) ?? "¿Seguro?");
-                btn.OnClientClick = "return confirm('" + confirm + "');";
-            }
         }
 
         protected void rptArtistas_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -84,15 +66,6 @@ namespace Artify
             {
                 try
                 {
-                    // 1) Eliminar artista
-                    // new ArtistaBLL().Eliminar(id);
-
-                    // 2) Actualizar DVV de tabla Artista
-                    // new IntegridadVerticalBLL().ActualizarDvv("Artista");
-
-                    // 3) Registrar en Bitácora
-                    // new BitacoraBLL().Registrar( ... "Eliminación de artista Id=" + id, Criticidad.Media, Modulo.Curador, usuarioActual.Id );
-
                     BindGrid();
                 }
                 catch (Exception ex)

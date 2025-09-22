@@ -84,7 +84,7 @@ namespace Artify
             }
             else if (response.Data.Rol == RolUsuario.Curador)
             {
-                Response.Redirect("HomeAdministrador.aspx");
+                Response.Redirect("HomeCurador.aspx");
             }
             else if (response.Data.Rol == RolUsuario.Cliente)
             {

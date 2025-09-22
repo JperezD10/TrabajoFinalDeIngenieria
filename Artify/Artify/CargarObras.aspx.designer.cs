@@ -11,322 +11,448 @@ namespace Artify
 {
 
 
-    public partial class HomeCurador
+    public partial class CargarObras
     {
 
         /// <summary>
-        /// Control litPageTitle.
+        /// Control title.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litPageTitle;
+        protected global::System.Web.UI.WebControls.Literal title;
 
         /// <summary>
-        /// Control litHeaderTitle.
+        /// Control valSummary.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litHeaderTitle;
+        protected global::System.Web.UI.WebControls.ValidationSummary valSummary;
 
         /// <summary>
-        /// Control litHeroTitle.
+        /// Control phOk.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litHeroTitle;
+        protected global::System.Web.UI.WebControls.PlaceHolder phOk;
 
         /// <summary>
-        /// Control litHeroText.
+        /// Control ok.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litHeroText;
+        protected global::System.Web.UI.WebControls.Literal ok;
 
         /// <summary>
-        /// Control litModules.
+        /// Control phErr.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litModules;
+        protected global::System.Web.UI.WebControls.PlaceHolder phErr;
 
         /// <summary>
-        /// Control lnkArtistas.
+        /// Control litErr.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkArtistas;
+        protected global::System.Web.UI.WebControls.Literal litErr;
 
         /// <summary>
-        /// Control litArtTitle.
+        /// Control lblTitulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litArtTitle;
+        protected global::System.Web.UI.WebControls.Literal lblTitulo;
 
         /// <summary>
-        /// Control litArtText.
+        /// Control txtTitulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litArtText;
+        protected global::System.Web.UI.WebControls.TextBox txtTitulo;
 
         /// <summary>
-        /// Control litArtChip1.
+        /// Control hintTitulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litArtChip1;
+        protected global::System.Web.UI.WebControls.Literal hintTitulo;
 
         /// <summary>
-        /// Control litArtChip2.
+        /// Control valTitulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litArtChip2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valTitulo;
 
         /// <summary>
-        /// Control litArtCta.
+        /// Control lblArtista.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litArtCta;
+        protected global::System.Web.UI.WebControls.Literal lblArtista;
 
         /// <summary>
-        /// Control lnkList.
+        /// Control ddlArtistas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkList;
+        protected global::System.Web.UI.WebControls.DropDownList ddlArtistas;
 
         /// <summary>
-        /// Control litListTitle.
+        /// Control valArtista.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litListTitle;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valArtista;
 
         /// <summary>
-        /// Control litListText.
+        /// Control lblAnio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litListText;
+        protected global::System.Web.UI.WebControls.Literal lblAnio;
 
         /// <summary>
-        /// Control litListChip1.
+        /// Control txtAnio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litListChip1;
+        protected global::System.Web.UI.WebControls.TextBox txtAnio;
 
         /// <summary>
-        /// Control litListChip2.
+        /// Control hintAnio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litListChip2;
+        protected global::System.Web.UI.WebControls.Literal hintAnio;
 
         /// <summary>
-        /// Control litListCta.
+        /// Control valAnioReq.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litListCta;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valAnioReq;
 
         /// <summary>
-        /// Control lnkObras.
+        /// Control valAnioRng.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkObras;
+        protected global::System.Web.UI.WebControls.RangeValidator valAnioRng;
 
         /// <summary>
-        /// Control litObrTitle.
+        /// Control lblTecnica.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litObrTitle;
+        protected global::System.Web.UI.WebControls.Literal lblTecnica;
 
         /// <summary>
-        /// Control litObrText.
+        /// Control txtTecnica.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litObrText;
+        protected global::System.Web.UI.WebControls.TextBox txtTecnica;
 
         /// <summary>
-        /// Control litObrChip1.
+        /// Control hintTecnica.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litObrChip1;
+        protected global::System.Web.UI.WebControls.Literal hintTecnica;
 
         /// <summary>
-        /// Control litObrChip2.
+        /// Control valTec.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litObrChip2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valTec;
 
         /// <summary>
-        /// Control litObrCta.
+        /// Control lblOriginal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litObrCta;
+        protected global::System.Web.UI.WebControls.Literal lblOriginal;
 
         /// <summary>
-        /// Control lnkVerObras.
+        /// Control chkOriginal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkVerObras;
+        protected global::System.Web.UI.WebControls.CheckBox chkOriginal;
 
         /// <summary>
-        /// Control litViewObrTitle.
+        /// Control hintOriginal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litViewObrTitle;
+        protected global::System.Web.UI.WebControls.Literal hintOriginal;
 
         /// <summary>
-        /// Control litViewObrText.
+        /// Control lblPrecioBase.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litViewObrText;
+        protected global::System.Web.UI.WebControls.Literal lblPrecioBase;
 
         /// <summary>
-        /// Control litViewObrChip1.
+        /// Control txtPrecioBase.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litViewObrChip1;
+        protected global::System.Web.UI.WebControls.TextBox txtPrecioBase;
 
         /// <summary>
-        /// Control litViewObrChip2.
+        /// Control hintPrecioBase.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litViewObrChip2;
+        protected global::System.Web.UI.WebControls.Literal hintPrecioBase;
 
         /// <summary>
-        /// Control litViewObrCta.
+        /// Control valPBReq.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litViewObrCta;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valPBReq;
 
         /// <summary>
-        /// Control lnkStats.
+        /// Control valPBRegex.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkStats;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator valPBRegex;
 
         /// <summary>
-        /// Control litStaTitle.
+        /// Control cvPrecio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litStaTitle;
+        protected global::System.Web.UI.WebControls.CustomValidator cvPrecio;
 
         /// <summary>
-        /// Control litStaText.
+        /// Control lblUrlImg.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litStaText;
+        protected global::System.Web.UI.WebControls.Literal lblUrlImg;
 
         /// <summary>
-        /// Control litStaChip1.
+        /// Control txtUrlImagen.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litStaChip1;
+        protected global::System.Web.UI.WebControls.TextBox txtUrlImagen;
 
         /// <summary>
-        /// Control litStaChip2.
+        /// Control hintUrlImg.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litStaChip2;
+        protected global::System.Web.UI.WebControls.Literal hintUrlImg;
 
         /// <summary>
-        /// Control litStaCta.
+        /// Control valUrlReq.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litStaCta;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valUrlReq;
+
+        /// <summary>
+        /// Control valUrlRegex.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator valUrlRegex;
+
+        /// <summary>
+        /// Control lblPrecioActual.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lblPrecioActual;
+
+        /// <summary>
+        /// Control txtPrecioActual.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPrecioActual;
+
+        /// <summary>
+        /// Control hintPrecioActual.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal hintPrecioActual;
+
+        /// <summary>
+        /// Control btnGuardar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
+
+        /// <summary>
+        /// Control btnLimpiar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLimpiar;
+
+        /// <summary>
+        /// Control lnkVolver.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkVolver;
+
+        /// <summary>
+        /// Control btnVolver.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal btnVolver;
+
+        /// <summary>
+        /// Control imgPreview.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgPreview;
+
+        /// <summary>
+        /// Control prevTitle.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal prevTitle;
+
+        /// <summary>
+        /// Control prevSub.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal prevSub;
+
+        /// <summary>
+        /// Control prevTitleSeed.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField prevTitleSeed;
+
+        /// <summary>
+        /// Control prevYearSeed.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField prevYearSeed;
+
+        /// <summary>
+        /// Control prevTechSeed.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField prevTechSeed;
     }
 }

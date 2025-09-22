@@ -42,5 +42,27 @@ namespace DAL
                 UrlFoto = row["UrlFoto"].ToString(),
                 DVH = Convert.ToInt32(row["DVH"]),
             };
+
+        public static Obra MapObraConArtista(DataRow row) =>
+    new Obra
+    {
+        Id = Convert.ToInt32(row["Id"]),
+        Titulo = row["Titulo"].ToString(),
+        Anio = Convert.ToInt32(row["Anio"]),
+        Tecnica = row["Tecnica"].ToString(),
+        EsOriginal = Convert.ToBoolean(row["EsOriginal"]),
+        ArtistaId = Convert.ToInt32(row["ArtistaId"]),
+        Artista = new Artista
+        {
+            Id = Convert.ToInt32(row["ArtistaId"]),
+            Nombre = row.Table.Columns.Contains("ArtistaNombre")
+                        ? row["ArtistaNombre"]?.ToString()
+                        : null
+        },
+        PrecioBase = Convert.ToDecimal(row["PrecioBase"]),
+        PrecioActual = Convert.ToDecimal(row["PrecioActual"]),
+        UrlImagen = row["UrlImagen"].ToString(),
+        DVH = Convert.ToInt32(row["DVH"])
+    };
     }
 }

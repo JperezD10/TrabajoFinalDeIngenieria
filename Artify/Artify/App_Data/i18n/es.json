@@ -220,6 +220,12 @@
 	"homecur.litListChip2": "Gestión",
 	"homecur.litListCta": "Ingresar",
 
+	"homecur.litViewObrTitle": "Ver Obras",
+	"homecur.litViewObrText": "Explorá todas las obras cargadas; filtrá y revisá detalles rápidos.",
+	"homecur.litViewObrChip1": "listado",
+	"homecur.litViewObrChip2": "búsqueda",
+	"homecur.litViewObrCta": "Entrar",
+
 	"art.litPageTitle": "Cargar Artistas",
 	"art.litHeaderTitle": "Cargar Artistas",
 	"art.litHeroTitle": "Nuevo artista",
@@ -248,5 +254,68 @@
 
 	"listart.btnEliminar": "Eliminar",
 	"listart.confirmEliminar": "¿Seguro que querés eliminar este artista? Esta acción no se puede deshacer.",
-	"listart.litBtnVolver": "Volver al inicio"
+	"listart.litBtnVolver": "Volver al inicio",
+
+	"obra.title": "Cargar Obra",
+	"obra.ok": "La obra se cargó correctamente.",
+
+	"obra.lblTitulo": "Título",
+	"obra.hintTitulo": "Nombre con el que se listará la obra.",
+
+	"obra.lblArtista": "Artista",
+
+	"obra.lblAnio": "Año",
+	"obra.hintAnio": "Entre 1000 y 2100.",
+
+	"obra.lblTecnica": "Técnica",
+	"obra.hintTecnica": "Ej.: Óleo sobre lienzo, Acrílico, Mixta…",
+
+	"obra.lblPrecioBase": "Precio base (USD)",
+	"obra.hintPrecioBase": "Debe ser mayor que 0. El precio actual inicial será igual al base.",
+
+	"obra.lblUrlImg": "URL de imagen",
+	"obra.hintUrlImg": "Debe comenzar con http(s):// y apuntar a una imagen.",
+
+	"obra.lblPrecioActual": "Precio actual (USD)",
+	"obra.hintPrecioActual": "Se inicializa con el mismo valor que el precio base.",
+
+	"obra.btnVolver": "Volver",
+
+	"obra.val.header": "Por favor corregí estos campos:",
+	"obra.ddl.placeholder": "-- seleccionar --",
+
+	"obra.prev.title.seed": "Título de la obra",
+	"obra.prev.year.seed": "Año",
+	"obra.prev.tech.seed": "Técnica",
+
+	"obra.err.anio": "El año es inválido.",
+	"obra.err.artista": "Debés seleccionar un artista.",
+	"obra.err.precioBase": "El precio base es inválido.",
+	"obra.err.save": "No se pudo guardar la obra.",
+	"obra.bit.alta": "Alta de obra",
+
+	"obra.val.titulo.required": "El título es obligatorio.",
+	"obra.val.artista.required": "Debés seleccionar un artista.",
+	"obra.val.anio.required": "El año es obligatorio.",
+	"obra.val.anio.range": "El año debe estar entre 1000 y 2100.",
+	"obra.val.tecnica.required": "La técnica es obligatoria.",
+	"obra.val.pbase.required": "El precio base es obligatorio.",
+	"obra.val.pbase.format": "Formato de precio inválido.",
+	"obra.val.pbase.gt0": "El precio debe ser mayor que 0.",
+	"obra.val.url.required": "La URL de imagen es obligatoria.",
+	"obra.val.url.format": "Formato de URL inválido.",
+	"obra.btnGuardar": "Guardar obra",
+	"obra.btnLimpiar": "Limpiar",
+	"obra.prevTitle": "Vista previa",
+	"obra.prevSub": "Año • Técnica",
+	"obra.lblOriginal": "Original",
+	"obra.hintOriginal": "Marcala si se trata de pieza única (no reproducción/impresión).",
+
+	"verobras.litPageTitle": "Ver Obras",
+	"verobras.litHeaderTitle": "Listado de Obras",
+	"verobras.litBack": "Volver",
+	"verobras.litPriceLabel": "Precio actual: ",
+	"verobras.litEmpty": "No se encontraron obras.",
+	"verobras.search.placeholder": "Buscar por título, técnica, artista o año...",
+	"verobras.search.cta": "Buscar"
 }

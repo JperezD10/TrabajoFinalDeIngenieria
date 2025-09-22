@@ -72,9 +72,11 @@ namespace BLL
         {
             var usuarioDal = new UsuarioDAL();
             var bitacoraDal = new BitacoraDAL();
+            var artistaDal = new ArtistaDAL();
 
             _fetchers["Usuario"] = delegate { return usuarioDal.GetAllForDVH().Cast<EntidadBase>(); };
             _fetchers["Bitacora"] = delegate { return bitacoraDal.GetAllForDVH().Cast<EntidadBase>(); };
+            _fetchers["Artista"] = delegate { return artistaDal.GetAllForDVH().Cast<EntidadBase>();};
 
             // Mañana agregás más:
             // var obraDal = new ObraDAL();

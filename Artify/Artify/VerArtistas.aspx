@@ -227,12 +227,6 @@
                     <p class="bio" title='<%# GetBioFull(Container.DataItem) %>'>
                         <%# GetBioSnippet(Container.DataItem) %>
                     </p>
-                    <div class="row">
-                        <span></span>
-                        <asp:Button ID="btnEliminar" runat="server"
-                            CommandName="Delete" CommandArgument='<%# Eval("Id") %>'
-                            CssClass="btn-danger" />
-                    </div>
                 </div>
             </div>
         </ItemTemplate>

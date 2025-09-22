@@ -218,6 +218,11 @@
 	"homecur.litListChip1": "List",
 	"homecur.litListChip2": "Management",
 	"homecur.litListCta": "Enter",
+	"homecur.litViewObrTitle": "View Artworks",
+	"homecur.litViewObrText": "Browse all submitted artworks; filter and review quick details.",
+	"homecur.litViewObrChip1": "listing",
+	"homecur.litViewObrChip2": "search",
+	"homecur.litViewObrCta": "Open",
 
 	"art.litPageTitle": "Add Artists",
 	"art.litHeaderTitle": "Add Artists",
@@ -248,6 +253,68 @@
 	"listart.emptyText": "Once artists are added from “Add artists”, they will appear here.",
 
 	"listart.btnEliminar": "Delete",
-	"listart.confirmEliminar": "Are you sure you want to delete this artist? This action cannot be undone."
+	"listart.confirmEliminar": "Are you sure you want to delete this artist? This action cannot be undone.",
 
+	"obra.title": "Add Artwork",
+	"obra.ok": "The artwork was saved successfully.",
+
+	"obra.lblTitulo": "Title",
+	"obra.hintTitulo": "Name shown in listings.",
+
+	"obra.lblArtista": "Artist",
+
+	"obra.lblAnio": "Year",
+	"obra.hintAnio": "Between 1000 and 2100.",
+
+	"obra.lblTecnica": "Technique",
+	"obra.hintTecnica": "E.g., Oil on canvas, Acrylic, Mixed…",
+
+	"obra.lblPrecioBase": "Base price (USD)",
+	"obra.hintPrecioBase": "Must be greater than 0. Initial current price equals base.",
+
+	"obra.lblUrlImg": "Image URL",
+	"obra.hintUrlImg": "Must start with http(s):// and point to an image.",
+
+	"obra.lblPrecioActual": "Current price (USD)",
+	"obra.hintPrecioActual": "Initialized to the base price.",
+
+	"obra.btnVolver": "Back",
+
+	"obra.val.header": "Please fix the following:",
+	"obra.ddl.placeholder": "-- select --",
+
+	"obra.prev.title.seed": "Artwork title",
+	"obra.prev.year.seed": "Year",
+	"obra.prev.tech.seed": "Technique",
+
+	"obra.err.anio": "Invalid year.",
+	"obra.err.artista": "Select an artist.",
+	"obra.err.precioBase": "Invalid base price.",
+	"obra.err.save": "Could not save the artwork.",
+	"obra.bit.alta": "Artwork created",
+
+	"obra.val.titulo.required": "Title is required.",
+	"obra.val.artista.required": "You must select an artist.",
+	"obra.val.anio.required": "Year is required.",
+	"obra.val.anio.range": "Year must be between 1000 and 2100.",
+	"obra.val.tecnica.required": "Technique is required.",
+	"obra.val.pbase.required": "Base price is required.",
+	"obra.val.pbase.format": "Invalid price format.",
+	"obra.val.pbase.gt0": "Price must be greater than 0.",
+	"obra.val.url.required": "Image URL is required.",
+	"obra.val.url.format": "Invalid URL format.",
+	"obra.btnGuardar": "Save artwork",
+	"obra.btnLimpiar": "Clear",
+	"obra.prevTitle": "Preview",
+	"obra.prevSub": "Year • Technique",
+	"obra.lblOriginal": "Original",
+	"obra.hintOriginal": "Check if it is a one-of-a-kind piece (not a reproduction/print).",
+
+	"verobras.litPageTitle": "View Artworks",
+	"verobras.litHeaderTitle": "Artwork Listing",
+	"verobras.litBack": "Back",
+	"verobras.litPriceLabel": "Current price: ",
+	"verobras.litEmpty": "No artworks found.",
+	"verobras.search.placeholder": "Search by title, technique, artist, or year...",
+	"verobras.search.cta": "Search"
 }

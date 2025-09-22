@@ -20,6 +20,7 @@ namespace BLL
         {
             var usuario = _usuarioDAL.Login(email);
             var passwordHash = Encriptacion.EncriptadoPermanente(password);
+            var dvh = usuario.CalcularDVH();
 
             if (usuario == null)
             {
