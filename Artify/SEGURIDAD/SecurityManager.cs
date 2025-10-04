@@ -18,7 +18,8 @@ namespace SEGURIDAD
                     "~/UsuariosBloqueados.aspx",
                     "~/BaseCorrupta.aspx",
                     "~/RestoreDB.aspx",
-                    "~/BackupDB.aspx"
+                    "~/BackupDB.aspx",
+                    "~/PermisosUsuario.aspx"
                 }},
                 { RolUsuario.Cliente, new List<string> {
                     "~/HomeCliente.aspx",
@@ -31,38 +32,63 @@ namespace SEGURIDAD
                 }}
             };
 
+
+        public static List<string> GetRolePages(RolUsuario rol)
+        {
+            if (_rolePages.ContainsKey(rol))
+                return _rolePages[rol];
+            return new List<string>();
+        }
+
         public static Usuario CheckAccess(Page page)
         {
             var usuario = page.Session["Usuario"] as Usuario;
             if (usuario == null)
             {
                 var back = HttpUtility.UrlEncode(page.Request.RawUrl);
-                page.Response.Redirect($"~/Login.aspx?returnUrl={back}", false);
+                page.Response.Redirect("~/Login.aspx?returnUrl=" + back, false);
                 HttpContext.Current.ApplicationInstance.CompleteRequest();
                 return null;
             }
 
             var currentUrl = page.AppRelativeVirtualPath;
 
-            if (!_rolePages.TryGetValue(usuario.Rol, out var allowedPages))
+            List<string> rolePages;
+            if (!_rolePages.TryGetValue(usuario.Rol, out rolePages))
             {
                 RedirectDenied(page, "Rol no definido");
                 return null;
             }
 
-            bool ok = allowedPages.Any(p => p.Equals(currentUrl, StringComparison.OrdinalIgnoreCase));
-            if (!ok)
+            var allowed = new HashSet<string>(rolePages, StringComparer.OrdinalIgnoreCase);
+
+            var extras = page.Session["PermisosExtra"] as List<string>;
+            if (extras != null)
             {
-                var requiredRoles = _rolePages
-                    .Where(kvp => kvp.Value.Any(p =>
-                        p.Equals(currentUrl, StringComparison.OrdinalIgnoreCase)))
-                    .Select(kvp => kvp.Key.ToString());
+                foreach (var r in extras)
+                {
+                    if (!string.IsNullOrWhiteSpace(r))
+                        allowed.Add(r.Trim());
+                }
+            }
 
-                string need = requiredRoles.Any()
-                    ? string.Join(" | ", requiredRoles)
-                    : "Desconocido";
+            if (!allowed.Contains(currentUrl))
+            {
+                var required = new List<string>();
+                foreach (var kvp in _rolePages)
+                {
+                    foreach (var p in kvp.Value)
+                    {
+                        if (string.Equals(p, currentUrl, StringComparison.OrdinalIgnoreCase))
+                        {
+                            required.Add(kvp.Key.ToString());
+                            break;
+                        }
+                    }
+                }
 
-                RedirectDenied(page, $"role:{need}");
+                var need = required.Count > 0 ? string.Join(" | ", required.ToArray()) : "Desconocido";
+                RedirectDenied(page, "role:" + need);
                 return null;
             }
 

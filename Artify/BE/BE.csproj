@@ -57,8 +57,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Response.cs" />
     <Compile Include="RestoreAnalysisResult.cs" />
+    <Compile Include="Suscripcion.cs" />
     <Compile Include="TablaCheckResult.cs" />
     <Compile Include="Usuario.cs" />
+    <Compile Include="UsuarioPermiso.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

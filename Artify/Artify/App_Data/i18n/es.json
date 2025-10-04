@@ -57,6 +57,12 @@
 	"home.litBkpChip2": "Comprimido",
 	"home.litBkpCta": "Ir a Backup",
 
+	"home.litPermTitle": "Permisos por usuario",
+	"home.litPermText": "Asigná accesos extra a páginas fuera del rol base.",
+	"home.litPermChip1": "Seguridad",
+	"home.litPermChip2": "Whitelist",
+	"home.litPermCta": "Gestionar permisos",
+
 	"blocked.litPageTitle": "Usuarios bloqueados",
 	"blocked.litHeaderTitle": "Usuarios bloqueados",
 	"blocked.litBack": "Volver al inicio",
@@ -317,5 +323,18 @@
 	"verobras.litPriceLabel": "Precio actual: ",
 	"verobras.litEmpty": "No se encontraron obras.",
 	"verobras.search.placeholder": "Buscar por título, técnica, artista o año...",
-	"verobras.search.cta": "Buscar"
+	"verobras.search.cta": "Buscar",
+
+	"permusr.litPageTitle": "Permisos adicionales por usuario",
+	"permusr.lblUsuario": "Usuario",
+	"permusr.litUsuarioHint": "Elegí el usuario para ver y asignar permisos extra a los que ya tiene por su rol.",
+	"permusr.lblFiltro": "Filtrar por ruta .aspx",
+	"permusr.btnFiltrar": "Buscar",
+	"permusr.btnLimpiarFiltro": "Limpiar",
+	"permusr.litRolBaseLabel": "Rol base:",
+	"permusr.lblDisponibles": "Permisos disponibles (.aspx)",
+	"permusr.btnSelectAll": "Seleccionar todo",
+	"permusr.btnUnselectAll": "Quitar selección",
+	"permusr.btnGuardar": "Guardar cambios",
+	"permusr.litNota": "Lo marcado acá se suma a las páginas permitidas por el rol. No quita permisos del rol."
 }

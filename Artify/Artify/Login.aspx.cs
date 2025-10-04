@@ -77,6 +77,12 @@ namespace Artify
                 return;
             }
             Session["Usuario"] = response.Data;
+            var permisoBLL = new UsuarioPermisoBLL();
+            var extrasResp = permisoBLL.GetExtras(response.Data.Id);
+            Session["PermisosExtra"] = (extrasResp != null && extrasResp.Data != null)
+                ? extrasResp.Data
+                : new List<string>();
+
             pnlError.Visible = false;
             if (response.Data.Rol == RolUsuario.Webmaster)
             {

@@ -308,5 +308,31 @@
                 </div>
             </div>
         </asp:HyperLink>
+        <asp:HyperLink ID="lnkPermisosUsuario" runat="server" NavigateUrl="~/PermisosUsuario.aspx" CssClass="card-link">
+    <div class="card">
+        <div class="card-head">
+            <div class="badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 3a6 6 0 0 0-6 6v3a6 6 0 1 0 12 0V9a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <path d="M15 16l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M18 19l2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <h3 class="card-title"><asp:Literal ID="litPermTitle" runat="server" /></h3>
+        </div>
+        <p class="card-text"><asp:Literal ID="litPermText" runat="server" /></p>
+        <div class="chips">
+            <span class="chip"><asp:Literal ID="litPermChip1" runat="server" /></span>
+            <span class="chip"><asp:Literal ID="litPermChip2" runat="server" /></span>
+        </div>
+        <div class="cta">
+            <span><asp:Literal ID="litPermCta" runat="server" /></span>
+            <svg viewBox="0 0 24 24" fill="none">
+                <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+    </div>
+</asp:HyperLink>
     </div>
 </asp:Content>

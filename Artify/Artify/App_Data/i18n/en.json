@@ -57,6 +57,12 @@
 	"home.litBkpChip2": "Compressed",
 	"home.litBkpCta": "Go to Backup",
 
+	"home.litPermTitle": "User permissions",
+	"home.litPermText": "Grant extra page access beyond the base role.",
+	"home.litPermChip1": "Security",
+	"home.litPermChip2": "Whitelist",
+	"home.litPermCta": "Manage permissions",
+
 	"blocked.litPageTitle": "Blocked users",
 	"blocked.litHeaderTitle": "Blocked users",
 	"blocked.litBack": "Back to home",
@@ -316,5 +322,18 @@
 	"verobras.litPriceLabel": "Current price: ",
 	"verobras.litEmpty": "No artworks found.",
 	"verobras.search.placeholder": "Search by title, technique, artist, or year...",
-	"verobras.search.cta": "Search"
+	"verobras.search.cta": "Search",
+
+	"permusr.litPageTitle": "Additional permissions per user",
+	"permusr.lblUsuario": "User",
+	"permusr.litUsuarioHint": "Choose the user to view and assign extra permissions beyond their role.",
+	"permusr.lblFiltro": "Filter by .aspx path",
+	"permusr.btnFiltrar": "Search",
+	"permusr.btnLimpiarFiltro": "Clear",
+	"permusr.litRolBaseLabel": "Base role:",
+	"permusr.lblDisponibles": "Available permissions (.aspx)",
+	"permusr.btnSelectAll": "Select all",
+	"permusr.btnUnselectAll": "Unselect all",
+	"permusr.btnGuardar": "Save changes",
+	"permusr.litNota": "Checked pages are added to the permissions granted by the role. Role permissions cannot be removed here."
 }

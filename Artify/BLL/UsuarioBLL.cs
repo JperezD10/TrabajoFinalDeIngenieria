@@ -3,6 +3,7 @@ using DAL;
 using SEGURIDAD;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BLL
 {
@@ -74,6 +75,11 @@ namespace BLL
             {
                 return Response<bool>.Error("err.user.unblock");
             }
+        }
+
+        public Response<List<Usuario>> GetAll()
+        {
+            return Response<List<Usuario>>.Success(_usuarioDAL.GetAllForDVH().ToList());
         }
     }
 }
