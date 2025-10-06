@@ -11,6 +11,18 @@ namespace DAL
     {
         public override string TableName => "Subasta";
 
+        public IEnumerable<Subasta> GetAllForDVH()
+        {
+            const string sql = @"
+    SELECT  *
+    FROM    Subasta o
+    ORDER BY o.Id;";
+
+            var tabla = Acceso.Leer(sql, null);
+            foreach (DataRow row in tabla.Rows)
+                yield return MapperHelper.MapSubasta(row);
+        }
+
         public int Crear(Subasta s)
         {
             s.Estado = EstadoSubasta.Pendiente;

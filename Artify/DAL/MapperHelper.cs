@@ -43,6 +43,36 @@ namespace DAL
                 DVH = Convert.ToInt32(row["DVH"]),
             };
 
+        public static Suscripcion MapSuscripcion(DataRow row) =>
+            new Suscripcion
+            {
+                Id = Convert.ToInt32(row["Id"]),
+                IdUsuario = Convert.ToInt32(row["IdUsuario"]),
+                FechaInicio = Convert.ToDateTime(row["FechaInicio"]),
+                FechaFin = Convert.ToDateTime(row["FechaFin"]),
+                Activo = Convert.ToBoolean(row["Activo"]),
+                DVH = Convert.ToInt32(row["DVH"])
+            };
+        public static Subasta MapSubasta(DataRow row) =>
+            new Subasta
+            {
+                Id = Convert.ToInt32(row["Id"]),
+                IdObra = Convert.ToInt32(row["IdObra"]),
+                IdCurador = Convert.ToInt32(row["IdCurador"]),
+                FechaInicio = Convert.ToDateTime(row["FechaInicio"]),
+                FechaFin = Convert.ToDateTime(row["FechaFin"]),
+                PrecioInicial = Convert.ToDecimal(row["PrecioInicial"]),
+                PrecioActual = Convert.ToDecimal(row["PrecioActual"]),
+                IncrementoMinimo = Convert.ToDecimal(row["IncrementoMinimo"]),
+                DuracionMinutos = Convert.ToInt32(row["DuracionMinutos"]),
+                FechaProgramadaInicio = row["FechaProgramadaInicio"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(row["FechaProgramadaInicio"]),
+                Estado = (EstadoSubasta)Convert.ToInt32(row["Estado"]),
+                FechaCreacion = Convert.ToDateTime(row["FechaCreacion"]),
+                IdClienteGanador = row["IdClienteGanador"] == DBNull.Value ? (int?)null : Convert.ToInt32(row["IdClienteGanador"]),
+                Activo = Convert.ToBoolean(row["Activo"]),
+                DVH = Convert.ToInt32(row["DVH"])
+            };
+
         public static Obra MapObraConArtista(DataRow row) =>
     new Obra
     {

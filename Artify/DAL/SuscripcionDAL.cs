@@ -1,5 +1,6 @@
 ﻿using BE;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -9,6 +10,17 @@ namespace DAL
     {
         public override string TableName => "Suscripcion";
 
+        public IEnumerable<Suscripcion> GetAllForDVH()
+        {
+            const string sql = @"
+    SELECT  *
+    FROM    Suscripcion o
+    ORDER BY o.Id;";
+
+            var tabla = Acceso.Leer(sql, null);
+            foreach (DataRow row in tabla.Rows)
+                yield return MapperHelper.MapSuscripcion(row);
+        }
         public bool TieneActiva(int idUsuario, DateTime ahora)
         {
             if (idUsuario <= 0) return false;
