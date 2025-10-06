@@ -11,8 +11,26 @@ namespace Artify
 {
 
 
-    public partial class HomeCliente
+    public partial class SubastasPendientes
     {
+
+        /// <summary>
+        /// Control lnkBackHome.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkBackHome;
+
+        /// <summary>
+        /// Control litBack.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litBack;
 
         /// <summary>
         /// Control litTitle.
@@ -24,39 +42,48 @@ namespace Artify
         protected global::System.Web.UI.WebControls.Literal litTitle;
 
         /// <summary>
-        /// Control litHint.
+        /// Control pnlMsgOk.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litHint;
+        protected global::System.Web.UI.WebControls.Panel pnlMsgOk;
 
         /// <summary>
-        /// Control phEmpty.
+        /// Control litOk.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder phEmpty;
+        protected global::System.Web.UI.WebControls.Literal litOk;
 
         /// <summary>
-        /// Control litEmpty.
+        /// Control pnlMsgErr.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litEmpty;
+        protected global::System.Web.UI.WebControls.Panel pnlMsgErr;
 
         /// <summary>
-        /// Control rptSubastas.
+        /// Control litErr.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptSubastas;
+        protected global::System.Web.UI.WebControls.Literal litErr;
+
+        /// <summary>
+        /// Control gvPendientes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvPendientes;
     }
 }

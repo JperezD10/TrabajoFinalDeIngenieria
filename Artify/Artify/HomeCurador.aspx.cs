@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SEGURIDAD;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,7 @@ namespace Artify
         {
             base.OnInit(e);
             RegisterLocalizablesById(this, "homecur");
+            SecurityManager.CheckAccess(this);
         }
 
         protected void Page_Load(object sender, EventArgs e)

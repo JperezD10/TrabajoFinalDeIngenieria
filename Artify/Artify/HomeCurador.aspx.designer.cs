@@ -60,58 +60,112 @@ namespace Artify
         protected global::System.Web.UI.WebControls.Literal litModules;
 
         /// <summary>
-        /// Control lnkArtistas.
+        /// Control lnkCrearSubasta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkArtistas;
+        protected global::System.Web.UI.WebControls.HyperLink lnkCrearSubasta;
 
         /// <summary>
-        /// Control litArtTitle.
+        /// Control litSubTitle.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litArtTitle;
+        protected global::System.Web.UI.WebControls.Literal litSubTitle;
 
         /// <summary>
-        /// Control litArtText.
+        /// Control litSubText.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litArtText;
+        protected global::System.Web.UI.WebControls.Literal litSubText;
 
         /// <summary>
-        /// Control litArtChip1.
+        /// Control litSubChip1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litArtChip1;
+        protected global::System.Web.UI.WebControls.Literal litSubChip1;
 
         /// <summary>
-        /// Control litArtChip2.
+        /// Control litSubChip2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litArtChip2;
+        protected global::System.Web.UI.WebControls.Literal litSubChip2;
 
         /// <summary>
-        /// Control litArtCta.
+        /// Control litSubCta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litArtCta;
+        protected global::System.Web.UI.WebControls.Literal litSubCta;
+
+        /// <summary>
+        /// Control lnkSubPendientes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkSubPendientes;
+
+        /// <summary>
+        /// Control litPendTitle.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litPendTitle;
+
+        /// <summary>
+        /// Control litPendText.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litPendText;
+
+        /// <summary>
+        /// Control litPendChip1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litPendChip1;
+
+        /// <summary>
+        /// Control litPendChip2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litPendChip2;
+
+        /// <summary>
+        /// Control litPendCta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litPendCta;
 
         /// <summary>
         /// Control lnkList.
@@ -168,58 +222,58 @@ namespace Artify
         protected global::System.Web.UI.WebControls.Literal litListCta;
 
         /// <summary>
-        /// Control lnkObras.
+        /// Control lnkArtistas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkObras;
+        protected global::System.Web.UI.WebControls.HyperLink lnkArtistas;
 
         /// <summary>
-        /// Control litObrTitle.
+        /// Control litArtTitle.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litObrTitle;
+        protected global::System.Web.UI.WebControls.Literal litArtTitle;
 
         /// <summary>
-        /// Control litObrText.
+        /// Control litArtText.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litObrText;
+        protected global::System.Web.UI.WebControls.Literal litArtText;
 
         /// <summary>
-        /// Control litObrChip1.
+        /// Control litArtChip1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litObrChip1;
+        protected global::System.Web.UI.WebControls.Literal litArtChip1;
 
         /// <summary>
-        /// Control litObrChip2.
+        /// Control litArtChip2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litObrChip2;
+        protected global::System.Web.UI.WebControls.Literal litArtChip2;
 
         /// <summary>
-        /// Control litObrCta.
+        /// Control litArtCta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litObrCta;
+        protected global::System.Web.UI.WebControls.Literal litArtCta;
 
         /// <summary>
         /// Control lnkVerObras.
@@ -274,6 +328,60 @@ namespace Artify
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litViewObrCta;
+
+        /// <summary>
+        /// Control lnkObras.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkObras;
+
+        /// <summary>
+        /// Control litObrTitle.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litObrTitle;
+
+        /// <summary>
+        /// Control litObrText.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litObrText;
+
+        /// <summary>
+        /// Control litObrChip1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litObrChip1;
+
+        /// <summary>
+        /// Control litObrChip2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litObrChip2;
+
+        /// <summary>
+        /// Control litObrCta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litObrCta;
 
         /// <summary>
         /// Control lnkStats.

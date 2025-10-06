@@ -68,5 +68,20 @@ namespace DAL
 
             return obra;
         }
+
+        public IEnumerable<Obra> ListarObrasParacurador()
+        {
+            const string sql = @"
+SELECT  o.Id, o.Titulo, o.Anio, o.Tecnica, o.EsOriginal,
+        o.ArtistaId, o.PrecioBase, o.PrecioActual, o.UrlImagen, o.DVH
+FROM    Obra o
+JOIN    Artista a ON a.Id = o.ArtistaId
+ORDER BY o.Titulo;";
+
+            var tabla = Acceso.Leer(sql, null, CommandType.Text);
+
+            foreach (DataRow row in tabla.Rows)
+                yield return MapperHelper.MapObraConArtista(row);
+        }
     }
 }

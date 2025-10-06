@@ -179,7 +179,8 @@
         <h1>
             <asp:Literal ID="litHeroTitle" runat="server" /></h1>
         <p class="card-text">
-            <asp:Literal ID="litHeroText" runat="server" /></p>
+            <asp:Literal ID="litHeroText" runat="server" />
+        </p>
     </div>
 
     <div class="section-title">
@@ -187,37 +188,66 @@
     </div>
 
     <div class="grid">
-
-        <asp:HyperLink ID="lnkArtistas" runat="server" NavigateUrl="~/CargarArtistas.aspx" CssClass="card-link">
+        <asp:HyperLink ID="lnkCrearSubasta" runat="server" NavigateUrl="~/CrearSubasta.aspx" CssClass="card-link">
             <div class="card">
                 <div class="card-head">
-                    <div class="badge" aria-hidden="true">
+                    <div class="badge badge--blue" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M8 14a5 5 0 1 1 8 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                            <circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="1.5" />
-                            <path d="M19 7v4M21 9h-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                            <path d="M6 7h12M6 12h12M6 17h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
                         </svg>
                     </div>
                     <h3 class="card-title">
-                        <asp:Literal ID="litArtTitle" runat="server" /></h3>
+                        <asp:Literal ID="litSubTitle" runat="server" /></h3>
                 </div>
                 <p class="card-text">
-                    <asp:Literal ID="litArtText" runat="server" /></p>
+                    <asp:Literal ID="litSubText" runat="server" />
+                </p>
                 <div class="chips">
                     <span class="chip">
-                        <asp:Literal ID="litArtChip1" runat="server" /></span>
+                        <asp:Literal ID="litSubChip1" runat="server" /></span>
                     <span class="chip">
-                        <asp:Literal ID="litArtChip2" runat="server" /></span>
+                        <asp:Literal ID="litSubChip2" runat="server" /></span>
                 </div>
                 <div class="cta">
                     <span>
-                        <asp:Literal ID="litArtCta" runat="server" /></span>
+                        <asp:Literal ID="litSubCta" runat="server" /></span>
                     <svg viewBox="0 0 24 24" fill="none">
                         <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
             </div>
         </asp:HyperLink>
+        <asp:HyperLink ID="lnkSubPendientes" runat="server" NavigateUrl="~/SubastasPendientes.aspx" CssClass="card-link">
+            <div class="card">
+                <div class="card-head">
+                    <div class="badge badge--blue" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.5" />
+                            <path d="M12 8v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title">
+                        <asp:Literal ID="litPendTitle" runat="server" /></h3>
+                </div>
+                <p class="card-text">
+                    <asp:Literal ID="litPendText" runat="server" />
+                </p>
+                <div class="chips">
+                    <span class="chip">
+                        <asp:Literal ID="litPendChip1" runat="server" /></span>
+                    <span class="chip">
+                        <asp:Literal ID="litPendChip2" runat="server" /></span>
+                </div>
+                <div class="cta">
+                    <span>
+                        <asp:Literal ID="litPendCta" runat="server" /></span>
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+        </asp:HyperLink>
+
 
         <asp:HyperLink ID="lnkList" runat="server" NavigateUrl="~/VerArtistas.aspx" CssClass="card-link">
             <div class="card">
@@ -234,7 +264,8 @@
                         <asp:Literal ID="litListTitle" runat="server" /></h3>
                 </div>
                 <p class="card-text">
-                    <asp:Literal ID="litListText" runat="server" /></p>
+                    <asp:Literal ID="litListText" runat="server" />
+                </p>
                 <div class="chips">
                     <span class="chip">
                         <asp:Literal ID="litListChip1" runat="server" /></span>
@@ -244,6 +275,69 @@
                 <div class="cta">
                     <span>
                         <asp:Literal ID="litListCta" runat="server" /></span>
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+        </asp:HyperLink>
+
+        <asp:HyperLink ID="lnkArtistas" runat="server" NavigateUrl="~/CargarArtistas.aspx" CssClass="card-link">
+            <div class="card">
+                <div class="card-head">
+                    <div class="badge" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M8 14a5 5 0 1 1 8 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                            <circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="1.5" />
+                            <path d="M19 7v4M21 9h-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title">
+                        <asp:Literal ID="litArtTitle" runat="server" /></h3>
+                </div>
+                <p class="card-text">
+                    <asp:Literal ID="litArtText" runat="server" />
+                </p>
+                <div class="chips">
+                    <span class="chip">
+                        <asp:Literal ID="litArtChip1" runat="server" /></span>
+                    <span class="chip">
+                        <asp:Literal ID="litArtChip2" runat="server" /></span>
+                </div>
+                <div class="cta">
+                    <span>
+                        <asp:Literal ID="litArtCta" runat="server" /></span>
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+        </asp:HyperLink>
+
+        <asp:HyperLink ID="lnkVerObras" runat="server" NavigateUrl="~/VerObras.aspx" CssClass="card-link">
+            <div class="card">
+                <div class="card-head">
+                    <div class="badge badge--blue" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5" />
+                            <path d="M7 14l3-3 3 3 3-2 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title">
+                        <asp:Literal ID="litViewObrTitle" runat="server" /></h3>
+                </div>
+                <p class="card-text">
+                    <asp:Literal ID="litViewObrText" runat="server" />
+                </p>
+                <div class="chips">
+                    <span class="chip">
+                        <asp:Literal ID="litViewObrChip1" runat="server" /></span>
+                    <span class="chip">
+                        <asp:Literal ID="litViewObrChip2" runat="server" /></span>
+                </div>
+                <div class="cta">
+                    <span>
+                        <asp:Literal ID="litViewObrCta" runat="server" /></span>
                     <svg viewBox="0 0 24 24" fill="none">
                         <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
@@ -265,7 +359,8 @@
                         <asp:Literal ID="litObrTitle" runat="server" /></h3>
                 </div>
                 <p class="card-text">
-                    <asp:Literal ID="litObrText" runat="server" /></p>
+                    <asp:Literal ID="litObrText" runat="server" />
+                </p>
                 <div class="chips">
                     <span class="chip">
                         <asp:Literal ID="litObrChip1" runat="server" /></span>
@@ -281,37 +376,6 @@
                 </div>
             </div>
         </asp:HyperLink>
-
-        <asp:HyperLink ID="lnkVerObras" runat="server" NavigateUrl="~/VerObras.aspx" CssClass="card-link">
-            <div class="card">
-                <div class="card-head">
-                    <div class="badge badge--blue" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5" />
-                            <path d="M7 14l3-3 3 3 3-2 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <h3 class="card-title">
-                        <asp:Literal ID="litViewObrTitle" runat="server" /></h3>
-                </div>
-                <p class="card-text">
-                    <asp:Literal ID="litViewObrText" runat="server" /></p>
-                <div class="chips">
-                    <span class="chip">
-                        <asp:Literal ID="litViewObrChip1" runat="server" /></span>
-                    <span class="chip">
-                        <asp:Literal ID="litViewObrChip2" runat="server" /></span>
-                </div>
-                <div class="cta">
-                    <span>
-                        <asp:Literal ID="litViewObrCta" runat="server" /></span>
-                    <svg viewBox="0 0 24 24" fill="none">
-                        <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </div>
-            </div>
-        </asp:HyperLink>
-
         <asp:HyperLink ID="lnkStats" runat="server" NavigateUrl="~/EstadisticasCurador.aspx" CssClass="card-link">
             <div class="card">
                 <div class="card-head">
@@ -327,7 +391,8 @@
                         <asp:Literal ID="litStaTitle" runat="server" /></h3>
                 </div>
                 <p class="card-text">
-                    <asp:Literal ID="litStaText" runat="server" /></p>
+                    <asp:Literal ID="litStaText" runat="server" />
+                </p>
                 <div class="chips">
                     <span class="chip">
                         <asp:Literal ID="litStaChip1" runat="server" /></span>
@@ -343,5 +408,6 @@
                 </div>
             </div>
         </asp:HyperLink>
+
     </div>
 </asp:Content>

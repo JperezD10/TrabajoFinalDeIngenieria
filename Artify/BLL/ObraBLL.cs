@@ -22,5 +22,10 @@ namespace BLL
                 return Response<Obra>.Error("Error al agregar obra: " + ex.Message);
             }
         }
+
+        public IEnumerable<Obra> ListarObrasParacurador()
+        {
+            return _obraDal.ListarObrasParacurador();
+        }
     }
 }

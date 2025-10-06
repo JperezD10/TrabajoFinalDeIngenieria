@@ -1,6 +1,7 @@
 ﻿using BE;
 using BE.Observer;
 using BLL;
+using SEGURIDAD;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -18,6 +19,7 @@ namespace Artify
         {
             base.OnInit(e);
             // Prefijo de traducción: "art."
+            SecurityManager.CheckAccess(this);
             RegisterLocalizablesById(this, "art");
         }
 
@@ -29,7 +31,7 @@ namespace Artify
                 rngFechaMax.CultureInvariantValues = true; // usa yyyy-MM-dd
                 cmpFecha.CultureInvariantValues = true;
                 rngFechaMax.MaximumValue = DateTime.Today.ToString("yyyy-MM-dd");
-                rngFechaMax.MinimumValue = "1850-01-01";
+                rngFechaMax.MinimumValue = "1800-01-01";
                 ApplyNonObserverTexts();
             }
         }
@@ -53,10 +55,20 @@ namespace Artify
             DateTime? fecha = null;
             if (!string.IsNullOrWhiteSpace(txtFechaNacimiento.Text))
             {
-                if (DateTime.TryParse(txtFechaNacimiento.Text, CultureInfo.InvariantCulture,
-                                      DateTimeStyles.AssumeLocal, out var dt))
+                var raw = txtFechaNacimiento.Text.Trim();
+                DateTime dt;
+
+                if (DateTime.TryParseExact(raw, "yyyy-MM-dd", CultureInfo.InvariantCulture,
+                    DateTimeStyles.None, out dt)
+                    || DateTime.TryParseExact(raw, "dd/MM/yyyy", new CultureInfo("es-AR"),
+                        DateTimeStyles.None, out dt))
                 {
                     fecha = dt.Date;
+                }
+                else
+                {
+                    cmpFecha.IsValid = false;
+                    return;
                 }
             }
 

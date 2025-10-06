@@ -28,7 +28,13 @@ namespace SEGURIDAD
                 }},
                 { RolUsuario.Curador, new List<string> {
                     "~/HomeCurador.aspx",
-                    "~/ObrasCurador.aspx"
+                    "~/ObrasCurador.aspx",
+                    "~/CargarObras.aspx",
+                    "~/VerObras.aspx",
+                    "~/CargarArtistas.aspx",
+                    "~/VerArtistas.aspx",
+                    "~/CrearSubasta.aspx",
+                    "~/SubastasPendientes.aspx"
                 }}
             };
 

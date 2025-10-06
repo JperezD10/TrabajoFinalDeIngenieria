@@ -160,7 +160,8 @@
                 <h1>
                     <asp:Literal ID="litHeroTitle" runat="server" /></h1>
                 <p>
-                    <asp:Literal ID="litHeroText" runat="server" /></p>
+                    <asp:Literal ID="litHeroText" runat="server" />
+                </p>
             </div>
             <asp:HyperLink ID="lnkVolver" runat="server"
                 NavigateUrl="~/HomeCurador.aspx" CssClass="btn btn-plain">
@@ -199,14 +200,18 @@
             <div class="form-group">
                 <label for="txtFechaNacimiento">
                     <asp:Literal ID="litLblFechaNac" runat="server" /></label>
+
                 <asp:TextBox ID="txtFechaNacimiento" runat="server" TextMode="Date" />
+
                 <asp:CompareValidator ID="cmpFecha" runat="server"
                     ControlToValidate="txtFechaNacimiento" Operator="DataTypeCheck" Type="Date"
                     ErrorMessage="Formato de fecha inválido."
                     CssClass="val-msg" Display="Dynamic" ValidationGroup="art" />
+
                 <asp:RangeValidator ID="rngFechaMax" runat="server"
                     ControlToValidate="txtFechaNacimiento" Type="Date"
-                    MinimumValue="1400-01-01" MaximumValue="2100-01-01"
+                    MinimumValue="1400-01-01"
+                    MaximumValue="2100-01-01"
                     ErrorMessage="La fecha no puede ser futura."
                     CssClass="val-msg" Display="Dynamic" ValidationGroup="art" />
             </div>
