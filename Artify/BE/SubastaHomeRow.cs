@@ -17,5 +17,6 @@ namespace BE
         public int Anio { get; set; }
         public string Tecnica { get; set; }
         public string UrlImagen { get; set; }
+        public bool EsOriginal { get; set; }
     }
 }

@@ -159,6 +159,7 @@ namespace BLL
                     FechaFin = (DateTime)r.FechaFin,
                     EstadoCodigo = estado,
                     PuedePujar = (estado == "running") && susActiva,
+                    EsOriginal = r.EsOriginal
                 };
             })
             .OrderByDescending(x => x.EstadoCodigo == "running")

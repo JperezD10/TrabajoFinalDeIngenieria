@@ -192,6 +192,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="SubastasPendientes.aspx" />
+    <Content Include="SuscripcionComprar.aspx" />
     <Content Include="UsuariosBloqueados.aspx" />
     <Content Include="VerArtistas.aspx" />
     <Content Include="VerObras.aspx" />
@@ -329,6 +330,13 @@
     </Compile>
     <Compile Include="SubastasPendientes.aspx.designer.cs">
       <DependentUpon>SubastasPendientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SuscripcionComprar.aspx.cs">
+      <DependentUpon>SuscripcionComprar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SuscripcionComprar.aspx.designer.cs">
+      <DependentUpon>SuscripcionComprar.aspx</DependentUpon>
     </Compile>
     <Compile Include="UsuariosBloqueados.aspx.cs">
       <DependentUpon>UsuariosBloqueados.aspx</DependentUpon>

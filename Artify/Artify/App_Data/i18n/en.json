@@ -200,6 +200,8 @@
 	"homecli.delta.d": "d",
 	"homecli.delta.h": "h",
 	"homecli.delta.m": "m",
+	"homecli.lnkSubscribe": "Subscribe to bid",
+	"homecli.reason.generic": "Requires active subscription",
 
 	"accden.litTitle": "Access denied",
 	"accden.litSubtitle": "You do not have permission to view this page.",
@@ -419,6 +421,14 @@
 	"err.oferta.anular.update": "Failed to cancel the bid.",
 	"err.oferta.anular.ex": "Error while canceling the bid.",
 
+	"err.suscripcion.inactiva": "You don't have an active subscription.",
+	"err.suscripcion.noexiste": "The user has no registered subscriptions.",
+	"err.suscripcion.obtener": "The subscription could not be retrieved.",
+	"err.suscripcion.crear": "An error occurred while creating the subscription.",
+	"err.suscripcion.solapada": "There is already an active subscription during that period.",
+	"ok.suscripcion.creada": "Subscription successfully created. Valid until {0:MM/dd/yyyy}.",
+	"err.suscripcion.validar": "The subscription status could not be verified.",
+
 	"subasta.crear.title": "Create Auction",
 	"subasta.crear.obra": "Artwork",
 	"subasta.crear.precioInicial": "Starting price",
@@ -451,5 +461,16 @@
 	"subpend.col.scheduled": "Scheduled",
 	"subpend.col.actions": "Actions",
 	"subpend.btn.start": "Start",
-	"subpend.litBack": "Back to dashboard"
+	"subpend.litBack": "Back to dashboard",
+
+	"sus.title": "Activate subscription",
+	"sus.desc": "Choose the plan to bid in auctions.",
+	"sus.plan.year": "Annual plan",
+	"sus.badge": "Bidding access",
+	"sus.btnYearlyConfirm": "Activate annual (US$ 50)",
+	"sus.btnYearlyExtend": "Extend 1 year (US$ 50)",
+	"sus.detail.extend": "Currently active until {0}. It will be extended until {1}.",
+	"sus.detail.activate": "Annual activation. Valid until {0}.",
+	"sus.info.renewHint": "Your subscription is active; confirming will extend it from the current expiration.",
+	"homecli.badge.original": "★ Original"
 }

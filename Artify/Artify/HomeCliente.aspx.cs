@@ -15,6 +15,11 @@ namespace Artify
     public partial class HomeCliente : BasePage
     {
         private readonly SubastaBLL _subastaBll = new SubastaBLL();
+        private readonly SuscripcionBLL _suscripcionBll = new SuscripcionBLL();
+
+        private Response<Suscripcion> _susActivaResp;
+        private bool _tieneSuscripcion;
+        private string _returnUrl;
 
         protected override void OnInit(EventArgs e)
         {
@@ -25,7 +30,6 @@ namespace Artify
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // === INTEGRIDAD HORIZONTAL ===
             var integridad = new IntegridadHorizontalBLL();
             var resp = integridad.VerificarTodo();
             if (!resp.Exito) return;
@@ -34,7 +38,6 @@ namespace Artify
                 !string.IsNullOrEmpty(r.Error) ||
                 (r.IdsCorruptos != null && r.IdsCorruptos.Count > 0));
 
-            // === INTEGRIDAD VERTICAL ===
             var integridadV = new IntegridadVerticalBLL();
             var dvvCorruptas = integridadV.ObtenerVerticalesCorruptos();
             if (dvvCorruptas != null && dvvCorruptas.Count > 0) hayCorrupcion = true;
@@ -50,6 +53,17 @@ namespace Artify
 
             var usuario = Session["Usuario"] as Usuario;
             var ahora = DateTime.Now;
+
+            _susActivaResp = _suscripcionBll.ObtenerActiva(usuario?.Id ?? 0);
+            _tieneSuscripcion = _susActivaResp.Exito && _susActivaResp.Data != null;
+            _returnUrl = Server.UrlEncode(Request.RawUrl);
+
+            if (_tieneSuscripcion)
+            {
+                var dias = (_susActivaResp.Data.FechaFin.Date - ahora.Date).TotalDays;
+                if (dias >= 0 && dias <= 5)
+                    litHint.Text = T("homecli.sus.hintExpira");
+            }
 
             var vms = _subastaBll.GetParaHome(usuario?.Id ?? 0, ahora);
 
@@ -83,6 +97,7 @@ namespace Artify
 
             var lnkVer = (System.Web.UI.WebControls.HyperLink)e.Item.FindControl("lnkVer");
             var lnkPujar = (System.Web.UI.WebControls.HyperLink)e.Item.FindControl("lnkPujar");
+            var lnkSuscribir = (System.Web.UI.WebControls.HyperLink)e.Item.FindControl("lnkSuscribir"); 
             var btnDisabled = (System.Web.UI.WebControls.Button)e.Item.FindControl("btnDisabled");
             var litEstado = (System.Web.UI.WebControls.Literal)e.Item.FindControl("litEstado");
             var litTiempo = (System.Web.UI.WebControls.Literal)e.Item.FindControl("litTiempo");
@@ -90,7 +105,7 @@ namespace Artify
             lnkVer.NavigateUrl = $"SubastaDetalle.aspx?id={vm.Id}";
             lnkVer.Text = T("homecli.btn.view");
 
-            litEstado.Text = T("homecli.badge." + vm.EstadoCodigo); // running/scheduled/finished
+            litEstado.Text = T("homecli.badge." + vm.EstadoCodigo); 
 
             if (vm.EstadoCodigo == "running")
                 litTiempo.Text = T("homecli.info.endsIn", BuildDelta(vm.FechaFin - DateTime.Now));
@@ -99,22 +114,37 @@ namespace Artify
             else
                 litTiempo.Text = T("homecli.info.endedAt", vm.FechaFin.ToString("dd/MM/yyyy HH:mm"));
 
-            if (vm.PuedePujar)
+            lnkPujar.Visible = false;
+            lnkSuscribir.Visible = false;
+            btnDisabled.Visible = false;
+
+            bool estadoPermitePuja =
+                vm.EstadoCodigo == "running" &&
+                DateTime.Now >= vm.FechaInicio &&
+                DateTime.Now <= vm.FechaFin;
+
+            if (!estadoPermitePuja)
             {
-                lnkPujar.NavigateUrl = $"SubastaDetalle.aspx?id={vm.Id}";
-                lnkPujar.Text = T("homecli.btn.bid");
-                lnkPujar.Visible = true;
-                btnDisabled.Visible = false;
-            }
-            else
-            {
-                lnkPujar.Visible = false;
                 btnDisabled.Visible = true;
                 var motivoKey =
                     vm.EstadoCodigo == "scheduled" ? "homecli.reason.not_started" :
                     vm.EstadoCodigo == "finished" ? "homecli.reason.finished" :
-                                                     "homecli.reason.requires_sub";
+                                                     "homecli.reason.generic";
                 btnDisabled.Text = T(motivoKey);
+                return;
+            }
+
+            if (_tieneSuscripcion)
+            {
+                lnkPujar.Visible = true;
+                lnkPujar.NavigateUrl = $"SubastaDetalle.aspx?id={vm.Id}";
+                lnkPujar.Text = T("homecli.btn.bid");
+            }
+            else
+            {
+                lnkSuscribir.Visible = true;
+                lnkSuscribir.Text = T("homecli.lnkSubscribe");
+                lnkSuscribir.NavigateUrl = $"~/SuscripcionComprar.aspx?returnUrl={_returnUrl}";
             }
         }
     }

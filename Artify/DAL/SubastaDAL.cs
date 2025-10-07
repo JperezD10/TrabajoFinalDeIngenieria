@@ -265,7 +265,7 @@ SELECT s.Id,
          WHEN s.FechaProgramadaInicio IS NOT NULL THEN DATEADD(MINUTE, s.DuracionMinutos, s.FechaProgramadaInicio)
          ELSE NULL
        END AS FechaFinEfectiva,
-       o.Titulo AS TituloObra, o.Anio, o.Tecnica, o.UrlImagen,
+       o.Titulo AS TituloObra, o.Anio, o.Tecnica, o.UrlImagen, o.EsOriginal, 
        a.Nombre AS ArtistaNombre
 FROM Subasta s
 JOIN Obra o    ON o.Id = s.IdObra
@@ -305,7 +305,8 @@ ORDER BY
                     ArtistaNombre = row["ArtistaNombre"]?.ToString(),
                     Anio = Convert.ToInt32(row["Anio"]),
                     Tecnica = row["Tecnica"]?.ToString(),
-                    UrlImagen = row["UrlImagen"]?.ToString()
+                    UrlImagen = row["UrlImagen"]?.ToString(), 
+                    EsOriginal = Convert.ToBoolean(row["EsOriginal"])
                 });
             }
 

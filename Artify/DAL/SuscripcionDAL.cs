@@ -41,6 +41,54 @@ WHERE IdUsuario = @IdUsuario
             return table.Rows.Count > 0;
         }
 
+        public Suscripcion ObtenerActiva(int idUsuario, DateTime ahora)
+        {
+            if (idUsuario <= 0) return null;
+
+            const string sql = @"
+SELECT TOP 1 *
+FROM Suscripcion
+WHERE IdUsuario = @IdUsuario
+  AND Activo = 1
+  AND @Ahora BETWEEN FechaInicio AND FechaFin
+ORDER BY FechaFin DESC;";
+
+            var pars = new[]
+            {
+        new SqlParameter("@IdUsuario", idUsuario),
+        new SqlParameter("@Ahora", ahora)
+    };
+
+            var tabla = Acceso.Leer(sql, pars, CommandType.Text);
+            if (tabla.Rows.Count == 0) return null;
+
+            return MapperHelper.MapSuscripcion(tabla.Rows[0]);
+        }
+        public Suscripcion ObtenerUltima(int idUsuario)
+        {
+            const string sql = @"
+SELECT TOP 1 * FROM Suscripcion
+WHERE IdUsuario = @IdUsuario AND Activo = 1
+ORDER BY FechaFin DESC;";
+            var t = Acceso.Leer(sql, new[] { new SqlParameter("@IdUsuario", idUsuario) }, CommandType.Text);
+            return t.Rows.Count == 0 ? null : MapperHelper.MapSuscripcion(t.Rows[0]);
+        }
+        public bool ExisteSolapada(int idUsuario, DateTime ini, DateTime fin)
+        {
+            const string sql = @"
+SELECT TOP 1 1
+FROM Suscripcion
+WHERE IdUsuario=@IdUsuario AND Activo=1
+  AND NOT (@Fin <= FechaInicio OR @Ini >= FechaFin);";
+            var t = Acceso.Leer(sql, new[]
+            {
+        new SqlParameter("@IdUsuario", idUsuario),
+        new SqlParameter("@Ini", ini),
+        new SqlParameter("@Fin", fin)
+    }, CommandType.Text);
+            return t.Rows.Count > 0;
+        }
+
         public int Crear(Suscripcion s)
         {
             s.FechaInicio = s.FechaInicio == default ? DateTime.Now : s.FechaInicio;
@@ -66,7 +114,7 @@ SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
             s.DVH = s.CalcularDVH();
 
-            const string sqlUpdDvh = "UPDATE Suscripcion SET DVH = @DVH WHERE IdSuscripcion = @Id;";
+            const string sqlUpdDvh = "UPDATE Suscripcion SET DVH = @DVH WHERE Id = @Id;";
             Acceso.Escribir(sqlUpdDvh, new[]
             {
                 new SqlParameter("@DVH", s.DVH),

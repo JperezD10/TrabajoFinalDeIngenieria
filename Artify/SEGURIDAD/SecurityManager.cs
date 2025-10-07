@@ -24,7 +24,8 @@ namespace SEGURIDAD
                 { RolUsuario.Cliente, new List<string> {
                     "~/HomeCliente.aspx",
                     "~/Mantenimiento.aspx",
-                    "~/ObrasCliente.aspx"
+                    "~/ObrasCliente.aspx",
+                    "~/SuscripcionComprar.aspx"
                 }},
                 { RolUsuario.Curador, new List<string> {
                     "~/HomeCurador.aspx",

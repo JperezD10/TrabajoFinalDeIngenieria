@@ -17,6 +17,7 @@ namespace BE
         public string EstadoCodigo { get; set; }
         public bool HuboPujas => PrecioActual > PrecioInicial;
         public bool PuedePujar { get; set; }
+        public bool EsOriginal { get; set; }
     }
 
 }

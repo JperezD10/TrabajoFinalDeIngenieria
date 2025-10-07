@@ -201,6 +201,8 @@
 	"homecli.delta.d": "d",
 	"homecli.delta.h": "h",
 	"homecli.delta.m": "m",
+	"homecli.lnkSubscribe": "Suscribirse para pujar",
+	"homecli.reason.generic": "Requiere suscripción activa",
 
 	"accden.litTitle": "Acceso denegado",
 	"accden.litSubtitle": "No tienes permiso para ver esta página.",
@@ -420,6 +422,14 @@
 	"err.oferta.anular.update": "No se pudo anular la oferta.",
 	"err.oferta.anular.ex": "Error al anular la oferta.",
 
+	"err.suscripcion.inactiva": "No tenés una suscripción activa.",
+	"err.suscripcion.noexiste": "El usuario no posee suscripciones registradas.",
+	"err.suscripcion.obtener": "No se pudo obtener la suscripción.",
+	"err.suscripcion.crear": "Error al crear la suscripción.",
+	"err.suscripcion.solapada": "Ya existe una suscripción activa en ese período.",
+	"ok.suscripcion.creada": "Suscripción creada exitosamente. Válida hasta {0:dd/MM/yyyy}.",
+	"err.suscripcion.validar": "No se pudo validar el estado de suscripción.",
+
 	"subasta.crear.title": "Crear subasta",
 	"subasta.crear.obra": "Obra",
 	"subasta.crear.precioInicial": "Precio inicial",
@@ -452,5 +462,23 @@
 	"subpend.col.scheduled": "Programada",
 	"subpend.col.actions": "Acciones",
 	"subpend.btn.start": "Empezar",
-	"subpend.litBack": "Volver al panel"
+	"subpend.litBack": "Volver al panel",
+
+	"sus.title": "Activar suscripción",
+	"sus.desc": "Elegí el plan para poder pujar en subastas.",
+	"sus.plan.year": "Plan anual",
+	"sus.badge": "Acceso a pujas",
+	"sus.btnYearlyConfirm": "Activar anual (US$ 50)",
+	"sus.btnYearlyExtend": "Extender 1 año (US$ 50)",
+	"sus.detail.extend": "Actualmente activa hasta {0}. Se extenderá hasta {1}.",
+	"sus.detail.activate": "Activación anual. Válida hasta {0}.",
+	"sus.info.renewHint": "Tu suscripción está activa; al confirmar, se extiende desde el vencimiento actual.",
+
+	"suscompra.litTitle": "Activar suscripción",
+	"suscompra.litDesc": "Elegí el plan para poder participar en las subastas de Artify.",
+	"suscompra.litPlanName": "Plan anual",
+	"suscompra.litBadge": "Acceso a pujas",
+	"suscompra.litDetail": "Activación anual. Válida por 12 meses a partir de hoy.",
+	"suscompra.btnConfirm": "Activar anual (US$ 50)",
+	"homecli.badge.original": "★ Original"
 }
