@@ -10,6 +10,8 @@ namespace BLL
     {
         private readonly OfertaDAL _dal;
         private readonly SubastaDAL _subastas;
+        private readonly SuscripcionDAL _suscripcionDal = new SuscripcionDAL();
+        private readonly OfertaDAL _ofertaDal = new OfertaDAL();
 
         public OfertaBLL()
         {
@@ -32,24 +34,39 @@ namespace BLL
                 if (o.IdCliente <= 0) return Response<int>.Error("err.oferta.cliente.requerido");
                 if (o.Monto <= 0) return Response<int>.Error("err.oferta.monto.min");
 
-                var rSub = _subastas.ObtenerPorId(o.IdSubasta);
-                if (rSub == null) return Response<int>.Error("err.oferta.subasta.noexiste", o.IdSubasta);
+                var sub = _subastas.ObtenerPorId(o.IdSubasta);
+                if (sub == null) return Response<int>.Error("err.oferta.subasta.noexiste", o.IdSubasta);
 
-                var subasta = rSub;
-                if (subasta.Estado != EstadoSubasta.EnCurso)
-                    return Response<int>.Error("err.oferta.subasta.noencurso", subasta.Estado.ToString());
+                var ahora = DateTime.Now;
+                var fechaFin = sub.FechaFin ?? (sub.FechaInicio?.AddMinutes(sub.DuracionMinutos) ?? ahora);
+                if (!sub.Activo || sub.Estado != EstadoSubasta.EnCurso)
+                    return Response<int>.Error("err.oferta.subasta.noencurso", sub.Estado.ToString());
+                if (ahora >= fechaFin) return Response<int>.Error("err.oferta.subasta.finalizada");
 
-                var minimo = subasta.PrecioActual + subasta.IncrementoMinimo;
-                if (o.Monto < minimo)
-                    return Response<int>.Error("err.oferta.monto.insuficiente", minimo);
+                // Suscripción activa
+                if (!_suscripcionDal.TieneActiva(o.IdCliente, ahora))
+                    return Response<int>.Error("err.oferta.suscripcion.inactiva");
 
+                // Reglas de monto (primera vs siguientes)
+                var cantOfertas = _ofertaDal.ContarPorSubasta(o.IdSubasta);
+                if (cantOfertas == 0)
+                {
+                    if (o.Monto < sub.PrecioInicial) return Response<int>.Error("err.oferta.monto.base", sub.PrecioInicial);
+                }
+                else
+                {
+                    var precioActual = sub.PrecioActual;
+                    var minimo = precioActual + sub.IncrementoMinimo;
+                    if (o.Monto < minimo) return Response<int>.Error("err.oferta.monto.insuficiente", minimo);
+                }
 
-                var id = _dal.Crear(o);
+                o.Fecha = ahora; 
+                var id = _ofertaDal.Crear(o); 
                 if (id <= 0) return Response<int>.Error("err.oferta.crear.reglasql");
 
                 return Response<int>.Success(id, "ok.oferta.creada", id);
             }
-            catch (Exception)
+            catch
             {
                 return Response<int>.Error("err.oferta.crear.ex");
             }

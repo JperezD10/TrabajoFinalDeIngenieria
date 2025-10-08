@@ -10,7 +10,41 @@ namespace BLL
     {
         private readonly SubastaDAL _subastaDal = new SubastaDAL();
         private readonly SuscripcionDAL _suscripcionDal = new SuscripcionDAL();
+        private readonly ObraDAL _obraDal = new ObraDAL();
+        private readonly ArtistaDAL _artistaDal = new ArtistaDAL();
+        private readonly OfertaDAL _ofertaDal = new OfertaDAL();
 
+        public SubastaDetalleVM GetDetalleVM(int idSubasta)
+        {
+            var r = ObtenerPorId(idSubasta);
+            if (!r.Exito || r.Data == null) return null;
+            var s = r.Data;
+
+            var obra = _obraDal.ObtenerPorId(s.IdObra);
+            var artista = _artistaDal.ObtenerPorId(obra.ArtistaId);
+            var cantOfertas = _ofertaDal.ContarPorSubasta(idSubasta);
+
+            var ahora = DateTime.Now;
+            var fechaFin = s.FechaFin ?? (s.FechaInicio?.AddMinutes(s.DuracionMinutos) ?? ahora);
+            var estaAbierta = s.Estado == EstadoSubasta.EnCurso && ahora < fechaFin;
+
+            return new SubastaDetalleVM
+            {
+                Id = s.Id,
+                Titulo = obra.Titulo,
+                ArtistaNombre = artista.Nombre,
+                Anio = obra.Anio,
+                Tecnica = obra.Tecnica,
+                UrlImagen = obra.UrlImagen,
+                Moneda = "USD",
+                PrecioBase = s.PrecioInicial,
+                PrecioActual = s.PrecioActual,
+                IncrementoMin = s.IncrementoMinimo,
+                CantidadOfertas = cantOfertas,
+                CierraEl = fechaFin,
+                EstaAbierta = estaAbierta
+            };
+        }
         public Response<int> Crear(Subasta s)
         {
             try

@@ -73,9 +73,8 @@ SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
         public void FinalizarSubastasVencidas(DateTime ahora)
         {
-            // Estados según tu enum
-            const byte EN_CURSO = 2;
-            const byte FINALIZADA = 3;
+            const byte EN_CURSO = (byte)EstadoSubasta.EnCurso;   
+            const byte FINALIZADA = (byte)EstadoSubasta.Finalizada; 
 
             const string sql = @"
 DECLARE @Ahora DATETIME = @pAhora, @EnCurso TINYINT = @pEnCurso, @Finalizada TINYINT = @pFinalizada;
@@ -312,6 +311,8 @@ ORDER BY
 
             return list;
         }
+
+
 
         public IEnumerable<Subasta> ListarEnCurso()
         {

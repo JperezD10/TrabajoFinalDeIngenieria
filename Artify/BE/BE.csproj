@@ -59,6 +59,7 @@
     <Compile Include="Response.cs" />
     <Compile Include="RestoreAnalysisResult.cs" />
     <Compile Include="Subasta.cs" />
+    <Compile Include="SubastaDetalleVM.cs" />
     <Compile Include="SubastaHomeRow.cs" />
     <Compile Include="SubastaHomeVM.cs" />
     <Compile Include="SubastaRow.cs" />

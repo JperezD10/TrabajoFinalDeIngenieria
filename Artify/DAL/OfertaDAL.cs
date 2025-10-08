@@ -8,71 +8,83 @@ namespace DAL
 {
     public class OfertaDAL : BaseDvvDAL
     {
+        SubastaDAL subastaDal = new SubastaDAL();
         public override string TableName => $"Oferta";
 
         public int Crear(Oferta o)
         {
-            o.Fecha = DateTime.Now;   // usa tu normalizador si aplica
+            // normalizo mínimos y seteo por defecto
             o.Activo = true;
+            if (o.Fecha == default) o.Fecha = DateTime.Now;
 
-            const string sql = @"
-DECLARE @IdOferta INT = 0;
+            // 1) Actualizar PrecioActual de la Subasta
+            const string updSubastaSql = @"
+            UPDATE Subasta
+               SET PrecioActual = @Monto
+             WHERE Id = @IdSubasta AND Activo = 1;";
 
-BEGIN TRAN;
+            Acceso.Escribir(
+                updSubastaSql,
+                new[]
+                {
+                new SqlParameter("@Monto", o.Monto),
+                new SqlParameter("@IdSubasta", o.IdSubasta)
+                },
+                CommandType.Text
+            );
 
-IF EXISTS (
-    SELECT 1
-    FROM Subasta s
-    WHERE s.Id = @IdSubasta
-      AND s.Estado = @EnCurso
-      AND @Monto >= s.PrecioActual + s.IncrementoMinimo
-)
-BEGIN
-    INSERT INTO Oferta (Activo, IdSubasta, IdCliente, Monto, Fecha, DVH)
-    VALUES (1, @IdSubasta, @IdCliente, @Monto, @Fecha, 0);
+            var subasta = subastaDal.ObtenerPorId(o.IdSubasta);
+            subasta.DVH = subasta.CalcularDVH();
+            const string updSubastaDvhSql = @"UPDATE Subasta SET DVH = @DVH WHERE Id = @Id;";
+            Acceso.Escribir(
+                updSubastaDvhSql,
+                new[]
+                {
+                new SqlParameter("@DVH", subasta.DVH),
+                new SqlParameter("@Id",  subasta.Id)
+                },
+                CommandType.Text
+            );
 
-    SET @IdOferta = CAST(SCOPE_IDENTITY() AS INT);
+            const string insOfertaSql = @"
+            INSERT INTO Oferta (Activo, IdSubasta, IdCliente, Monto, Fecha, DVH)
+            VALUES (@Activo, @IdSubasta, @IdCliente, @Monto, @Fecha, 0);
+            SELECT CAST(SCOPE_IDENTITY() AS INT) AS NewId;";
 
-    -- actualizar precio actual de subasta con este monto
-    UPDATE Subasta SET PrecioActual = @Monto WHERE Id = @IdSubasta;
-END
+            var t = Acceso.Leer(
+                insOfertaSql,
+                new[]
+                {
+                new SqlParameter("@Activo",  o.Activo),
+                new SqlParameter("@IdSubasta", o.IdSubasta),
+                new SqlParameter("@IdCliente", o.IdCliente),
+                new SqlParameter("@Monto",   o.Monto),
+                new SqlParameter("@Fecha",   o.Fecha)
+                },
+                CommandType.Text
+            );
 
-IF @IdOferta > 0
-    COMMIT;
-ELSE
-    ROLLBACK;
+            var newId = Convert.ToInt32(t.Rows[0]["NewId"]);
+            o.Id = newId;
 
-SELECT @IdOferta AS NewId;";
+            // 3) Calcular DVH de la fila y actualizar
+            var dvh = o.CalcularDVH();
+            const string updDvhSql = @"UPDATE Oferta SET DVH = @DVH WHERE Id = @Id;";
+            Acceso.Escribir(
+                updDvhSql,
+                new[]
+                {
+                new SqlParameter("@DVH", dvh),
+                new SqlParameter("@Id",  newId)
+                },
+                CommandType.Text
+            );
 
-            var pars = new[]
-            {
-            new SqlParameter("@IdSubasta", o.IdSubasta),
-            new SqlParameter("@IdCliente", o.IdCliente),
-            new SqlParameter("@Monto", o.Monto),
-            new SqlParameter("@Fecha", o.Fecha),
-            new SqlParameter("@EnCurso", (byte)EstadoSubasta.EnCurso)
-        };
+            // 4) Recalcular DVV de la tabla Oferta
+            ActualizarDVV();
+            ActualizarDVV_Subasta();
 
-            var t = Acceso.Leer(sql, pars, CommandType.Text);
-            int id = Convert.ToInt32(t.Rows[0]["NewId"]);
-            if (id <= 0) return 0; // no cumplió reglas
-
-            o.Id = id;
-            o.DVH = o.CalcularDVH();
-
-            const string updDvhOferta = "UPDATE Oferta SET DVH = @DVH WHERE Id = @Id;";
-            Acceso.Escribir(updDvhOferta, new[]
-            {
-            new SqlParameter("@DVH", o.DVH),
-            new SqlParameter("@Id", o.Id)
-        }, CommandType.Text);
-
-            RecalcularDvhSubasta(o.IdSubasta);
-
-            ActualizarDVV();                // DVV de Oferta
-            ActualizarDVV_Subasta();        // DVV de Subasta
-
-            return id;
+            return newId;
         }
 
         public IEnumerable<Oferta> ListarPorSubasta(int idSubasta)
@@ -117,37 +129,26 @@ ORDER BY Monto DESC, Fecha ASC, Id ASC;";
             return true;
         }
 
-        private void RecalcularDvhSubasta(int idSubasta)
-        {
-            const string sqlGet = "SELECT * FROM Subasta WHERE Id = @Id;";
-            var t = Acceso.Leer(sqlGet, new[] { new SqlParameter("@Id", idSubasta) }, CommandType.Text);
-            if (t.Rows.Count == 0) return;
-
-            var s = MapSubasta(t.Rows[0]);
-            s.DVH = s.CalcularDVH();
-
-            const string sqlUpd = "UPDATE Subasta SET DVH = @DVH WHERE Id = @Id;";
-            Acceso.Escribir(sqlUpd, new[]
-            {
-            new SqlParameter("@DVH", s.DVH),
-            new SqlParameter("@Id", s.Id)
-        }, CommandType.Text);
-        }
-
         private void ActualizarDVV_Subasta()
         {
-            // Reusar mecanismo estándar de tu BaseDvvDAL pero apuntando a "Subasta"
             Acceso.Escribir("sp_ActualizarDVV", new[]
             {
-            new SqlParameter("@Tabla", "Subasta")
-        }, CommandType.StoredProcedure);
+                new SqlParameter("@Tabla", "Subasta")
+            }, CommandType.StoredProcedure);
+        }
+
+        public int ContarPorSubasta(int idSubasta)
+        {
+            const string sql = "SELECT COUNT(1) FROM Oferta WHERE Activo = 1 AND IdSubasta = @Id;";
+            var t = Acceso.Leer(sql, new[] { new SqlParameter("@Id", idSubasta) }, CommandType.Text);
+            return Convert.ToInt32(t.Rows[0][0]);
         }
 
         private static Oferta Map(DataRow row) => new Oferta
         {
             Id = Convert.ToInt32(row["Id"]),
             Activo = Convert.ToBoolean(row["Activo"]),
-            IdSubasta = Convert.ToInt32(row["IdSubasta"]),
+            IdSubasta = Convert.ToInt32(row["Id"]),
             IdCliente = Convert.ToInt32(row["IdCliente"]),
             Monto = Convert.ToDecimal(row["Monto"]),
             Fecha = Convert.ToDateTime(row["Fecha"]),

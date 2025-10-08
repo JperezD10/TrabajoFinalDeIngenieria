@@ -64,5 +64,13 @@ namespace DAL
 
             return artista;
         }
+
+        public Artista ObtenerPorId(int id)
+        {
+            const string sql = "SELECT * FROM Artista WHERE Id = @Id AND Activo = 1;";
+            var t = Acceso.Leer(sql, new[] { new SqlParameter("@Id", id) }, CommandType.Text);
+            if (t.Rows.Count == 0) return null;
+            return MapperHelper.MapArtista(t.Rows[0]);
+        }
     }
 }
