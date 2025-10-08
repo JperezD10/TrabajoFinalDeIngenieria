@@ -24,6 +24,15 @@ namespace Artify
         protected global::System.Web.UI.WebControls.Literal litPageTitle;
 
         /// <summary>
+        /// Control lnkBack.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkBack;
+
+        /// <summary>
         /// Control hfSubastaId.
         /// </summary>
         /// <remarks>
@@ -310,15 +319,6 @@ namespace Artify
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPujar;
-
-        /// <summary>
-        /// Control lnkVolver.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkVolver;
 
         /// <summary>
         /// Control pnlCerrada.

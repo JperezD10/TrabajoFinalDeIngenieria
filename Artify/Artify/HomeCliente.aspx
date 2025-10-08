@@ -202,17 +202,42 @@
             color: var(--muted);
             text-align: center
         }
+
+        .substatus { display:flex; align-items:center; gap:10px }
+
+.sus-badge{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 10px; border-radius:999px; font-weight:900; font-size:.9rem;
+  border:1px solid var(--border); box-shadow:var(--shadow)
+}
+.sus-badge svg{ width:16px; height:16px }
+
+.sus-badge.on{
+  background: linear-gradient(135deg,#10b981 0%,#059669 100%);
+  color:#062b23; border-color:#065f46
+}
+.sus-badge.off{
+  background: linear-gradient(135deg,#ef4444 0%,#b91c1c 100%);
+  color:#1f0a0a; border-color:#7f1d1d
+}
+
+.sus-link{ text-decoration:none }
+.sus-link:hover{ filter:brightness(1.05) }
     </style>
 </asp:Content>
 
 <asp:Content ID="Body" ContentPlaceHolderID="MainContent" runat="server">
     <div class="topbar">
-        <h1 class="title">
-            <asp:Literal ID="litTitle" runat="server" /></h1>
-        <p class="hint">
-            <asp:Literal ID="litHint" runat="server" />
-        </p>
-    </div>
+  <h1 class="title"><asp:Literal ID="litTitle" runat="server" /></h1>
+
+  <div class="substatus">
+    <p class="hint"><asp:Literal ID="litHint" runat="server" /></p>
+
+    <asp:Label ID="lblSubStatus" runat="server" CssClass="sus-badge on" Visible="false" />
+
+    <asp:HyperLink ID="lnkSubStatus" runat="server" CssClass="sus-badge off sus-link" Visible="false" />
+  </div>
+</div>
 
     <asp:PlaceHolder ID="phEmpty" runat="server" Visible="false">
         <div class="empty">

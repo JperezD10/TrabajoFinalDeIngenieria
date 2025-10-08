@@ -33,6 +33,24 @@ namespace Artify
         protected global::System.Web.UI.WebControls.Literal litHint;
 
         /// <summary>
+        /// Control lblSubStatus.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSubStatus;
+
+        /// <summary>
+        /// Control lnkSubStatus.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkSubStatus;
+
+        /// <summary>
         /// Control phEmpty.
         /// </summary>
         /// <remarks>

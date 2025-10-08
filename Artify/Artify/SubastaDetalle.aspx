@@ -4,8 +4,17 @@
 <asp:Content ID="HeadCss" ContentPlaceHolderID="HeadContent" runat="server">
   <style>
   .panel-heading{background:linear-gradient(135deg,#7c3aed 0%,#2563eb 100%);
-    padding:18px 24px;border-radius:14px;text-align:center;margin-bottom:22px;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+    padding:18px 24px;border-radius:14px;text-align:center;margin-bottom:14px;box-shadow:0 8px 24px rgba(0,0,0,.5)}
   .panel-heading h1{margin:0;font-size:2rem;font-weight:900;color:#fff;letter-spacing:.5px}
+
+  /* Botón superior único */
+  .top-actions{display:flex;justify-content:flex-end;margin:0 0 16px 0}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer;text-decoration:none}
+  .btn-primary{background:#2563eb;color:#fff}
+  .btn-primary:hover{filter:brightness(1.1)}
+  .btn-ghost{background:transparent;color:#e5e7eb;border:1px solid #334155}
+  .btn-ghost:hover{filter:brightness(1.08)}
+
   .auction-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
   @media(max-width:980px){.auction-wrap{grid-template-columns:1fr}}
   .card{background:#111827;border:1px solid #334155;border-radius:16px;padding:18px;box-shadow:0 12px 36px rgba(0,0,0,.55)}
@@ -21,19 +30,20 @@
   .countdown{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:800}
   .badge{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid #334155;color:#d1d5db;background:#0b1220}
   .input{width:100%;background:#0b1220;color:#e5e7eb;border:1px solid #334155;border-radius:12px;padding:12px 14px;font-size:1rem}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer}
-  .btn-primary{background:#2563eb;color:#fff}
-  .btn-primary:hover{filter:brightness(1.1)}
-  .btn-ghost{background:transparent;color:#e5e7eb;border:1px solid #334155}
   .actions{display:flex;gap:10px;flex-wrap:wrap}
   .val-msg{color:#fca5a5;font-size:.9rem;margin-top:6px}
   .ok-msg{color:#86efac;font-size:.9rem;margin-top:6px}
-</style>
+  </style>
 </asp:Content>
 
 <asp:Content ID="Main" ContentPlaceHolderID="MainContent" runat="server">
   <div class="panel-heading">
     <h1><asp:Literal ID="litPageTitle" runat="server" /></h1>
+  </div>
+
+  <!-- Botón único de volver (siempre visible) -->
+  <div class="top-actions">
+    <asp:HyperLink ID="lnkBack" runat="server" CssClass="btn btn-ghost" NavigateUrl="~/HomeCliente.aspx" />
   </div>
 
   <asp:HiddenField ID="hfSubastaId" runat="server" />
@@ -83,7 +93,6 @@
 
         <div class="actions" style="margin-top:12px;">
           <asp:Button ID="btnPujar" runat="server" CssClass="btn btn-primary" OnClick="btnPujar_Click" />
-          <asp:HyperLink ID="lnkVolver" runat="server" CssClass="btn btn-ghost" NavigateUrl="~/HomeCliente.aspx" />
         </div>
       </asp:Panel>
 

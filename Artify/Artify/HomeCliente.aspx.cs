@@ -60,9 +60,14 @@ namespace Artify
 
             if (_tieneSuscripcion)
             {
-                var dias = (_susActivaResp.Data.FechaFin.Date - ahora.Date).TotalDays;
-                if (dias >= 0 && dias <= 5)
-                    litHint.Text = T("homecli.sus.hintExpira");
+                lblSubStatus.Visible = true;
+                lblSubStatus.Text = T("homecli.sus.badge.active"); 
+            }
+            else
+            {
+                lnkSubStatus.Visible = true;
+                lnkSubStatus.Text = T("homecli.sus.badge.inactive");
+                lnkSubStatus.NavigateUrl = $"~/SuscripcionComprar.aspx?returnUrl={_returnUrl}";
             }
 
             var vms = _subastaBll.GetParaHome(usuario?.Id ?? 0, ahora);

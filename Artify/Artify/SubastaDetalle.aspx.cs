@@ -29,6 +29,9 @@ namespace Artify
         {
             if (IsPostBack) return;
 
+            lnkBack.Text = T("subdet.btn.back");
+            lnkBack.NavigateUrl = "~/HomeCliente.aspx";
+
             var usuario = Session["Usuario"] as Usuario;
             if (usuario == null)
             {
@@ -72,7 +75,6 @@ namespace Artify
             litPrecioActual.Text = Formatear(vm.Moneda, precioActualShown);
 
             litEstado.Text = vm.EstaAbierta ? T("subdet.litEstado.open") : T("subdet.litEstado.closed");
-
             litHintIncremento.Text = string.Format(T("subdet.litHintIncremento.text"), vm.IncrementoMin.ToString("N2"));
 
             hfEndsAtIso.Value = vm.CierraEl.ToString("yyyy-MM-ddTHH:mm:ssK");

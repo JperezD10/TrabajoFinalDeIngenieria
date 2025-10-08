@@ -481,6 +481,9 @@
 	"suscompra.litDetail": "Activación anual. Válida por 12 meses a partir de hoy.",
 	"suscompra.btnConfirm": "Activar anual (US$ 50)",
 	"homecli.badge.original": "★ Original",
+	"homecli.sus.badge.active": "Suscripto",
+	"homecli.sus.badge.inactive": "No suscripto",
+	"homecli.sus.hintExpira": "Tu suscripción está por vencer pronto.",
 
 	"subdet.litPageTitle": "Detalle de la subasta",
 	"subdet.litInfoSection": "Información de la obra",
@@ -500,6 +503,7 @@
 	"subdet.litLblTuOferta": "Tu oferta",
 	"subdet.btnPujar": "Confirmar oferta",
 	"subdet.lnkVolver": "Volver al inicio",
+	"subdet.btn.back": "Volver al inicio",
 	"subdet.litHintIncremento.text": "El incremento mínimo es de {0}.",
 	"subdet.litCerradaMsg.closed": "La subasta está cerrada.",
 	"subdet.litCerradaMsg.needSub": "Necesitás una suscripción activa para pujar.",
