@@ -51,29 +51,26 @@
             flex-direction: column;
         }
 
+        .card.original {
+            outline: 2px solid #facc15;
+            outline-offset: 0;
+            box-shadow: 0 12px 36px rgba(0,0,0,.55), 0 0 18px rgba(250,204,21,.45);
+        }
 
-            .card.original {
-                outline: 2px solid #facc15;
-                outline-offset: 0;
-                box-shadow: 0 12px 36px rgba(0,0,0,.55), 0 0 18px rgba(250,204,21,.45);
-            }
-
-
-
-                .card.original::before {
-                    content: "★ Original";
-                    position: absolute;
-                    top: 8px;
-                    right: 12px;
-                    background: linear-gradient(135deg,#facc15 0%,#f59e0b 100%);
-                    color: #111;
-                    font-size: .75rem;
-                    font-weight: 900;
-                    padding: 2px 8px;
-                    border-radius: 999px;
-                    box-shadow: 0 2px 6px rgba(0,0,0,.3);
-                    z-index: 1;
-                }
+        .card.original::before {
+            content: "★ Original";
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            background: linear-gradient(135deg,#facc15 0%,#f59e0b 100%);
+            color: #111;
+            font-size: .75rem;
+            font-weight: 900;
+            padding: 2px 8px;
+            border-radius: 999px;
+            box-shadow: 0 2px 6px rgba(0,0,0,.3);
+            z-index: 1;
+        }
 
         .thumb {
             aspect-ratio: 4/3;
@@ -84,13 +81,13 @@
             border-top-right-radius: 16px;
         }
 
-            .thumb img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                display: block;
-                transition: transform .4s ease
-            }
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .4s ease
+        }
 
         .card:hover .thumb img {
             transform: scale(1.06)
@@ -158,13 +155,13 @@
             color: #c7d2fe
         }
 
-            .state .badge {
-                padding: 2px 8px;
-                border: 1px solid var(--border);
-                border-radius: 999px;
-                margin-right: 8px;
-                color: #e9d5ff
-            }
+        .state .badge {
+            padding: 2px 8px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            margin-right: 8px;
+            color: #e9d5ff
+        }
 
         .actions {
             display: flex;
@@ -185,14 +182,14 @@
             cursor: pointer
         }
 
-            .btn:hover {
-                filter: brightness(1.08)
-            }
+        .btn:hover {
+            filter: brightness(1.08)
+        }
 
-            .btn[disabled] {
-                opacity: .5;
-                cursor: not-allowed
-            }
+        .btn[disabled] {
+            opacity: .5;
+            cursor: not-allowed
+        }
 
         .empty {
             background: var(--panel);
@@ -202,42 +199,14 @@
             color: var(--muted);
             text-align: center
         }
-
-        .substatus { display:flex; align-items:center; gap:10px }
-
-.sus-badge{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:6px 10px; border-radius:999px; font-weight:900; font-size:.9rem;
-  border:1px solid var(--border); box-shadow:var(--shadow)
-}
-.sus-badge svg{ width:16px; height:16px }
-
-.sus-badge.on{
-  background: linear-gradient(135deg,#10b981 0%,#059669 100%);
-  color:#062b23; border-color:#065f46
-}
-.sus-badge.off{
-  background: linear-gradient(135deg,#ef4444 0%,#b91c1c 100%);
-  color:#1f0a0a; border-color:#7f1d1d
-}
-
-.sus-link{ text-decoration:none }
-.sus-link:hover{ filter:brightness(1.05) }
     </style>
 </asp:Content>
 
 <asp:Content ID="Body" ContentPlaceHolderID="MainContent" runat="server">
     <div class="topbar">
-  <h1 class="title"><asp:Literal ID="litTitle" runat="server" /></h1>
-
-  <div class="substatus">
-    <p class="hint"><asp:Literal ID="litHint" runat="server" /></p>
-
-    <asp:Label ID="lblSubStatus" runat="server" CssClass="sus-badge on" Visible="false" />
-
-    <asp:HyperLink ID="lnkSubStatus" runat="server" CssClass="sus-badge off sus-link" Visible="false" />
-  </div>
-</div>
+        <h1 class="title"><asp:Literal ID="litTitle" runat="server" /></h1>
+        <p class="hint"><asp:Literal ID="litHint" runat="server" /></p>
+    </div>
 
     <asp:PlaceHolder ID="phEmpty" runat="server" Visible="false">
         <div class="empty">
@@ -253,7 +222,7 @@
             <div class='card <%# (bool)Eval("EsOriginal") ? "original" : "" %>'>
                 <div class="thumb">
                     <img alt='<%# Eval("TituloObra") %>' loading="lazy" src='<%# Eval("UrlImagen") %>'
-                        onerror="this.onerror=null;this.src='https://picsum.photos/seed/fallbackimg/800/600';" />
+                         onerror="this.onerror=null;this.src='https://picsum.photos/seed/fallbackimg/800/600';" />
                 </div>
 
                 <div class="body">
@@ -278,8 +247,6 @@
 
                     <div class="actions">
                         <asp:HyperLink ID="lnkVer" runat="server" CssClass="btn" />
-                        <asp:HyperLink ID="lnkPujar" runat="server" CssClass="btn" />
-                        <asp:HyperLink ID="lnkSuscribir" runat="server" CssClass="btn" Visible="false" />
                         <asp:Button ID="btnDisabled" runat="server" CssClass="btn" Enabled="false" Visible="false" />
                     </div>
                 </div>

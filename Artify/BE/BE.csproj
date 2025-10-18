@@ -55,6 +55,7 @@
     <Compile Include="Observer\IIdiomaSubject.cs" />
     <Compile Include="Observer\LocalizableControl.cs" />
     <Compile Include="Oferta.cs" />
+    <Compile Include="ParticipacionSubasta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Response.cs" />
     <Compile Include="RestoreAnalysisResult.cs" />
@@ -63,7 +64,6 @@
     <Compile Include="SubastaHomeRow.cs" />
     <Compile Include="SubastaHomeVM.cs" />
     <Compile Include="SubastaRow.cs" />
-    <Compile Include="Suscripcion.cs" />
     <Compile Include="TablaCheckResult.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="UsuarioPermiso.cs" />

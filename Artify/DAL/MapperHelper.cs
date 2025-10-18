@@ -43,14 +43,14 @@ namespace DAL
                 DVH = Convert.ToInt32(row["DVH"]),
             };
 
-        public static Suscripcion MapSuscripcion(DataRow row) =>
-            new Suscripcion
+        public static ParticipacionSubasta MapParticipacionSubasta(DataRow row) =>
+            new ParticipacionSubasta
             {
                 Id = Convert.ToInt32(row["Id"]),
-                IdUsuario = Convert.ToInt32(row["IdUsuario"]),
-                FechaInicio = Convert.ToDateTime(row["FechaInicio"]),
-                FechaFin = Convert.ToDateTime(row["FechaFin"]),
-                Activo = Convert.ToBoolean(row["Activo"]),
+                IdSubasta = Convert.ToInt32(row["IdSubasta"]),
+                IdCliente = Convert.ToInt32(row["IdCliente"]),
+                Monto = Convert.ToDecimal(row["Monto"]),
+                FechaPago = Convert.ToDateTime(row["FechaPago"]),
                 DVH = Convert.ToInt32(row["DVH"])
             };
         public static Subasta MapSubasta(DataRow row) =>

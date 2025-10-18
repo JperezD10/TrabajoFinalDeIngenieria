@@ -74,15 +74,17 @@ namespace BLL
             var bitacoraDal = new BitacoraDAL();
             var artistaDal = new ArtistaDAL();
             var obrasDal = new ObraDAL();
-            var SuscripcionDAL = new SuscripcionDAL();
             var SubastaDAL = new SubastaDAL();
+            var participacionDAL = new ParticipacionSubastaDAL();
+            var ofertaDAL = new OfertaDAL();
 
             _fetchers["Usuario"] = delegate { return usuarioDal.GetAllForDVH().Cast<EntidadBase>(); };
             _fetchers["Bitacora"] = delegate { return bitacoraDal.GetAllForDVH().Cast<EntidadBase>(); };
             _fetchers["Artista"] = delegate { return artistaDal.GetAllForDVH().Cast<EntidadBase>();};
             _fetchers["Obra"] = delegate { return obrasDal.GetAllForDVH().Cast<EntidadBase>(); };
-            _fetchers["Suscripcion"] = delegate { return SuscripcionDAL.GetAllForDVH().Cast<EntidadBase>(); };
             _fetchers["Subasta"] = delegate { return SubastaDAL.GetAllForDVH().Cast<EntidadBase>(); };
+            _fetchers["ParticipacionSubasta"] = delegate { return participacionDAL.GetAllForDVH().Cast<EntidadBase>(); };
+            _fetchers["Oferta"] = delegate { return ofertaDAL.GetAllForDVH().Cast<EntidadBase>(); };
 
 
             // Mañana agregás más:

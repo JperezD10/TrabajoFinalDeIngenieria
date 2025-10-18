@@ -11,7 +11,7 @@ namespace Artify
 {
 
 
-    public partial class SuscripcionComprar
+    public partial class FeeParticipacion
     {
 
         /// <summary>
@@ -33,13 +33,13 @@ namespace Artify
         protected global::System.Web.UI.WebControls.Literal litDesc;
 
         /// <summary>
-        /// Control litPlanName.
+        /// Control litSubastaName.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litPlanName;
+        protected global::System.Web.UI.WebControls.Literal litSubastaName;
 
         /// <summary>
         /// Control litBadge.

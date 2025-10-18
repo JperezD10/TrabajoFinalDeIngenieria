@@ -9,7 +9,6 @@ namespace BLL
     public class SubastaBLL
     {
         private readonly SubastaDAL _subastaDal = new SubastaDAL();
-        private readonly SuscripcionDAL _suscripcionDal = new SuscripcionDAL();
         private readonly ObraDAL _obraDal = new ObraDAL();
         private readonly ArtistaDAL _artistaDal = new ArtistaDAL();
         private readonly OfertaDAL _ofertaDal = new OfertaDAL();
@@ -170,7 +169,7 @@ namespace BLL
         public List<SubastaHomeVM> GetParaHome(int idUsuario, DateTime ahora)
         {
             var rows = _subastaDal.ListarParaHome(ahora);
-            bool susActiva = _suscripcionDal.TieneActiva(idUsuario, ahora);
+            var participacionDal = new ParticipacionSubastaDAL();
 
             return rows.Select(r =>
             {
@@ -178,6 +177,10 @@ namespace BLL
                 if (ahora < r.FechaInicio) estado = "scheduled";
                 else if (ahora <= r.FechaFin) estado = "running";
                 else estado = "finished";
+
+                bool puedePujar = false;
+                if (idUsuario > 0 && estado == "running")
+                    puedePujar = participacionDal.PuedeOfertar(idUsuario, r.Id);
 
                 return new SubastaHomeVM
                 {
@@ -192,7 +195,7 @@ namespace BLL
                     FechaInicio = (DateTime)r.FechaInicio,
                     FechaFin = (DateTime)r.FechaFin,
                     EstadoCodigo = estado,
-                    PuedePujar = (estado == "running") && susActiva,
+                    PuedePujar = puedePujar,
                     EsOriginal = r.EsOriginal
                 };
             })

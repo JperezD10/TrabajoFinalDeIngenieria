@@ -4,7 +4,9 @@ using BLL;
 using SEGURIDAD;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -140,6 +142,52 @@ namespace Artify
             if (DateTime.TryParse(value, out dt)) return dt;
 
             return null;
+        }
+
+        protected void btnDescargarXml_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var dt = new DataTable("Bitacora");
+                foreach (DataControlField column in gvBitacora.Columns)
+                {
+                    if (column is BoundField bf)
+                        dt.Columns.Add(bf.HeaderText);
+                    else if (column is TemplateField tf)
+                        dt.Columns.Add(tf.HeaderText);
+                }
+
+                foreach (GridViewRow row in gvBitacora.Rows)
+                {
+                    var dr = dt.NewRow();
+                    for (int i = 0; i < gvBitacora.Columns.Count; i++)
+                    {
+                        dr[i] = row.Cells[i].Text.Trim();
+                    }
+                    dt.Rows.Add(dr);
+                }
+
+                string folderPath = @"C:\SqlBackups\Artify";
+                if (!Directory.Exists(folderPath))
+                    Directory.CreateDirectory(folderPath);
+
+                string fileName = $"Bitacora_Page_{gvBitacora.PageIndex + 1}_{DateTime.Now:yyyyMMdd_HHmmss}.xml";
+                string filePath = Path.Combine(folderPath, fileName);
+
+                dt.WriteXml(filePath, XmlWriteMode.WriteSchema);
+
+                litPanelSub.Text = string.Format(
+                    IdiomaManager.Instance.T("log.msg.xmlSaved"),
+                    filePath
+                );
+            }
+            catch (Exception ex)
+            {
+                litPanelSub.Text = string.Format(
+                    IdiomaManager.Instance.T("log.msg.xmlError"),
+                    ex.Message
+                );
+            }
         }
     }
 }

@@ -15,11 +15,6 @@ namespace Artify
     public partial class HomeCliente : BasePage
     {
         private readonly SubastaBLL _subastaBll = new SubastaBLL();
-        private readonly SuscripcionBLL _suscripcionBll = new SuscripcionBLL();
-
-        private Response<Suscripcion> _susActivaResp;
-        private bool _tieneSuscripcion;
-        private string _returnUrl;
 
         protected override void OnInit(EventArgs e)
         {
@@ -30,6 +25,7 @@ namespace Artify
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Verificación de integridad
             var integridad = new IntegridadHorizontalBLL();
             var resp = integridad.VerificarTodo();
             if (!resp.Exito) return;
@@ -54,27 +50,14 @@ namespace Artify
             var usuario = Session["Usuario"] as Usuario;
             var ahora = DateTime.Now;
 
-            _susActivaResp = _suscripcionBll.ObtenerActiva(usuario?.Id ?? 0);
-            _tieneSuscripcion = _susActivaResp.Exito && _susActivaResp.Data != null;
-            _returnUrl = Server.UrlEncode(Request.RawUrl);
-
-            if (_tieneSuscripcion)
-            {
-                lblSubStatus.Visible = true;
-                lblSubStatus.Text = T("homecli.sus.badge.active"); 
-            }
-            else
-            {
-                lnkSubStatus.Visible = true;
-                lnkSubStatus.Text = T("homecli.sus.badge.inactive");
-                lnkSubStatus.NavigateUrl = $"~/SuscripcionComprar.aspx?returnUrl={_returnUrl}";
-            }
-
             var vms = _subastaBll.GetParaHome(usuario?.Id ?? 0, ahora);
 
             phEmpty.Visible = vms.Count == 0;
             rptSubastas.DataSource = vms;
             rptSubastas.DataBind();
+
+            if (vms.Count == 0)
+                litEmpty.Text = T("homecli.empty");
         }
 
         private string T(string key, params object[] args)
@@ -101,8 +84,6 @@ namespace Artify
             var vm = (SubastaHomeVM)e.Item.DataItem;
 
             var lnkVer = (System.Web.UI.WebControls.HyperLink)e.Item.FindControl("lnkVer");
-            var lnkPujar = (System.Web.UI.WebControls.HyperLink)e.Item.FindControl("lnkPujar");
-            var lnkSuscribir = (System.Web.UI.WebControls.HyperLink)e.Item.FindControl("lnkSuscribir"); 
             var btnDisabled = (System.Web.UI.WebControls.Button)e.Item.FindControl("btnDisabled");
             var litEstado = (System.Web.UI.WebControls.Literal)e.Item.FindControl("litEstado");
             var litTiempo = (System.Web.UI.WebControls.Literal)e.Item.FindControl("litTiempo");
@@ -110,7 +91,7 @@ namespace Artify
             lnkVer.NavigateUrl = $"SubastaDetalle.aspx?id={vm.Id}";
             lnkVer.Text = T("homecli.btn.view");
 
-            litEstado.Text = T("homecli.badge." + vm.EstadoCodigo); 
+            litEstado.Text = T("homecli.badge." + vm.EstadoCodigo);
 
             if (vm.EstadoCodigo == "running")
                 litTiempo.Text = T("homecli.info.endsIn", BuildDelta(vm.FechaFin - DateTime.Now));
@@ -118,10 +99,6 @@ namespace Artify
                 litTiempo.Text = T("homecli.info.startsIn", BuildDelta(vm.FechaInicio - DateTime.Now));
             else
                 litTiempo.Text = T("homecli.info.endedAt", vm.FechaFin.ToString("dd/MM/yyyy HH:mm"));
-
-            lnkPujar.Visible = false;
-            lnkSuscribir.Visible = false;
-            btnDisabled.Visible = false;
 
             bool estadoPermitePuja =
                 vm.EstadoCodigo == "running" &&
@@ -136,20 +113,6 @@ namespace Artify
                     vm.EstadoCodigo == "finished" ? "homecli.reason.finished" :
                                                      "homecli.reason.generic";
                 btnDisabled.Text = T(motivoKey);
-                return;
-            }
-
-            if (_tieneSuscripcion)
-            {
-                lnkPujar.Visible = true;
-                lnkPujar.NavigateUrl = $"SubastaDetalle.aspx?id={vm.Id}";
-                lnkPujar.Text = T("homecli.btn.bid");
-            }
-            else
-            {
-                lnkSuscribir.Visible = true;
-                lnkSuscribir.Text = T("homecli.lnkSubscribe");
-                lnkSuscribir.NavigateUrl = $"~/SuscripcionComprar.aspx?returnUrl={_returnUrl}";
             }
         }
     }

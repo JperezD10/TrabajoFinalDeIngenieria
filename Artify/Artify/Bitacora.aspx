@@ -220,6 +220,7 @@
             </div>
             <asp:Button ID="btnFiltrar" runat="server" CssClass="btn-secondary" OnClick="btnFiltrar_Click" />
             <asp:Button ID="btnLimpiar" runat="server" CssClass="btn-secondary" OnClick="btnLimpiar_Click" UseSubmitBehavior="false" />
+            <asp:Button ID="btnDescargarXml" runat="server" CssClass="btn" Text="📥" OnClick="btnDescargarXml_Click" UseSubmitBehavior="false" />
             <asp:HyperLink ID="lnkHome" runat="server" NavigateUrl="~/HomeWebMaster.aspx" CssClass="btn">
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />

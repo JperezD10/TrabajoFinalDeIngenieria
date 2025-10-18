@@ -14,9 +14,9 @@ namespace Artify
 {
     public partial class SubastaDetalle : BasePage
     {
-        SubastaBLL SubastaBLL = new SubastaBLL();
-        OfertaBLL OfertaBLL = new OfertaBLL();
-        SuscripcionBLL SuscripcionBLL = new SuscripcionBLL();
+        private readonly SubastaBLL SubastaBLL = new SubastaBLL();
+        private readonly OfertaBLL OfertaBLL = new OfertaBLL();
+        private readonly ParticipacionSubastaBLL ParticipacionBLL = new ParticipacionSubastaBLL();
 
         protected override void OnInit(EventArgs e)
         {
@@ -29,7 +29,6 @@ namespace Artify
         {
             if (IsPostBack) return;
 
-            lnkBack.Text = T("subdet.btn.back");
             lnkBack.NavigateUrl = "~/HomeCliente.aspx";
 
             var usuario = Session["Usuario"] as Usuario;
@@ -59,6 +58,7 @@ namespace Artify
                 return;
             }
 
+            // --- Datos generales ---
             imgObra.ImageUrl = vm.UrlImagen;
             litTitulo.Text = vm.Titulo;
             litArtista.Text = vm.ArtistaNombre;
@@ -75,19 +75,25 @@ namespace Artify
             litPrecioActual.Text = Formatear(vm.Moneda, precioActualShown);
 
             litEstado.Text = vm.EstaAbierta ? T("subdet.litEstado.open") : T("subdet.litEstado.closed");
-            litHintIncremento.Text = string.Format(T("subdet.litHintIncremento.text"), vm.IncrementoMin.ToString("N2"));
+            litHintIncremento.Text = string.Format(T("subdet.litHintIncremento"), vm.IncrementoMin.ToString("N2"));
 
             hfEndsAtIso.Value = vm.CierraEl.ToString("yyyy-MM-ddTHH:mm:ssK");
 
             var usuario = (Usuario)Session["Usuario"];
-            var tieneSuscripcion = SuscripcionBLL.PuedePujar(usuario.Id).Data;
-            pnlPuja.Visible = vm.EstaAbierta && tieneSuscripcion;
-            pnlCerrada.Visible = !pnlPuja.Visible;
+            var participacion = ParticipacionBLL.PuedeOfertar(usuario.Id, idSubasta);
+
+            pnlPuja.Visible = vm.EstaAbierta && participacion.Data;
+            pnlSinFee.Visible = vm.EstaAbierta && !participacion.Data;
+            pnlCerrada.Visible = !vm.EstaAbierta;
 
             if (!vm.EstaAbierta)
-                litCerradaMsg.Text = T("subdet.litCerradaMsg.closed");
-            else if (!tieneSuscripcion)
-                litCerradaMsg.Text = T("subdet.litCerradaMsg.needSub");
+            {
+                litCerradaMsg.Text = T("subdet.litCerradaMsg");
+            }
+            else if (!participacion.Data)
+            {
+                litSinFeeMsg.Text = T("subdet.litSinFeeMsg");
+            }
         }
 
         protected void valMin_ServerValidate(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
@@ -99,7 +105,7 @@ namespace Artify
                                   NumberStyles.Number, CultureInfo.InvariantCulture, out var monto))
             {
                 args.IsValid = false;
-                (source as System.Web.UI.WebControls.CustomValidator).ErrorMessage = T("subdet.validation.invalidNumber");
+                (source as System.Web.UI.WebControls.CustomValidator).ErrorMessage = T("validation.invalidNumber");
                 return;
             }
 
@@ -109,8 +115,10 @@ namespace Artify
 
             args.IsValid = monto >= minimo;
             if (!args.IsValid)
+            {
                 (source as System.Web.UI.WebControls.CustomValidator).ErrorMessage =
-                    string.Format(T("subdet.validation.minBid"), Formatear(vm.Moneda, minimo));
+                    string.Format(T("validation.minBid"), Formatear(vm.Moneda, minimo));
+            }
         }
 
         protected void btnPujar_Click(object sender, EventArgs e)
@@ -120,12 +128,20 @@ namespace Artify
             if (!decimal.TryParse(txtMonto.Text.Replace(',', '.'),
                                   NumberStyles.Number, CultureInfo.InvariantCulture, out var monto))
             {
-                lblMensaje.Text = "<span class='val-msg'>" + T("subdet.validation.invalidNumber") + "</span>";
+                lblMensaje.Text = "<span class='val-msg'>" + T("validation.invalidNumber") + "</span>";
                 return;
             }
 
             var id = int.Parse(hfSubastaId.Value);
             var usuario = (Usuario)Session["Usuario"];
+
+            var puede = ParticipacionBLL.PuedeOfertar(usuario.Id, id);
+            if (!puede.Data)
+            {
+                lblMensaje.Text = "<span class='val-msg'>" + T(puede.Mensaje) + "</span>";
+                return;
+            }
+
             var oferta = new Oferta
             {
                 IdSubasta = id,
@@ -142,9 +158,16 @@ namespace Artify
                 return;
             }
 
-            lblMensaje.Text = "<span class='ok-msg'>" + T("ok.oferta.creada", res.Data) + "</span>";
+            lblMensaje.Text = "<span class='ok-msg'>" + T("subdet.ok.ofertaCreada", res.Data) + "</span>";
             txtMonto.Text = string.Empty;
             CargarDetalle(id);
+        }
+
+        protected void btnPagarFee_Click(object sender, EventArgs e)
+        {
+            var id = int.Parse(hfSubastaId.Value);
+            Response.Redirect($"~/FeeParticipacion.aspx?id={id}", false);
+            Context.ApplicationInstance.CompleteRequest();
         }
 
         private string T(string key, params object[] args)

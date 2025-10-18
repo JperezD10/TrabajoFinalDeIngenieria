@@ -10,7 +10,6 @@ namespace BLL
     {
         private readonly OfertaDAL _dal;
         private readonly SubastaDAL _subastas;
-        private readonly SuscripcionDAL _suscripcionDal = new SuscripcionDAL();
         private readonly OfertaDAL _ofertaDal = new OfertaDAL();
 
         public OfertaBLL()
@@ -43,9 +42,6 @@ namespace BLL
                     return Response<int>.Error("err.oferta.subasta.noencurso", sub.Estado.ToString());
                 if (ahora >= fechaFin) return Response<int>.Error("err.oferta.subasta.finalizada");
 
-                // Suscripción activa
-                if (!_suscripcionDal.TieneActiva(o.IdCliente, ahora))
-                    return Response<int>.Error("err.oferta.suscripcion.inactiva");
 
                 // Reglas de monto (primera vs siguientes)
                 var cantOfertas = _ofertaDal.ContarPorSubasta(o.IdSubasta);

@@ -11,6 +11,14 @@ namespace DAL
         SubastaDAL subastaDal = new SubastaDAL();
         public override string TableName => $"Oferta";
 
+        public IEnumerable<Oferta> GetAllForDVH()
+        {
+            const string sql = "SELECT * FROM Oferta;";
+            var t = Acceso.Leer(sql, null, CommandType.Text);
+            foreach (DataRow r in t.Rows)
+                yield return Map(r);
+        }
+
         public int Crear(Oferta o)
         {
             // normalizo mínimos y seteo por defecto
@@ -155,23 +163,5 @@ ORDER BY Monto DESC, Fecha ASC, Id ASC;";
             DVH = Convert.ToInt32(row["DVH"])
         };
 
-        private static Subasta MapSubasta(DataRow row) => new Subasta
-        {
-            Id = Convert.ToInt32(row["Id"]),
-            Activo = Convert.ToBoolean(row["Activo"]),
-            IdObra = Convert.ToInt32(row["IdObra"]),
-            IdCurador = Convert.ToInt32(row["IdCurador"]),
-            PrecioInicial = Convert.ToDecimal(row["PrecioInicial"]),
-            IncrementoMinimo = Convert.ToDecimal(row["IncrementoMinimo"]),
-            DuracionMinutos = Convert.ToInt32(row["DuracionMinutos"]),
-            Estado = (EstadoSubasta)Convert.ToByte(row["Estado"]),
-            FechaProgramadaInicio = row["FechaProgramadaInicio"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(row["FechaProgramadaInicio"]),
-            FechaInicio = row["FechaInicio"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(row["FechaInicio"]),
-            FechaFin = row["FechaFin"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(row["FechaFin"]),
-            FechaCreacion = Convert.ToDateTime(row["FechaCreacion"]),
-            PrecioActual = Convert.ToDecimal(row["PrecioActual"]),
-            IdClienteGanador = row["IdClienteGanador"] == DBNull.Value ? (int?)null : Convert.ToInt32(row["IdClienteGanador"]),
-            DVH = Convert.ToInt32(row["DVH"])
-        };
     }
 }

@@ -321,6 +321,33 @@ namespace Artify
         protected global::System.Web.UI.WebControls.Button btnPujar;
 
         /// <summary>
+        /// Control pnlSinFee.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSinFee;
+
+        /// <summary>
+        /// Control litSinFeeMsg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litSinFeeMsg;
+
+        /// <summary>
+        /// Control btnPagarFee.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPagarFee;
+
+        /// <summary>
         /// Control pnlCerrada.
         /// </summary>
         /// <remarks>

@@ -174,7 +174,7 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" DefaultButton="btnLogin">
         <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
         <div class="login">
