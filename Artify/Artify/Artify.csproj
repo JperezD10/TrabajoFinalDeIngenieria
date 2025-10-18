@@ -44,12 +44,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MercadoPago, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\mercadopago-sdk.2.0.0\lib\net461\MercadoPago.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RestSharp, Version=104.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.104.0\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -126,6 +133,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="CrearSubasta.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="FeeParticipacionError.aspx" />
+    <Content Include="FeeParticipacionSuccess.aspx" />
     <Content Include="Global.asax" />
     <Content Include="HomeCliente.aspx" />
     <Content Include="HomeCurador.aspx" />
@@ -256,6 +265,20 @@
     </Compile>
     <Compile Include="CrearSubasta.aspx.designer.cs">
       <DependentUpon>CrearSubasta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FeeParticipacionError.aspx.cs">
+      <DependentUpon>FeeParticipacionError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FeeParticipacionError.aspx.designer.cs">
+      <DependentUpon>FeeParticipacionError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FeeParticipacionSuccess.aspx.cs">
+      <DependentUpon>FeeParticipacionSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FeeParticipacionSuccess.aspx.designer.cs">
+      <DependentUpon>FeeParticipacionSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -1,6 +1,10 @@
-﻿using BE;
+﻿using Antlr.Runtime;
+using BE;
 using BE.Observer;
 using BLL;
+using MercadoPago.Client.Preference;
+using MercadoPago.Config;
+using MercadoPago.Resource.Preference;
 using SEGURIDAD;
 using System;
 using System.Collections.Generic;
@@ -21,6 +25,7 @@ namespace Artify
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
+            MercadoPagoConfig.AccessToken = "APP_USR-8649679236800274-101722-5287d67dadff0ac3d94ed00c73ed3156-2932397436";
             _usuario = SecurityManager.CheckAccess(this);
             RegisterLocalizablesById(this, "feepart");
         }
@@ -71,23 +76,57 @@ namespace Artify
 
             if (!int.TryParse(Request.QueryString["id"], out _idSubasta)) return;
 
-            var participacion = new ParticipacionSubasta
+            try
             {
-                IdSubasta = _idSubasta,
-                IdCliente = _usuario.Id
-            };
+                var vm = _subastaBll.GetDetalleVM(_idSubasta);
+                if (vm == null)
+                {
+                    phError.Visible = true;
+                    litError.Text = "Subasta no encontrada.";
+                    return;
+                }
 
-            var res = _bll.GuardarParticipacion(participacion);
+                var baseUrl = $"{Request.Url.Scheme}://{Request.Url.Authority}{Request.ApplicationPath?.TrimEnd('/')}";
 
-            if (res.Exito)
+                var request = new PreferenceRequest
+                {
+                    Items = new List<PreferenceItemRequest>
             {
-                Response.Redirect($"~/SubastaDetalle.aspx?id={_idSubasta}", false);
+                new PreferenceItemRequest
+                {
+                    Title = $"Fee de participación - {vm.Titulo}",
+                    Quantity = 1,
+                    CurrencyId = "USD",
+                    UnitPrice = 5m
+                }
+            },
+                    Payer = new PreferencePayerRequest
+                    {
+                        Email =  "test_user_653940919069735644@testuser.com"
+                    },
+
+                    BackUrls = new PreferenceBackUrlsRequest
+                    {
+                        Success = $"{baseUrl}/FeeParticipacionSuccess.aspx?id={_idSubasta}",
+                        Failure = $"{baseUrl}/FeeParticipacionError.aspx?id={_idSubasta}",
+                        Pending = $"{baseUrl}/FeeParticipacionError.aspx?id={_idSubasta}"
+                    },
+
+                    ExternalReference = _idSubasta.ToString(),
+
+                    AutoReturn = "approved"
+                };
+
+                var client = new PreferenceClient();
+                var preference = client.Create(request);
+
+                Response.Redirect(preference.InitPoint, false);
                 Context.ApplicationInstance.CompleteRequest();
             }
-            else
+            catch (Exception ex)
             {
                 phError.Visible = true;
-                litError.Text = T(res.Mensaje ?? "err.participacion.guardar");
+                litError.Text = "Error al crear la preferencia de pago: " + ex.Message;
             }
         }
 

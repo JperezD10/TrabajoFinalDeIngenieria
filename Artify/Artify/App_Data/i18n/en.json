@@ -533,5 +533,16 @@
 	"feepart.btnConfirm": "Confirm participation (US$ 5)",
 	"feepart.litSubastaName": "The water lilies pond",
 	"feepart.litInfo": "You have already paid the participation fee for this auction.",
-	"feepart.litError": "Could not register the participation."
+	"feepart.litError": "Could not register the participation.",
+
+	"feepartsuccess.litTitle": "Payment confirmed",
+	"feepartsuccess.litDesc": "Your participation has been successfully registered. You can now place bids.",
+	"feepartsuccess.msg.ok": "The fee was processed successfully and your participation is active.",
+	"feepartsuccess.msg.err": "Payment was received but participation could not be registered.",
+	"feepartsuccess.msg.ex": "Error processing participation.",
+	"feepartsuccess.btnBack": "Back to auction",
+
+	"feepartfail.litTitle": "Payment not completed",
+	"feepartfail.litDesc": "The participation fee payment was not completed or was cancelled. You can try again from the auction detail page.",
+	"feepartfail.btnBack": "Back to auction"
 }

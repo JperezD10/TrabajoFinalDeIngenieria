@@ -535,5 +535,16 @@
 	"feepart.btnConfirm": "Confirmar participación (US$ 5)",
 	"feepart.litSubastaName": "El estanque de ninfeas",
 	"feepart.litInfo": "Ya abonaste el fee de participación para esta subasta.",
-	"feepart.litError": "No se pudo registrar la participación."
+	"feepart.litError": "No se pudo registrar la participación.",
+
+	"feepartsuccess.litTitle": "Pago confirmado",
+	"feepartsuccess.litDesc": "Tu participación fue registrada correctamente. Ya puedes ofertar en esta subasta.",
+	"feepartsuccess.msg.ok": "El fee se procesó correctamente y tu participación está activa.",
+	"feepartsuccess.msg.err": "El pago fue recibido, pero no se pudo registrar la participación.",
+	"feepartsuccess.msg.ex": "Error al procesar la participación.",
+	"feepartsuccess.btnBack": "Volver a la subasta",
+
+	"feepartfail.litTitle": "Pago no completado",
+	"feepartfail.litDesc": "El pago del fee no se realizó o fue cancelado. Puedes intentar nuevamente desde el detalle de la subasta.",
+	"feepartfail.btnBack": "Volver a la subasta"
 }

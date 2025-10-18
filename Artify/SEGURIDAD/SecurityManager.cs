@@ -26,6 +26,8 @@ namespace SEGURIDAD
                     "~/Mantenimiento.aspx",
                     "~/ObrasCliente.aspx",
                     "~/FeeParticipacion.aspx",
+                    "~/FeeParticipacionSuccess.aspx",
+                    "~/FeeParticipacionError.aspx",
                     "~/SubastaDetalle.aspx",
                 }},
                 { RolUsuario.Curador, new List<string> {
