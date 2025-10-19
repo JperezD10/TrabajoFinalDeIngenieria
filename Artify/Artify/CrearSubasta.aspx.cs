@@ -136,6 +136,11 @@ namespace Artify
             txtIncremento.Text = incrementoMin.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
         }
 
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/HomeCurador.aspx");
+        }
+
         private string T(string key, params object[] args)
         {
             var raw = IdiomaManager.Instance.T(key);
@@ -159,14 +164,15 @@ namespace Artify
 
         private void ApplyNonObserverTexts()
         {
-            litPageTitle.Text = T("subasta.crear.title");             // "Crear subasta"
-            litObra.Text = T("subasta.crear.obra");                   // "Obra"
-            litPrecioInicial.Text = T("subasta.crear.precioInicial"); // "Precio inicial"
-            litInc.Text = T("subasta.crear.incrementoMin");           // "Incremento mínimo"
-            litDuracion.Text = T("subasta.crear.duracion");           // "Duración (min)"
-            litFechaProg.Text = T("subasta.crear.fechaProgramada");   // "Fecha programada (opcional)"
-            litCurador.Text = T("subasta.crear.curador");             // "Curador"
-            btnCrear.Text = T("subasta.crear.boton");                 // "Crear subasta"
+            litPageTitle.Text = T("subasta.crear.title");             
+            litObra.Text = T("subasta.crear.obra");                   
+            litPrecioInicial.Text = T("subasta.crear.precioInicial"); 
+            litInc.Text = T("subasta.crear.incrementoMin");           
+            litDuracion.Text = T("subasta.crear.duracion");           
+            litFechaProg.Text = T("subasta.crear.fechaProgramada");   
+            litCurador.Text = T("subasta.crear.curador");             
+            btnCrear.Text = T("subasta.crear.boton");                 
+            btnVolver.Text = T("subasta.crear.volver");                 
 
             // Validadores
             rfvObra.ErrorMessage = IdiomaManager.Instance.T("subasta.rfvObra");

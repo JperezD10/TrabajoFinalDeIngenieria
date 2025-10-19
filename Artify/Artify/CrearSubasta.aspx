@@ -76,6 +76,15 @@
             color: #fff
         }
 
+        .btn-secondary {
+            background: #1e293b;
+            color: #e2e8f0;
+        }
+
+            .btn-secondary:hover {
+                background: #334155;
+            }
+
         .msg {
             border-radius: 12px;
             padding: 12px 14px;
@@ -183,7 +192,8 @@
         </div>
 
         <div class="actions">
-            <asp:Button ID="btnCrear" runat="server" CssClass="btn btn-primary" Text="Crear subasta" OnClick="btnCrear_Click" />
+            <asp:Button ID="btnVolver" runat="server" CssClass="btn btn-secondary" Text="Volver al inicio" OnClick="btnVolver_Click" CausesValidation="false"/>
+            <asp:Button ID="btnCrear" runat="server" CssClass="btn btn-primary" Text="Crear subasta" OnClick="btnCrear_Click"  />
         </div>
     </div>
 </asp:Content>

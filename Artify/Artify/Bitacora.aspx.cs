@@ -148,45 +148,30 @@ namespace Artify
         {
             try
             {
-                var dt = new DataTable("Bitacora");
-                foreach (DataControlField column in gvBitacora.Columns)
-                {
-                    if (column is BoundField bf)
-                        dt.Columns.Add(bf.HeaderText);
-                    else if (column is TemplateField tf)
-                        dt.Columns.Add(tf.HeaderText);
-                }
+                var registros = new List<BE.Bitacora>();
 
                 foreach (GridViewRow row in gvBitacora.Rows)
                 {
-                    var dr = dt.NewRow();
-                    for (int i = 0; i < gvBitacora.Columns.Count; i++)
+                    var item = new BE.Bitacora
                     {
-                        dr[i] = row.Cells[i].Text.Trim();
-                    }
-                    dt.Rows.Add(dr);
+                        Fecha = DateTime.Parse(row.Cells[0].Text.Trim()),
+                        Usuario = row.Cells[1].Text.Trim(),
+                        Accion = row.Cells[2].Text.Trim(),
+                        Criticidad = int.TryParse(row.Cells[3].Text.Trim(), out var crit) ? crit : 0,
+                        Modulo = "-",        // o null, ya que no se muestra
+                        IdUsuario = 0        // igual, si no se visualiza ni importa para el XML
+                    };
+                    registros.Add(item);
                 }
 
-                string folderPath = @"C:\SqlBackups\Artify";
-                if (!Directory.Exists(folderPath))
-                    Directory.CreateDirectory(folderPath);
+                var service = new BitacoraService();
+                string result = service.ExportarBitacoraXml(registros);
 
-                string fileName = $"Bitacora_Page_{gvBitacora.PageIndex + 1}_{DateTime.Now:yyyyMMdd_HHmmss}.xml";
-                string filePath = Path.Combine(folderPath, fileName);
-
-                dt.WriteXml(filePath, XmlWriteMode.WriteSchema);
-
-                litPanelSub.Text = string.Format(
-                    IdiomaManager.Instance.T("log.msg.xmlSaved"),
-                    filePath
-                );
+                litPanelSub.Text = result;
             }
             catch (Exception ex)
             {
-                litPanelSub.Text = string.Format(
-                    IdiomaManager.Instance.T("log.msg.xmlError"),
-                    ex.Message
-                );
+                litPanelSub.Text = $"Error al exportar XML: {ex.Message}";
             }
         }
     }

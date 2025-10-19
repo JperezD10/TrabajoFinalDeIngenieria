@@ -27,6 +27,8 @@ namespace BLL
             {
                 return Response<Usuario>.Error("err.login.invalid");
             }
+            if (usuario.Bloqueado)
+                return Response<Usuario>.Error("err.login.alreadyBlocked");
 
             if (usuario.Password == passwordHash)
             {

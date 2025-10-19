@@ -27,5 +27,5 @@
   <div class="hello">
     <asp:Literal ID="litGreeting" runat="server" />
   </div>
-  <asp:Button ID="btnLogout" runat="server" CssClass="logout-btn" OnClick="btnLogout_Click" />
+  <asp:Button ID="btnLogout" runat="server" CssClass="logout-btn" OnClick="btnLogout_Click" CausesValidation="false" />
 </div>

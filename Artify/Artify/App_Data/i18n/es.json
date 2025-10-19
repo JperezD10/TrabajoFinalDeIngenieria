@@ -15,6 +15,7 @@
 	"err.login.invalid": "Credenciales inválidas",
 	"err.login.invalid.withAttempts": "Credenciales inválidas. Intentos restantes: {0}",
 	"err.login.blocked": "Usuario bloqueado",
+	"err.login.alreadyBlocked": "Tu cuenta se encuentra actualmente bloqueada. No podés iniciar sesión hasta que sea restablecida.",
 	"err.user.listBlocked": "Error al obtener los usuarios bloqueados",
 	"err.user.notFound": "Usuario no encontrado",
 	"err.user.unblock": "Error al desbloquear el usuario",
@@ -447,6 +448,7 @@
 	"subasta.crear.fechaProgramada": "Fecha programada (opcional)",
 	"subasta.crear.curador": "Curador",
 	"subasta.crear.boton": "Crear subasta",
+	"subasta.crear.volver": "Volver al Home",
 
 	"subasta.crear.val.obra": "Seleccione una obra.",
 	"subasta.crear.val.requerido": "Requerido.",

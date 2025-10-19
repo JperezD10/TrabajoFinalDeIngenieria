@@ -112,6 +112,7 @@
     <Content Include="BackupDB.aspx" />
     <Content Include="BaseCorrupta.aspx" />
     <Content Include="Bitacora.aspx" />
+    <Content Include="BitacoraService.asmx" />
     <Content Include="CargarArtistas.aspx" />
     <Content Include="CargarObras.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -244,6 +245,10 @@
     </Compile>
     <Compile Include="Bitacora.aspx.designer.cs">
       <DependentUpon>Bitacora.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BitacoraService.asmx.cs">
+      <DependentUpon>BitacoraService.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="CargarArtistas.aspx.cs">
       <DependentUpon>CargarArtistas.aspx</DependentUpon>

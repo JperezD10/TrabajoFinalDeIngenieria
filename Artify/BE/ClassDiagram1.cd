@@ -1,135 +1,198 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="BE.Artista">
-    <Position X="0.5" Y="1.75" Width="1.5" />
+    <Position X="0.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAAAABIAAAAAgCAAAACAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Artista.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BE.BackupResult">
-    <Position X="9.75" Y="0.5" Width="1.5" />
+  <Class Name="BE.BackupResult" Collapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
       <FileName>BackupResult.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.Bitacora">
-    <Position X="5" Y="1.75" Width="1.5" />
+    <Position X="9.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAAAABEAAAAAAAAAAIAAAAAAAAAECAAAAAQ=</HashCode>
       <FileName>Bitacora.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BE.DvhTime">
-    <Position X="11.5" Y="0.5" Width="1.5" />
+  <Class Name="BE.DvhTime" Collapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>DvhTime.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BE.DVV">
-    <Position X="13.25" Y="0.5" Width="1.5" />
+  <Class Name="BE.DVV" Collapsed="true">
+    <Position X="22.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DVV.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BE.EntidadBase" Collapsed="true">
-    <Position X="3.75" Y="0.5" Width="1.5" />
+  <Class Name="BE.EntidadBase">
+    <Position X="8.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAABAAAAAAAAAAAAAAABAgAQAAAAACAAA=</HashCode>
       <FileName>EntidadBase.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.Obra">
-    <Position X="7.25" Y="1.75" Width="1.5" />
+    <Position X="5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAgAIAAAAAAABAAAAAAAAAAAAAAAAAAAAAAQAEgABA=</HashCode>
+      <HashCode>AEAgAIAAAAAAABAAAAAAAAAAAAAAABAAAAAAQAEgABA=</HashCode>
       <FileName>Obra.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="BE.Oferta">
+    <Position X="11.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAABEAAAAAAAAIAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Oferta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.ParticipacionSubasta">
+    <Position X="14" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAABAAAAAAAAAIAAEAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>ParticipacionSubasta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="BE.Response&lt;T&gt;" Collapsed="true">
-    <Position X="9.75" Y="3.75" Width="1.5" />
+    <Position X="22.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAQAAAAAAAQAAAAAAAAAAAgIAQBAAAAAAIAAAAAA=</HashCode>
       <FileName>Response.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.RestoreAnalysisData" Collapsed="true">
-    <Position X="11.5" Y="3.75" Width="1.5" />
+    <Position X="24" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAEACABAAAAAAAAAAAAAAAAAIAAAAAAAEEA=</HashCode>
       <FileName>RestoreAnalysisResult.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="BE.Subasta">
+    <Position X="2.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAoAAAABAAAAIAAAAAAgAUIAAAAAAAAAAiCAg=</HashCode>
+      <FileName>Subasta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.SubastaDetalleVM" Collapsed="true">
+    <Position X="18.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGAyCIAAAAAAADAIAAAAAAQAAAAAAAAAAAAAQAAAABA=</HashCode>
+      <FileName>SubastaDetalleVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.SubastaHomeRow" Collapsed="true">
+    <Position X="20.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAyAIAAAAABAAAAAAAQAAAAAgAQIBAAAAAAQAAgAAg=</HashCode>
+      <FileName>SubastaHomeRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.SubastaHomeVM" Collapsed="true">
+    <Position X="22.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAyAIAAAAAAAAAAAAAQAACAAgAAIBAAAAAAQAAgCAA=</HashCode>
+      <FileName>SubastaHomeVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.SubastaRow" Collapsed="true">
+    <Position X="24" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAyAIAAAAAAAAAAAAAQAAAAAgAAIAAAAAAAQAAgAAA=</HashCode>
+      <FileName>SubastaRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="BE.TablaCheckResult" Collapsed="true">
-    <Position X="13.25" Y="3.75" Width="1.5" />
+    <Position X="18.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gABAAAAAAAAAAQgAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>TablaCheckResult.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.Usuario">
-    <Position X="2.75" Y="1.75" Width="1.5" />
+    <Position X="7.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAABAEAIAAgAAAAAAAAgACAAAAgAAAAAA=</HashCode>
       <FileName>Usuario.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BE.Observer.IdiomaManager" BaseTypeListCollapsed="true">
-    <Position X="9.75" Y="2.75" Width="1.5" />
+  <Class Name="BE.UsuarioPermiso">
+    <Position X="16.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAQAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UsuarioPermiso.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.Observer.IdiomaManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAAAAAAAAgQAIAAAAAACAABASAAAAAQEAAA=</HashCode>
       <FileName>Observer\IdiomaManager.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="BE.Observer.LocalizableControl" BaseTypeListCollapsed="true">
-    <Position X="11.5" Y="2.75" Width="1.5" />
+  <Class Name="BE.Observer.LocalizableControl" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAACAAAAAAAAAAACAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
       <FileName>Observer\LocalizableControl.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="BE.Observer.Localize">
-    <Position X="13.25" Y="2.75" Width="1.5" />
+  <Class Name="BE.Observer.Localize" Collapsed="true">
+    <Position X="20.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AkQAAAAAEAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Observer\LocalizableControl.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="BE.Observer.IIdiomaObserver">
-    <Position X="1" Y="5.75" Width="1.5" />
+  <Interface Name="BE.Observer.IIdiomaObserver" Collapsed="true">
+    <Position X="18.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
       <FileName>Observer\IIdiomaObserver.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="BE.Observer.IIdiomaSubject">
-    <Position X="4" Y="5.75" Width="1.5" />
+  <Interface Name="BE.Observer.IIdiomaSubject" Collapsed="true">
+    <Position X="20.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAABAQAAAAAAAAAA=</HashCode>
       <FileName>Observer\IIdiomaSubject.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="BE.Criticidad">
-    <Position X="9.75" Y="7.75" Width="1.5" />
+    <Position X="18.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAQBAAAAAA=</HashCode>
       <FileName>Bitacora.cs</FileName>
     </TypeIdentifier>
   </Enum>
+  <Enum Name="BE.EstadoSubasta">
+    <Position X="20.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACACAAAAAAAAAAAAAAAAAAAQAAQA=</HashCode>
+      <FileName>Subasta.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Enum Name="BE.RolUsuario">
-    <Position X="13.25" Y="7.75" Width="1.5" />
+    <Position X="24" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
       <FileName>Usuario.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="BE.Observer.Idioma">
-    <Position X="11.5" Y="7.75" Width="1.5" />
+    <Position X="22.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAABAAAA=</HashCode>
       <FileName>Observer\IdiomaManager.cs</FileName>
