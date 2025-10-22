@@ -213,6 +213,7 @@
 	"homecli.reason.not_started": "Aún no inicia",
 	"homecli.reason.finished": "Finalizada",
 	"homecli.delta.d": "d",
+	"homecli.litBackHome": "← Volver al inicio",
 
 	"accden.litTitle": "Acceso denegado",
 	"accden.litSubtitle": "No tienes permiso para ver esta página.",
@@ -548,5 +549,31 @@
 
 	"feepartfail.litTitle": "Pago no completado",
 	"feepartfail.litDesc": "El pago del fee no se realizó o fue cancelado. Puedes intentar nuevamente desde el detalle de la subasta.",
-	"feepartfail.btnBack": "Volver a la subasta"
+	"feepartfail.btnBack": "Volver a la subasta",
+
+	"newhomecli.litPageTitle": "Panel del Cliente",
+	"newhomecli.litHeaderTitle": "Bienvenido a tu espacio Artify",
+	"newhomecli.litHeroTitle": "Explorá, pujás y disfrutá del arte digital",
+	"newhomecli.litHeroText": "Accedé a tus subastas activas o pagá tus compras pendientes de forma rápida y segura.",
+	"newhomecli.litModules": "Tus opciones disponibles",
+
+	"newhomecli.litSubTitle": "Subastas activas",
+	"newhomecli.litSubText": "Participá en subastas en curso o descubrí las próximas obras destacadas.",
+	"newhomecli.litSubChip1": "Arte en vivo",
+	"newhomecli.litSubChip2": "Ofertas seguras",
+	"newhomecli.litSubCta": "Ir a subastas",
+
+	"newhomecli.litPayTitle": "Pagos pendientes",
+	"newhomecli.litPayText": "Revisá las obras ganadas y completá tus pagos desde una sola pantalla.",
+	"newhomecli.litPayChip1": "Pagos seguros",
+	"newhomecli.litPayChip2": "MercadoPago integrado",
+	"newhomecli.litPayCta": "Ir a mis pagos",
+
+	"paypend.litHeaderTitle": "Pagos pendientes",
+	"paypend.litHeroTitle": "Completá tus pagos de subastas ganadas",
+	"paypend.litHeroText": "Estas obras fueron adjudicadas a tu nombre. Finalizá el pago para confirmar tu compra y recibir la obra.",
+	"paypend.litBackHome": "Volver al inicio",
+	"paypend.litSectionTitle": "Subastas ganadas",
+	"paypend.litEmpty": "No tenés pagos pendientes en este momento. Cuando ganes una subasta, aparecerá aquí.",
+	"paypend.btnPay": "Pagar ahora"
 }

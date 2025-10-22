@@ -49,6 +49,7 @@
     <Compile Include="IntegridadVerticalBLL.cs" />
     <Compile Include="ObraBLL.cs" />
     <Compile Include="OfertaBLL.cs" />
+    <Compile Include="PagoSubastaBLL.cs" />
     <Compile Include="ParticipacionSubastaBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestoreBLL.cs" />

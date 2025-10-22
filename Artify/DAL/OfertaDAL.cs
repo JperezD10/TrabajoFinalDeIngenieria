@@ -156,7 +156,7 @@ ORDER BY Monto DESC, Fecha ASC, Id ASC;";
         {
             Id = Convert.ToInt32(row["Id"]),
             Activo = Convert.ToBoolean(row["Activo"]),
-            IdSubasta = Convert.ToInt32(row["Id"]),
+            IdSubasta = Convert.ToInt32(row["IdSubasta"]),
             IdCliente = Convert.ToInt32(row["IdCliente"]),
             Monto = Convert.ToDecimal(row["Monto"]),
             Fecha = Convert.ToDateTime(row["Fecha"]),

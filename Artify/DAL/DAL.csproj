@@ -51,6 +51,7 @@
     <Compile Include="MapperHelper.cs" />
     <Compile Include="ObraDAL.cs" />
     <Compile Include="OfertaDAL.cs" />
+    <Compile Include="PagoSubastaDAL.cs" />
     <Compile Include="ParticipacionSubastaDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestoreDAL.cs" />

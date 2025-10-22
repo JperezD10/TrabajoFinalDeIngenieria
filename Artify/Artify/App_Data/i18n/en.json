@@ -211,6 +211,7 @@
 	"homecli.reason.generic": "Unavailable",
 	"homecli.delta.d": "d",
 	"homecli.delta.m": "m",
+	"homecli.litBackHome": "← Back to Home",
 
 	"accden.litTitle": "Access denied",
 	"accden.litSubtitle": "You do not have permission to view this page.",
@@ -547,5 +548,31 @@
 
 	"feepartfail.litTitle": "Payment not completed",
 	"feepartfail.litDesc": "The participation fee payment was not completed or was cancelled. You can try again from the auction detail page.",
-	"feepartfail.btnBack": "Back to auction"
+	"feepartfail.btnBack": "Back to auction",
+
+	"newhomecli.litPageTitle": "Client Panel",
+	"newhomecli.litHeaderTitle": "Welcome to your Artify space",
+	"newhomecli.litHeroTitle": "Explore, bid, and enjoy digital art",
+	"newhomecli.litHeroText": "Access your active auctions or pay for your won artworks quickly and securely.",
+	"newhomecli.litModules": "Available options",
+
+	"newhomecli.litSubTitle": "Active auctions",
+	"newhomecli.litSubText": "Join ongoing auctions or discover upcoming featured artworks.",
+	"newhomecli.litSubChip1": "Live art",
+	"newhomecli.litSubChip2": "Secure bids",
+	"newhomecli.litSubCta": "Go to auctions",
+
+	"newhomecli.litPayTitle": "Pending payments",
+	"newhomecli.litPayText": "Check your won artworks and complete payments easily.",
+	"newhomecli.litPayChip1": "Secure payments",
+	"newhomecli.litPayChip2": "Integrated MercadoPago",
+	"newhomecli.litPayCta": "Go to my payments",
+
+	"paypend.litHeaderTitle": "Pending payments",
+	"paypend.litHeroTitle": "Complete your payments for won auctions",
+	"paypend.litHeroText": "These artworks have been awarded to you. Finalize the payment to confirm your purchase and receive the piece.",
+	"paypend.litBackHome": "Back to Home",
+	"paypend.litSectionTitle": "Won auctions",
+	"paypend.litEmpty": "You have no pending payments at the moment. Once you win an auction, it will appear here.",
+	"paypend.btnPay": "Pay now"
 }

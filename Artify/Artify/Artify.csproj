@@ -138,6 +138,8 @@
     <Content Include="FeeParticipacionSuccess.aspx" />
     <Content Include="Global.asax" />
     <Content Include="HomeCliente.aspx" />
+    <Content Include="PagosPendientes.aspx" />
+    <Content Include="SubastasCliente.aspx" />
     <Content Include="HomeCurador.aspx" />
     <Content Include="HomeWebMaster.aspx" />
     <Content Include="Login.aspx" />
@@ -294,6 +296,20 @@
     </Compile>
     <Compile Include="HomeCliente.aspx.designer.cs">
       <DependentUpon>HomeCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagosPendientes.aspx.cs">
+      <DependentUpon>PagosPendientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagosPendientes.aspx.designer.cs">
+      <DependentUpon>PagosPendientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SubastasCliente.aspx.cs">
+      <DependentUpon>SubastasCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubastasCliente.aspx.designer.cs">
+      <DependentUpon>SubastasCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomeCurador.aspx.cs">
       <DependentUpon>HomeCurador.aspx</DependentUpon>

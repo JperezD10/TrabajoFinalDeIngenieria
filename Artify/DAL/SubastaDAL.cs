@@ -61,9 +61,9 @@ SELECT CAST(SCOPE_IDENTITY() AS INT);";
             const string sqlUpdDvh = "UPDATE Subasta SET DVH = @DVH WHERE Id = @Id;";
             Acceso.Escribir(sqlUpdDvh, new[]
             {
-            new SqlParameter("@DVH", s.DVH),
-            new SqlParameter("@Id", s.Id)
-        }, CommandType.Text);
+                new SqlParameter("@DVH", s.DVH),
+                new SqlParameter("@Id", s.Id)
+            }, CommandType.Text);
 
             // DVV
             ActualizarDVV();
@@ -73,13 +73,15 @@ SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
         public void FinalizarSubastasVencidas(DateTime ahora)
         {
-            const byte EN_CURSO = (byte)EstadoSubasta.EnCurso;   
-            const byte FINALIZADA = (byte)EstadoSubasta.Finalizada; 
+            const byte EN_CURSO = (byte)EstadoSubasta.EnCurso;
+            const byte FINALIZADA = (byte)EstadoSubasta.Finalizada;
 
             const string sql = @"
-DECLARE @Ahora DATETIME = @pAhora, @EnCurso TINYINT = @pEnCurso, @Finalizada TINYINT = @pFinalizada;
+DECLARE @Ahora DATETIME = @pAhora, 
+        @EnCurso TINYINT = @pEnCurso, 
+        @Finalizada TINYINT = @pFinalizada;
 
-DECLARE @Afectadas TABLE (Id INT);
+DECLARE @Afectadas TABLE (Id INT, IdCliente INT, Monto DECIMAL(18,2));
 
 ;WITH UltimaOferta AS (
     SELECT o.IdSubasta,
@@ -92,12 +94,18 @@ UPDATE s
    SET s.Estado = @Finalizada,
        s.IdClienteGanador = u.IdCliente,
        s.PrecioActual = ISNULL(u.Monto, s.PrecioInicial)
-OUTPUT inserted.Id INTO @Afectadas(Id)
+OUTPUT inserted.Id, u.IdCliente, ISNULL(u.Monto, inserted.PrecioInicial)
+INTO @Afectadas(Id, IdCliente, Monto)
 FROM Subasta s
 LEFT JOIN UltimaOferta u ON u.IdSubasta = s.Id AND u.rn = 1
 WHERE s.Activo = 1
   AND s.Estado = @EnCurso
   AND s.FechaFin <= @Ahora;
+
+INSERT INTO PagoSubasta (IdSubasta, IdCliente, Monto)
+SELECT Id, IdCliente, Monto
+FROM @Afectadas
+WHERE IdCliente IS NOT NULL;
 
 SELECT Id FROM @Afectadas;";
 
@@ -152,7 +160,7 @@ FROM Subasta WHERE Id = @Id;";
         }, CommandType.Text);
             }
 
-            // 3) DVV de la tabla
+            // Actualizar DVV de la tabla
             ActualizarDVV();
         }
 
