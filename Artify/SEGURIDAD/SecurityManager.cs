@@ -43,6 +43,7 @@ namespace SEGURIDAD
                     "~/CargarArtistas.aspx",
                     "~/VerArtistas.aspx",
                     "~/CrearSubasta.aspx",
+                    "~/EstadisticasCurador.aspx",
                     "~/SubastasPendientes.aspx"
                 }}
             };

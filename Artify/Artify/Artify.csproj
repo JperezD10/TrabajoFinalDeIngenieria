@@ -133,11 +133,14 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="CrearSubasta.aspx" />
+    <Content Include="EstadisticasCurador.aspx" />
+    <Content Include="EstadisticaService.asmx" />
     <Content Include="favicon.ico" />
     <Content Include="FeeParticipacionError.aspx" />
     <Content Include="FeeParticipacionSuccess.aspx" />
     <Content Include="Global.asax" />
     <Content Include="HomeCliente.aspx" />
+    <Content Include="ObraService.asmx" />
     <Content Include="PagosPendientes.aspx" />
     <Content Include="PagoSubastaCliente.aspx" />
     <Content Include="PagoSubastaSuccess.aspx" />
@@ -275,6 +278,17 @@
     <Compile Include="CrearSubasta.aspx.designer.cs">
       <DependentUpon>CrearSubasta.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EstadisticasCurador.aspx.cs">
+      <DependentUpon>EstadisticasCurador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EstadisticasCurador.aspx.designer.cs">
+      <DependentUpon>EstadisticasCurador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EstadisticaService.asmx.cs">
+      <DependentUpon>EstadisticaService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FeeParticipacionError.aspx.cs">
       <DependentUpon>FeeParticipacionError.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -298,6 +312,10 @@
     </Compile>
     <Compile Include="HomeCliente.aspx.designer.cs">
       <DependentUpon>HomeCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ObraService.asmx.cs">
+      <DependentUpon>ObraService.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="PagosPendientes.aspx.cs">
       <DependentUpon>PagosPendientes.aspx</DependentUpon>

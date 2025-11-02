@@ -51,7 +51,8 @@ namespace Artify
 
         private void CargarObrasDelCurador()
         {
-            var obras = _obras.ListarObrasActivas();
+            var webservice = new ObraService();
+            var obras = webservice.ObtenerObrasActivas();
 
             ddlObra.DataSource = obras;
             ddlObra.DataBind();

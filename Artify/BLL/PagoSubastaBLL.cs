@@ -50,5 +50,17 @@ namespace BLL
                 return Response<bool>.Error($"Error al marcar el pago como completado: {ex.Message}");
             }
         }
+
+        public List<PagoSubasta> ListarPagos()
+        {
+            try
+            {
+                return _dal.ListarPagos();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al listar los pagos de subastas: " + ex.Message);
+            }
+        }
     }
 }

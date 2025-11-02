@@ -589,5 +589,14 @@
 	"pagosubsucc.litMensaje": "Your payment was processed successfully.",
 	"pagosubsucc.litObra": "Artwork: {0}",
 	"pagosubsucc.litDetalle": "You will receive confirmation shortly and the artist will be notified.",
-	"pagosubsucc.btnVolver": "Return to home"
+	"pagosubsucc.btnVolver": "Return to home",
+
+	"estadcli.litHeader": "Billing statistics",
+	"estadcli.lblDesde": "From",
+	"estadcli.lblHasta": "To",
+	"estadcli.btnCalcular": "Calculate average",
+	"estadcli.msg.invalidDates": "The entered dates are not valid.",
+	"estadcli.msg.resultOk": "Average billing: US$ {0:N2}",
+	"estadcli.msg.noData": "No payments were recorded in that period.",
+	"estadcli.msg.error": "Error while calculating statistics."
 }

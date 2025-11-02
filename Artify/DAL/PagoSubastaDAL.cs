@@ -143,5 +143,33 @@ WHERE p.Id = @Id;";
                 FechaFinSubasta = r["FechaFinSubasta"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(r["FechaFinSubasta"])
             };
         }
+
+        public List<PagoSubasta> ListarPagos()
+        {
+            const string sql = @"
+SELECT Id, IdSubasta, IdCliente, Monto, FechaCreacion, FechaPago, Pagado
+FROM PagoSubasta;";
+
+            var table = Acceso.Leer(sql, null, CommandType.Text);
+            var list = new List<PagoSubasta>();
+
+            foreach (DataRow row in table.Rows)
+            {
+                var pago = new PagoSubasta
+                {
+                    Id = Convert.ToInt32(row["Id"]),
+                    IdSubasta = Convert.ToInt32(row["IdSubasta"]),
+                    IdCliente = Convert.ToInt32(row["IdCliente"]),
+                    Monto = Convert.ToDecimal(row["Monto"]),
+                    FechaCreacion = Convert.ToDateTime(row["FechaCreacion"]),
+                    FechaPago = row["FechaPago"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(row["FechaPago"]),
+                    Pagado = Convert.ToBoolean(row["Pagado"])
+                };
+
+                list.Add(pago);
+            }
+
+            return list;
+        }
     }
 }

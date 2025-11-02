@@ -590,5 +590,14 @@
 	"pagosubsucc.litMensaje": "Tu pago fue procesado correctamente.",
 	"pagosubsucc.litObra": "Obra: {0}",
 	"pagosubsucc.litDetalle": "En breve recibirás la confirmación y el artista será notificado.",
-	"pagosubsucc.btnVolver": "Volver al inicio"
+	"pagosubsucc.btnVolver": "Volver al inicio",
+
+	"estadcli.litHeader": "Estadísticas de facturación",
+	"estadcli.lblDesde": "Desde",
+	"estadcli.lblHasta": "Hasta",
+	"estadcli.btnCalcular": "Calcular promedio",
+	"estadcli.msg.invalidDates": "Las fechas ingresadas no son válidas.",
+	"estadcli.msg.resultOk": "Promedio de facturación: US$ {0:N2}",
+	"estadcli.msg.noData": "No se registraron pagos en ese período.",
+	"estadcli.msg.error": "Error al calcular las estadísticas."
 }
