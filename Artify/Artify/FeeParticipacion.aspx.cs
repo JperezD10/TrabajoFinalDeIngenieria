@@ -91,15 +91,15 @@ namespace Artify
                 var request = new PreferenceRequest
                 {
                     Items = new List<PreferenceItemRequest>
-            {
-                new PreferenceItemRequest
-                {
-                    Title = $"Fee de participación - {vm.Titulo}",
-                    Quantity = 1,
-                    CurrencyId = "USD",
-                    UnitPrice = 5m
-                }
-            },
+                    {
+                        new PreferenceItemRequest
+                        {
+                            Title = $"Fee de participación - {vm.Titulo}",
+                            Quantity = 1,
+                            CurrencyId = "USD",
+                            UnitPrice = 5m
+                        }
+                    },
                     Payer = new PreferencePayerRequest
                     {
                         Email =  "test_user_653940919069735644@testuser.com"

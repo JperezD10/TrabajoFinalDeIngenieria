@@ -575,5 +575,20 @@
 	"paypend.litBackHome": "Volver al inicio",
 	"paypend.litSectionTitle": "Subastas ganadas",
 	"paypend.litEmpty": "No tenés pagos pendientes en este momento. Cuando ganes una subasta, aparecerá aquí.",
-	"paypend.btnPay": "Pagar ahora"
+	"paypend.btnPay": "Pagar ahora",
+
+	"pagosubcli.litHeader": "Pago de subasta ganada",
+	"pagosubcli.litTitulo": "Confirmá el pago de la obra adjudicada",
+	"pagosubcli.litSubtitulo": "Al confirmar el pago, la compra quedará registrada y el artista será notificado.",
+	"pagosubcli.litObraTitulo": "Nombre de la obra",
+	"pagosubcli.litObraArtista": "Artista",
+	"pagosubcli.litObraMonto": "US$ {0}",
+	"pagosubcli.btnPagar": "Confirmar pago",
+	"pagosubcli.litInfoFinal": "Una vez procesado el pago, recibirás la confirmación por correo electrónico.",
+
+	"pagosubsucc.litHeader": "¡Pago exitoso!",
+	"pagosubsucc.litMensaje": "Tu pago fue procesado correctamente.",
+	"pagosubsucc.litObra": "Obra: {0}",
+	"pagosubsucc.litDetalle": "En breve recibirás la confirmación y el artista será notificado.",
+	"pagosubsucc.btnVolver": "Volver al inicio"
 }

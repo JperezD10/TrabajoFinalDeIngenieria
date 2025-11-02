@@ -30,6 +30,8 @@ namespace SEGURIDAD
                     "~/FeeParticipacion.aspx",
                     "~/FeeParticipacionSuccess.aspx",
                     "~/FeeParticipacionError.aspx",
+                    "~/PagoSubastaSuccess.aspx",
+                    "~/PagoSubastaCliente.aspx",
                     "~/SubastaDetalle.aspx",
                 }},
                 { RolUsuario.Curador, new List<string> {

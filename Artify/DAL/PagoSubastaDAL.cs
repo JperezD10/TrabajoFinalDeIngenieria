@@ -60,13 +60,47 @@ ORDER BY p.FechaCreacion DESC;";
 
         public void MarcarComoPagado(int idPago)
         {
-            const string sql = @"
-UPDATE PagoSubasta
-SET Pagado = 1, FechaPago = GETDATE()
-WHERE Id = @Id;";
+            // 1️⃣ Leer los datos actuales del registro
+            const string sqlSelect = "SELECT * FROM PagoSubasta WHERE Id = @Id;";
+            var param = new[] { new SqlParameter("@Id", idPago) };
+            var table = Acceso.Leer(sqlSelect, param, CommandType.Text);
 
-            var pars = new[] { new SqlParameter("@Id", idPago) };
-            Acceso.Escribir(sql, pars, CommandType.Text);
+            if (table.Rows.Count == 0)
+                throw new Exception("No se encontró el registro de PagoSubasta.");
+
+            var row = table.Rows[0];
+
+            var pago = new PagoSubasta
+            {
+                Id = Convert.ToInt32(row["Id"]),
+                IdSubasta = Convert.ToInt32(row["IdSubasta"]),
+                IdCliente = Convert.ToInt32(row["IdCliente"]),
+                Monto = Convert.ToDecimal(row["Monto"]),
+                FechaCreacion = Convert.ToDateTime(row["FechaCreacion"]),
+                FechaPago = DateTime.Now,
+                Pagado = true,
+                Activo = true
+            };
+
+            pago.DVH = pago.CalcularDVH();
+
+            const string sqlUpdate = @"
+                    UPDATE PagoSubasta
+                    SET Pagado = 1,
+                        FechaPago = @FechaPago,
+                        DVH = @DVH
+                    WHERE Id = @Id;";
+
+            var pars = new[]
+            {
+                new SqlParameter("@FechaPago", pago.FechaPago),
+                new SqlParameter("@DVH", pago.DVH),
+                new SqlParameter("@Id", pago.Id)
+            };
+
+            Acceso.Escribir(sqlUpdate, pars, CommandType.Text);
+
+            ActualizarDVV();
         }
 
         public PagoSubasta ObtenerPorId(int id)

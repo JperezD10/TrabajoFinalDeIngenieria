@@ -574,5 +574,20 @@
 	"paypend.litBackHome": "Back to Home",
 	"paypend.litSectionTitle": "Won auctions",
 	"paypend.litEmpty": "You have no pending payments at the moment. Once you win an auction, it will appear here.",
-	"paypend.btnPay": "Pay now"
+	"paypend.btnPay": "Pay now",
+
+	"pagosubcli.litHeader": "Auction payment",
+	"pagosubcli.litTitulo": "Confirm the payment for your awarded artwork",
+	"pagosubcli.litSubtitulo": "Once confirmed, the purchase will be recorded and the artist will be notified.",
+	"pagosubcli.litObraTitulo": "Artwork title",
+	"pagosubcli.litObraArtista": "Artist",
+	"pagosubcli.litObraMonto": "US$ {0}",
+	"pagosubcli.btnPagar": "Confirm payment",
+	"pagosubcli.litInfoFinal": "Once the payment is processed, you will receive a confirmation email.",
+
+	"pagosubsucc.litHeader": "Payment successful!",
+	"pagosubsucc.litMensaje": "Your payment was processed successfully.",
+	"pagosubsucc.litObra": "Artwork: {0}",
+	"pagosubsucc.litDetalle": "You will receive confirmation shortly and the artist will be notified.",
+	"pagosubsucc.btnVolver": "Return to home"
 }

@@ -139,6 +139,8 @@
     <Content Include="Global.asax" />
     <Content Include="HomeCliente.aspx" />
     <Content Include="PagosPendientes.aspx" />
+    <Content Include="PagoSubastaCliente.aspx" />
+    <Content Include="PagoSubastaSuccess.aspx" />
     <Content Include="SubastasCliente.aspx" />
     <Content Include="HomeCurador.aspx" />
     <Content Include="HomeWebMaster.aspx" />
@@ -303,6 +305,20 @@
     </Compile>
     <Compile Include="PagosPendientes.aspx.designer.cs">
       <DependentUpon>PagosPendientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagoSubastaCliente.aspx.cs">
+      <DependentUpon>PagoSubastaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagoSubastaCliente.aspx.designer.cs">
+      <DependentUpon>PagoSubastaCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagoSubastaSuccess.aspx.cs">
+      <DependentUpon>PagoSubastaSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagoSubastaSuccess.aspx.designer.cs">
+      <DependentUpon>PagoSubastaSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="SubastasCliente.aspx.cs">
       <DependentUpon>SubastasCliente.aspx</DependentUpon>

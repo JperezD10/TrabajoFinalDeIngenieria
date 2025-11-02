@@ -209,7 +209,7 @@
                     <div class="price">
                         <%# "US$ " + String.Format(System.Globalization.CultureInfo.GetCultureInfo("en-US"), "{0:N0}", Eval("Monto")) %>
                     </div>
-                    <asp:HyperLink ID="lnkPagar" runat="server" CssClass="btn" NavigateUrl='<%# "~/Pago.aspx?id=" + Eval("IdPago") %>'>
+                    <asp:HyperLink ID="lnkPagar" runat="server" CssClass="btn" NavigateUrl='<%# "~/PagoSubastaCliente.aspx?id=" + Eval("IdPago") %>'>
                         <asp:Literal ID="litBtnPagar" runat="server" />
                     </asp:HyperLink>
                 </div>
