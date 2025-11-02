@@ -1,4 +1,5 @@
-﻿using SEGURIDAD;
+﻿using BLL;
+using SEGURIDAD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,24 @@ namespace Artify
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            var integridad = new IntegridadHorizontalBLL();
+            var resp = integridad.VerificarTodo();
+            if (!resp.Exito) return;
+
+            bool hayCorrupcion = resp.Data.Any(r =>
+                !string.IsNullOrEmpty(r.Error) ||
+                (r.IdsCorruptos != null && r.IdsCorruptos.Count > 0));
+
+            var integridadV = new IntegridadVerticalBLL();
+            var dvvCorruptas = integridadV.ObtenerVerticalesCorruptos();
+            if (dvvCorruptas != null && dvvCorruptas.Count > 0) hayCorrupcion = true;
+
+            if (hayCorrupcion)
+            {
+                Response.Redirect("~/Mantenimiento.aspx", false);
+                Context.ApplicationInstance.CompleteRequest();
+                return;
+            }
             if (!IsPostBack)
             {
                 if (string.IsNullOrEmpty(lnkList.NavigateUrl)) lnkList.NavigateUrl = "~/VerArtistas.aspx";

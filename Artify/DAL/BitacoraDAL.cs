@@ -10,7 +10,7 @@ namespace DAL
     {
         public override string TableName => "Bitacora";
 
-        public void RegistrarAccion(Bitacora b, bool hayCorrupcion)
+        public void RegistrarAccion(Bitacora b)
         {
             // 1) Normalizar fecha como veníamos haciendo (DATETIME)
             b.Fecha = DvhTime.NormalizeForSqlDatetime(b.Fecha);
@@ -47,8 +47,7 @@ namespace DAL
                 new SqlParameter("@Id", b.Id),
             });
 
-            if(!hayCorrupcion)
-                ActualizarDVV();
+            ActualizarDVV();
         }
 
         public List<Bitacora> TraerBitacora(DateTime? fechaDesde, DateTime? fechaHasta)

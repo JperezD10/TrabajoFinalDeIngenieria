@@ -1,6 +1,7 @@
 ﻿using BE;
 using BE.Observer;
 using BLL;
+using SEGURIDAD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace Artify
         {
             base.OnInit(e);
             RegisterLocalizablesById(this, "verobras");
+            SecurityManager.CheckAccess(this);
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -25,7 +27,7 @@ namespace Artify
             {
                 Context.Items["priceLabel"] = IdiomaManager.Instance.T("verobras.litPriceLabel");
 
-                var data = obraBLL.GetAllForDVH();
+                var data = obraBLL.ListarObrasActivas();
                 BindObras(data);
             }
         }

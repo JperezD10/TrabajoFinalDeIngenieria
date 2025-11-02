@@ -1,6 +1,7 @@
 ﻿using BE;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BLL
 {
@@ -26,6 +27,13 @@ namespace BLL
         public IEnumerable<Obra> ListarObrasParacurador()
         {
             return _obraDal.ListarObrasParacurador();
+        }
+
+        public IEnumerable<Obra> ListarObrasActivas()
+        {
+            return _obraDal.ListarObrasParacurador()?.Where(o => o.Activo)
+                  .OrderBy(o => o.Titulo)
+                  .ToList() ?? new List<Obra>();
         }
     }
 }

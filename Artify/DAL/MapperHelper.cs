@@ -59,8 +59,8 @@ namespace DAL
                 Id = Convert.ToInt32(row["Id"]),
                 IdObra = Convert.ToInt32(row["IdObra"]),
                 IdCurador = Convert.ToInt32(row["IdCurador"]),
-                FechaInicio = Convert.ToDateTime(row["FechaInicio"]),
-                FechaFin = Convert.ToDateTime(row["FechaFin"]),
+                FechaInicio = row["FechaInicio"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(row["FechaInicio"]),
+                FechaFin = row["FechaFin"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(row["FechaFin"]),
                 PrecioInicial = Convert.ToDecimal(row["PrecioInicial"]),
                 PrecioActual = Convert.ToDecimal(row["PrecioActual"]),
                 IncrementoMinimo = Convert.ToDecimal(row["IncrementoMinimo"]),
@@ -82,6 +82,7 @@ namespace DAL
         Tecnica = row["Tecnica"].ToString(),
         EsOriginal = Convert.ToBoolean(row["EsOriginal"]),
         ArtistaId = Convert.ToInt32(row["ArtistaId"]),
+        Activo = Convert.ToBoolean(row["Activo"]),
         Artista = new Artista
         {
             Id = Convert.ToInt32(row["ArtistaId"]),

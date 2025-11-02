@@ -36,6 +36,7 @@ namespace SEGURIDAD
                     "~/HomeCurador.aspx",
                     "~/ObrasCurador.aspx",
                     "~/CargarObras.aspx",
+                    "~/Mantenimiento.aspx",
                     "~/VerObras.aspx",
                     "~/CargarArtistas.aspx",
                     "~/VerArtistas.aspx",

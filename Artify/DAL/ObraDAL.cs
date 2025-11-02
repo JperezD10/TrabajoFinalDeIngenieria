@@ -14,7 +14,7 @@ namespace DAL
         {
             const string sql = @"
     SELECT  o.Id, o.Titulo, o.Anio, o.Tecnica, o.EsOriginal,
-            o.ArtistaId, a.Nombre AS ArtistaNombre,
+            o.ArtistaId, a.Nombre AS ArtistaNombre, o.Activo,
             o.PrecioBase, o.PrecioActual, o.UrlImagen, o.DVH
     FROM    Obra o
     LEFT JOIN Artista a ON a.Id = o.ArtistaId
@@ -73,7 +73,7 @@ namespace DAL
         {
             const string sql = @"
         SELECT  o.Id, o.Titulo, o.Anio, o.Tecnica, o.EsOriginal,
-                o.ArtistaId, a.Nombre AS ArtistaNombre,
+                o.ArtistaId, a.Nombre AS ArtistaNombre, o.Activo,
                 o.PrecioBase, o.PrecioActual, o.UrlImagen, o.DVH
         FROM    Obra o
         LEFT JOIN Artista a ON a.Id = o.ArtistaId
@@ -90,7 +90,7 @@ namespace DAL
         public IEnumerable<Obra> ListarObrasParacurador()
         {
             const string sql = @"
-SELECT  o.Id, o.Titulo, o.Anio, o.Tecnica, o.EsOriginal,
+SELECT  o.Id, o.Titulo, o.Anio, o.Tecnica, o.EsOriginal, o.Activo,
         o.ArtistaId, o.PrecioBase, o.PrecioActual, o.UrlImagen, o.DVH
 FROM    Obra o
 JOIN    Artista a ON a.Id = o.ArtistaId

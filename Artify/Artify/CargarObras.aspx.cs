@@ -1,6 +1,7 @@
 ﻿using BE;
 using BE.Observer;
 using BLL;
+using SEGURIDAD;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -22,6 +23,7 @@ namespace Artify
             base.OnInit(e);
             // Enlaza todos los Literals/Labels/Button.Text por ID con prefijo "obra.*"
             RegisterLocalizablesById(this, "obra");
+            SecurityManager.CheckAccess(this);
         }
 
         protected void Page_Load(object sender, EventArgs e)

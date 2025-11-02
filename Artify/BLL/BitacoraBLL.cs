@@ -17,21 +17,7 @@ namespace BLL
         {
             try
             {
-                var integridadH = new IntegridadHorizontalBLL();
-                var respH = integridadH.VerificarTodo();
-
-                bool hayCorrupcionH = !respH.Exito || respH.Data.Any(r =>
-                    !string.IsNullOrEmpty(r.Error) ||
-                    (r.IdsCorruptos != null && r.IdsCorruptos.Count > 0));
-
-                var integridadV = new IntegridadVerticalBLL();
-                var dvvCorruptas = integridadV.ObtenerVerticalesCorruptos();
-
-                bool hayCorrupcionV = dvvCorruptas != null && dvvCorruptas.Count > 0;
-
-                bool baseCorrupta = hayCorrupcionH || hayCorrupcionV;
-
-                _bitacoraDAL.RegistrarAccion(bitacora, baseCorrupta);
+                _bitacoraDAL.RegistrarAccion(bitacora);
                 return Response<bool>.Success(true);
             }
             catch (Exception ex)

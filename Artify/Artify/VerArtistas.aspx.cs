@@ -1,6 +1,7 @@
 ﻿using BE;
 using BE.Observer;
 using BLL;
+using SEGURIDAD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace Artify
             base.OnInit(e);
             // Prefijo de traducción para esta página
             RegisterLocalizablesById(this, "listart");
+            SecurityManager.CheckAccess(this);
         }
 
         protected void Page_Load(object sender, EventArgs e)

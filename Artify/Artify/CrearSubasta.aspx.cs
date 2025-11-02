@@ -51,9 +51,7 @@ namespace Artify
 
         private void CargarObrasDelCurador()
         {
-            var obras = _obras.ListarObrasParacurador()
-                              ?.OrderBy(o => o.Titulo)
-                              .ToList() ?? new List<Obra>();
+            var obras = _obras.ListarObrasActivas();
 
             ddlObra.DataSource = obras;
             ddlObra.DataBind();

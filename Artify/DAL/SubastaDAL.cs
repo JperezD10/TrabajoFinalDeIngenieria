@@ -81,7 +81,7 @@ DECLARE @Ahora DATETIME = @pAhora,
         @EnCurso TINYINT = @pEnCurso, 
         @Finalizada TINYINT = @pFinalizada;
 
-DECLARE @Afectadas TABLE (Id INT, IdCliente INT, Monto DECIMAL(18,2));
+DECLARE @Afectadas TABLE (Id INT, IdCliente INT, Monto DECIMAL(18,2), IdObra INT);
 
 ;WITH UltimaOferta AS (
     SELECT o.IdSubasta,
@@ -94,8 +94,8 @@ UPDATE s
    SET s.Estado = @Finalizada,
        s.IdClienteGanador = u.IdCliente,
        s.PrecioActual = ISNULL(u.Monto, s.PrecioInicial)
-OUTPUT inserted.Id, u.IdCliente, ISNULL(u.Monto, inserted.PrecioInicial)
-INTO @Afectadas(Id, IdCliente, Monto)
+OUTPUT inserted.Id, u.IdCliente, ISNULL(u.Monto, inserted.PrecioInicial), inserted.IdObra
+INTO @Afectadas(Id, IdCliente, Monto, IdObra)
 FROM Subasta s
 LEFT JOIN UltimaOferta u ON u.IdSubasta = s.Id AND u.rn = 1
 WHERE s.Activo = 1
@@ -106,6 +106,11 @@ INSERT INTO PagoSubasta (IdSubasta, IdCliente, Monto)
 SELECT Id, IdCliente, Monto
 FROM @Afectadas
 WHERE IdCliente IS NOT NULL;
+
+UPDATE o
+   SET o.Activo = 0
+FROM Obra o
+INNER JOIN @Afectadas a ON a.IdObra = o.Id;
 
 SELECT Id FROM @Afectadas;";
 

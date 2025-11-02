@@ -20,32 +20,66 @@ namespace BLL
         public Response<Usuario> Login(string email, string password)
         {
             var usuario = _usuarioDAL.Login(email);
-            var passwordHash = Encriptacion.EncriptadoPermanente(password);
-            var dvh = usuario.CalcularDVH();
-
             if (usuario == null)
-            {
                 return Response<Usuario>.Error("err.login.invalid");
-            }
+
             if (usuario.Bloqueado)
                 return Response<Usuario>.Error("err.login.alreadyBlocked");
+
+            var passwordHash = Encriptacion.EncriptadoPermanente(password);
 
             if (usuario.Password == passwordHash)
             {
                 _usuarioDAL.ReestablecerIntentos(usuario);
-                _bitacoraBLL.RegistrarAccion(new Bitacora(DateTime.Now, "Inicio de Sesion", (int)Criticidad.Leve, "Login", usuario.Id));
+
+                // Solo registramos en bitácora si la base no está corrupta
+                if (!BaseCorrupta())
+                {
+                    _bitacoraBLL.RegistrarAccion(new Bitacora(DateTime.Now, "Inicio de Sesion",
+                        (int)Criticidad.Leve, "Login", usuario.Id));
+                }
+
                 return Response<Usuario>.Success(usuario);
             }
 
             var intentosRestantes = _usuarioDAL.RestarIntentos(usuario);
             if (intentosRestantes > 0)
             {
-                // Con placeholder {0} para intentos
                 return Response<Usuario>.Error("err.login.invalid.withAttempts", intentosRestantes);
             }
 
-            _bitacoraBLL.RegistrarAccion(new Bitacora(DateTime.Now, "Bloqueo de usuario", (int)Criticidad.Moderada, "Login", usuario.Id));
+            if (!BaseCorrupta())
+            {
+                _bitacoraBLL.RegistrarAccion(new Bitacora(DateTime.Now, "Bloqueo de usuario",
+                    (int)Criticidad.Moderada, "Login", usuario.Id));
+            }
+
             return Response<Usuario>.Error("err.login.blocked");
+        }
+
+
+        private bool BaseCorrupta()
+        {
+            try
+            {
+                var integridadH = new IntegridadHorizontalBLL();
+                var respH = integridadH.VerificarTodo();
+
+                bool hayCorrupcionH = !respH.Exito || respH.Data.Any(r =>
+                    !string.IsNullOrEmpty(r.Error) ||
+                    (r.IdsCorruptos != null && r.IdsCorruptos.Count > 0));
+
+                var integridadV = new IntegridadVerticalBLL();
+                var dvvCorruptas = integridadV.ObtenerVerticalesCorruptos();
+
+                bool hayCorrupcionV = dvvCorruptas != null && dvvCorruptas.Count > 0;
+
+                return hayCorrupcionH || hayCorrupcionV;
+            }
+            catch
+            {
+                return true; // Si algo explota, asumimos que está corrupta
+            }
         }
 
         public Response<List<Usuario>> ListarBloqueados()
