@@ -20,6 +20,7 @@ namespace BE
     {
         Webmaster = 1,
         Cliente = 2,
-        Curador = 3
+        Curador = 3,
+        BackUp = 4,
     }
 }

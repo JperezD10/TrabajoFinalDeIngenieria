@@ -3,7 +3,11 @@ using DAL;
 using SEGURIDAD;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Web;
+using System.Xml.Linq;
 
 namespace BLL
 {
@@ -19,6 +23,15 @@ namespace BLL
 
         public Response<Usuario> Login(string email, string password)
         {
+            if (!_usuarioDAL.ExisteInfraestructuraUsuarios())
+            {
+                var backupUser = CargarUsuarioBackup();
+                if (backupUser != null)
+                    return Response<Usuario>.Success(backupUser);
+
+                return Response<Usuario>.Error("err.login.fallback");
+            }
+
             var usuario = _usuarioDAL.Login(email);
             if (usuario == null)
                 return Response<Usuario>.Error("err.login.invalid");
@@ -116,6 +129,36 @@ namespace BLL
         public Response<List<Usuario>> GetAll()
         {
             return Response<List<Usuario>>.Success(_usuarioDAL.GetAllForDVH().ToList());
+        }
+
+        private Usuario CargarUsuarioBackup()
+        {
+            try
+            {
+                var path = HttpContext.Current.Server.MapPath("~/UsuariosBackup.xml");
+
+                if (!File.Exists(path))
+                    return null;
+
+                var doc = XDocument.Load(path);
+                var u = doc.Element("UsuarioBackup");
+                if (u == null) return null;
+
+                return new Usuario
+                {
+                    Nombre = (string)u.Element("Nombre"),
+                    Apellido = (string)u.Element("Apellido"),
+                    Email = (string)u.Element("Email"),
+                    Password = (string)u.Element("Password"),
+                    Rol = RolUsuario.BackUp,
+                    Bloqueado = false,
+                    IntentosRestantes = 3
+                };
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

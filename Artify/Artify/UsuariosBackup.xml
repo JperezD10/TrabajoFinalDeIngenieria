@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UsuarioBackup>
+  <Nombre>Admin</Nombre>
+  <Apellido>Backup</Apellido>
+  <Email>admin@artify.local</Email>
+  <Password>Admin2205_</Password>
+  <Rol>4</Rol>
+</UsuarioBackup>

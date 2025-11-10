@@ -26,6 +26,34 @@ namespace DAL
             return resultado;
         }
 
+        public bool ExisteInfraestructuraUsuarios()
+        {
+            try
+            {
+                var existeTabla = Acceso.Leer(
+                    "SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Usuario'", null
+                ).Rows.Count > 0;
+
+                if (!existeTabla)
+                    return false;
+
+                // Verificar existencia de al menos un Webmaster
+                var existeWebmaster = Acceso.Leer(
+                    "SELECT TOP 1 1 FROM Usuario WHERE Rol = @Rol",
+                    new SqlParameter[]
+                    {
+                new SqlParameter("@Rol", (int)RolUsuario.Webmaster)
+                    }
+                ).Rows.Count > 0;
+
+                return existeWebmaster;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public int RestarIntentos(Usuario usuario)
         {
             var intentosRestantes = usuario.IntentosRestantes;

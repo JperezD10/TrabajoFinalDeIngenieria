@@ -76,25 +76,38 @@ namespace Artify
                 lblError.Text = I18n.Text(response.MessageKey ?? "login.lblError", response.MessageArgs);
                 return;
             }
-            Session["Usuario"] = response.Data;
+
+            var usuario = response.Data;
+
+            if (usuario.Rol == RolUsuario.BackUp)
+            {
+                Session["Usuario"] = usuario;
+                Response.Redirect("RestoreDB.aspx", false);
+                Context.ApplicationInstance.CompleteRequest();
+                return;
+            }
+
+            Session["Usuario"] = usuario;
+
             var permisoBLL = new UsuarioPermisoBLL();
-            var extrasResp = permisoBLL.GetExtras(response.Data.Id);
+            var extrasResp = permisoBLL.GetExtras(usuario.Id);
             Session["PermisosExtra"] = (extrasResp != null && extrasResp.Data != null)
                 ? extrasResp.Data
                 : new List<string>();
 
             pnlError.Visible = false;
-            if (response.Data.Rol == RolUsuario.Webmaster)
+
+            switch (usuario.Rol)
             {
-                Response.Redirect("HomeWebMaster.aspx");
-            }
-            else if (response.Data.Rol == RolUsuario.Curador)
-            {
-                Response.Redirect("HomeCurador.aspx");
-            }
-            else if (response.Data.Rol == RolUsuario.Cliente)
-            {
-                Response.Redirect("HomeCliente.aspx");
+                case RolUsuario.Webmaster:
+                    Response.Redirect("HomeWebMaster.aspx");
+                    break;
+                case RolUsuario.Curador:
+                    Response.Redirect("HomeCurador.aspx");
+                    break;
+                case RolUsuario.Cliente:
+                    Response.Redirect("HomeCliente.aspx");
+                    break;
             }
         }
     }

@@ -13,6 +13,7 @@
 	"login.password.aria": "Mostrar u ocultar contraseña",
 
 	"err.login.invalid": "Credenciales inválidas",
+	"err.login.fallback": "No se pudo acceder a la base de datos. Se activó el modo de respaldo mediante usuario administrador XML.",
 	"err.login.invalid.withAttempts": "Credenciales inválidas. Intentos restantes: {0}",
 	"err.login.blocked": "Usuario bloqueado",
 	"err.login.alreadyBlocked": "Tu cuenta se encuentra actualmente bloqueada. No podés iniciar sesión hasta que sea restablecida.",

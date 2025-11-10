@@ -211,6 +211,7 @@
     <Content Include="SubastaDetalle.aspx" />
     <Content Include="SubastasPendientes.aspx" />
     <Content Include="FeeParticipacion.aspx" />
+    <Content Include="UsuarioBackup.xml" />
     <Content Include="UsuariosBloqueados.aspx" />
     <Content Include="VerArtistas.aspx" />
     <Content Include="VerObras.aspx" />

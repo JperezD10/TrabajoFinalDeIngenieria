@@ -45,7 +45,10 @@ namespace SEGURIDAD
                     "~/CrearSubasta.aspx",
                     "~/EstadisticasCurador.aspx",
                     "~/SubastasPendientes.aspx"
-                }}
+                }},
+                {  RolUsuario.BackUp, new List<string> {
+                    "~/RestoreDB.aspx",
+                } },
             };
 
 
